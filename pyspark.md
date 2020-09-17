@@ -13,8 +13,23 @@
 3. create a `SparkSession` object from your `SparkContext` --> think of the `SparkContext` as your connection to the cluster and the `SparkSession` as your interface with that connection.
     ```
     # Create my_spark
-    my_spark = SparkSession.builder.getOrCreate()
+   spark = SparkSession.builder.getOrCreate()
     ```
-    1. Once you've created a SparkSession, you can start poking around to see what data is in your cluster. 
-    2. `SparkSession` has an attribute called `catalog` which lists all the data inside the cluster. This attribute has a few methods for extracting different pieces of information. 
-    3. For example, `.listTables()` method, which returns **the names of all the tables in your cluster** as a list.
+4. Start poking around to see what tables is in your cluster using `spark.catalog.listTables()`. Please note that `spark` is the intance of the SparkSession. 
+5. Query something from your data using `spark.sql(query)`.
+    ```
+    # Don't change this query
+    query = "SELECT origin, dest, COUNT(*) as N FROM flights GROUP BY origin, dest"
+
+    # Run the query
+    flight_counts = spark.sql(query)
+    flight_counts.show()
+    ```
+6. If necessary, convert the result to Pandas dataframe using `.toPandas()`. 
+    ```
+    # Convert the results to a pandas DataFrame
+    pd_counts = flight_counts.toPandas()
+
+    # Print the head of pd_counts
+    print(pd_counts.head())
+    ```

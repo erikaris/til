@@ -15,3 +15,6 @@
     # Create my_spark
     my_spark = SparkSession.builder.getOrCreate()
     ```
+    1. Once you've created a SparkSession, you can start poking around to see what data is in your cluster. 
+    2. `SparkSession` has an attribute called `catalog` which lists all the data inside the cluster. This attribute has a few methods for extracting different pieces of information. 
+    3. For example, `.listTables()` method, which returns **the names of all the tables in your cluster** as a list.

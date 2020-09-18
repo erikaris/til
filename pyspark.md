@@ -45,3 +45,5 @@
     For example, a SQL query (using the `.sql()` method) that references your DataFrame will throw an error. <br />
     To access the data in this way, you have to save it as a temporary table using the method `.createOrReplaceTempView()`. See the illustration below. 
     ![Alt text](./spark_figure.png)
+
+8. read a csv file: `spark.read.csv(file_path, header=True)`. 

@@ -47,3 +47,14 @@
     ![Alt text](./spark_figure.png)
 
 8. read a csv file: `spark.read.csv(file_path, header=True)`. 
+
+## About Spark DataFrame
+
+1. Spark DataFrame is **immutable**. This means that it can't be changed, and so columns **can't be updated in place**. 
+
+2. To overwrite the original DataFrame you must **reassign** the returned DataFrame using the method like so:
+    ```
+    df = df.withColumn("newCol", df.oldCol + 1)
+    ```
+
+3. Do a column-wise operation --> use `.withColumn()`. 

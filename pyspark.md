@@ -52,9 +52,15 @@
 
 1. Spark DataFrame is **immutable**. This means that it can't be changed, and so columns **can't be updated in place**. 
 
+1b. Create spark dataframe using `spark.table()`
+
 2. To overwrite the original DataFrame you must **reassign** the returned DataFrame using the method like so:
     ```
     df = df.withColumn("newCol", df.oldCol + 1)
     ```
 
-3. Do a column-wise operation --> use `.withColumn()`. 
+3. Do a column-wise operation --> use `.withColumn("table_name_in_catagolog")`. 
+
+4. Filtering a spark dataframe based on certain characteristics.
+    1. use `.filter("sql_string")` --> example: `flights.filter("air_time > 120")`.
+    2. use `.filter(Spark Column of boolean)` --> example: `flights.filter(flights.air_time > 120)`.

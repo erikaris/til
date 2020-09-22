@@ -59,8 +59,15 @@
     df = df.withColumn("newCol", df.oldCol + 1)
     ```
 
-3. Do a column-wise operation --> use `.withColumn("table_name_in_catagolog")`. 
+3. Do a column-wise operation --> use `.withColumn("column_name")`. 
 
 4. Filtering a spark dataframe based on certain characteristics.
     1. use `.filter("sql_string")` --> example: `flights.filter("air_time > 120")`.
     2. use `.filter(Spark Column of boolean)` --> example: `flights.filter(flights.air_time > 120)`.
+
+## Aggregating
+
+1. The GroupedData methods --> must be preceded by `.groupBy()`.
+    1. ```df.groupBy().min("col").show()```
+    2. ```df.groupBy().max("col").show()```
+    3. ```df.groupBy().count("col").show()``` <br />

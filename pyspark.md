@@ -71,3 +71,4 @@
     1. ```df.groupBy().min("col").show()```
     2. ```df.groupBy().max("col").show()```
     3. ```df.groupBy().count("col").show()``` <br />
+    4. `.avg()` --> `flights.filter("carrier == 'DL'").filter("origin == 'SEA'").groupBy().avg("air_time").show()`. 

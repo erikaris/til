@@ -64,6 +64,8 @@
 4. Filtering a spark dataframe based on certain characteristics.
     1. use `.filter("sql_string")` --> example: `flights.filter("air_time > 120")`.
     2. use `.filter(Spark Column of boolean)` --> example: `flights.filter(flights.air_time > 120)`.
+    
+5. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
 
 ## Aggregating
 

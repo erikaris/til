@@ -67,10 +67,11 @@
     
 5. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
 
-## Aggregating
+## Other functions
 
-1. The GroupedData methods --> must be preceded by `.groupBy()`.
+1. Aggregating --> The GroupedData methods --> must be preceded by `.groupBy()`.
     1. ```df.groupBy().min("col").show()```
     2. ```df.groupBy().max("col").show()```
     3. ```df.groupBy().count("col").show()``` <br />
     4. `.avg()` --> `flights.filter("carrier == 'DL'").filter("origin == 'SEA'").groupBy().avg("air_time").show()`. 
+2. `.cast()`  --> convert all the appropriate columns from your DataFrame model_data to integers. 

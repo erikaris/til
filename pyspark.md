@@ -2,10 +2,12 @@
 
 ## Steps:
 
-1. The first step in using Spark is connecting to a cluster.
+1. The **SparkContext**. <br />
+    The first step in using Spark is connecting to a cluster.
     1. cluster --> master - worker. 
     2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor.
     3. Spark's core data structure is the Resilient Distributed Dataset (RDD). 
+    4. SparkContext or `sc` has several properties such as `sc.version`, `sc.pythonVer`, `sc.master`.
     
 2. Import necessary library
     ```
@@ -13,7 +15,8 @@
     from pyspark.sql import SparkSession
     ```
     
-3. create a `SparkSession` object from your `SparkContext` --> think of the `SparkContext` as your connection to the cluster and the `SparkSession` as your interface with that connection.
+3. The **SparkSession** <Br />
+    create a `SparkSession` object from your `SparkContext` --> think of the `SparkContext` as your connection to the cluster and the `SparkSession` as your interface with that connection.
     ```
     # Create my_spark
    spark = SparkSession.builder.getOrCreate()
@@ -75,3 +78,4 @@
     3. ```df.groupBy().count("col").show()``` <br />
     4. `.avg()` --> `flights.filter("carrier == 'DL'").filter("origin == 'SEA'").groupBy().avg("air_time").show()`. 
 2. `.cast()`  --> convert all the appropriate columns from your DataFrame model_data to integers. 
+3. `.parallelize()` --> create a spark dataframe from an internal source. 

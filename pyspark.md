@@ -78,4 +78,9 @@
     3. ```df.groupBy().count("col").show()``` <br />
     4. `.avg()` --> `flights.filter("carrier == 'DL'").filter("origin == 'SEA'").groupBy().avg("air_time").show()`. 
 2. `.cast()`  --> convert all the appropriate columns from your DataFrame model_data to integers. 
-3. `.parallelize()` --> create a spark dataframe from an internal source. 
+3. `.parallelize()` --> load internal-source data into a spark dataframe. Example: <br />
+    ```
+    numb = range(1, 100)
+    spark_data = sc.parallelize(numb)
+    ```
+4. `.textFile()` --> Load a local file into PySpark shell. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`

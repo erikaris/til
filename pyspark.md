@@ -85,4 +85,6 @@
     
     RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
     ```
-4. `.textFile()` --> Load a local file into PySpark shell. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
+4. `.textFile(minPartitions = 5)` --> Create an RDD file from a local file consists of 5 partitions. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
+5. `.getNumPartitions()` --> check the number of partitions in an RDD file. Example: `fileRDD.getNumPartitions()`.
+

@@ -82,5 +82,7 @@
     ```
     numb = range(1, 100)
     spark_data = sc.parallelize(numb)
+    
+    RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
     ```
 4. `.textFile()` --> Load a local file into PySpark shell. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`

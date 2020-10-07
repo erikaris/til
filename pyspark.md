@@ -87,4 +87,26 @@
     ```
 4. `.textFile(minPartitions = 5)` --> Create an RDD file from a local file consists of 5 partitions. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
 5. `.getNumPartitions()` --> check the number of partitions in an RDD file. Example: `fileRDD.getNumPartitions()`.
+6. `.collect()` --> retrieve all the elements of the dataset from all nodes to the driver node. `.collect()` is usually used after `filter()`, `group()`, `count()`, `map()`, etc. 
+7. `.reduceByKey()` --> operates on key, value (k,v) pairs, then combine & merges the values for each key <br />
+    Example:
+    ```
+    # Create PairRDD Rdd with key value pairs
+    Rdd = sc.parallelize([(1,2), (3,4), (3,6), (4,5)])
+
+    # Apply reduceByKey() operation on Rdd
+    Rdd_Reduced = Rdd.reduceByKey(lambda x, y: x + y)
+
+    # Iterate over the result and print the output
+    for num in Rdd_Reduced.collect(): 
+      print("Key {} has {} Counts".format(num[0], num[1]))
+    ```
+    
+    Output:
+    ```
+    Key 1 has 2 Counts
+    Key 3 has 10 Counts
+    Key 4 has 5 Counts
+    ```
+    
 

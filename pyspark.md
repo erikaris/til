@@ -109,4 +109,9 @@
     Key 4 has 5 Counts
     ```
     
+## Map vs flatMap
+
+1. .map() --> one-to-one transformation
+2. .flatMap() --> one-to [0, 1, many] transformation. 
+3. 
 

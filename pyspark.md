@@ -16,12 +16,17 @@
     ```
     
 3. The **SparkSession** <Br />
-    create a `SparkSession` object from your `SparkContext` --> think of the `SparkContext` as your connection to the cluster and the `SparkSession` as your interface with that connection.
+    1. create a `SparkSession` object from your `SparkContext`.
+    2. think of the `SparkContext` as your connection to the cluster (main entry point for creating RDDs) and the `SparkSession` as your interface with that connection.
+    3. SparkSession provides a single point of entry to interact with Spark DataFrames.
+    4. SparkSession is used to create DataFrame, register DataFrames, execute SQL queries.
+    5. SparkSession is available in PySpark shell as spark
+    6. Example: 
     ```
     # Create my_spark
    spark = SparkSession.builder.getOrCreate()
     ```
-    
+
 4. Start poking around to see what tables is in your cluster using `spark.catalog.listTables()`. Please note that `spark` is the intance of the SparkSession. 
 
 5. Query something from your data using `spark.sql(query)`.

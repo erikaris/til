@@ -85,7 +85,10 @@
     
     RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
     ```
-4. `.textFile(minPartitions = 5)` --> Create an RDD file from a local file consists of 5 partitions. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
+4a. `.textFile(minPartitions = 5)` --> Create an RDD file from a local file consists of 5 partitions. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
+
+4b. `spark.createDataFrame` --> Create a Spark dataframe. Please note that we use the object `spark` instead of `sc`. 
+
 5. `.getNumPartitions()` --> check the number of partitions in an RDD file. Example: `fileRDD.getNumPartitions()`.
 6. `.collect()` --> retrieve all the elements of the dataset from all nodes to the driver node. `.collect()` is usually used after `filter()`, `group()`, `count()`, `map()`, etc. 
 7. `.reduceByKey()` --> operates on key, value (k,v) pairs, then combine & merges the values for each key <br />
@@ -111,7 +114,20 @@
     
 ## Map vs flatMap
 
-1. .map() --> one-to-one transformation
-2. .flatMap() --> one-to [0, 1, many] transformation. 
+1. `.map()` --> one-to-one transformation <br />
+    Example: 
+    ```
+    # Square all numbers in my_list
+    squared_list_lambda = list(map(lambda x: x**2, my_list))
+    
+    # Create map() transformation to cube numbers
+    cubedRDD = numbRDD.map(lambda x: x**3)
+    ```
+2. `.flatMap()` --> one-to [0, 1, many] transformation. <br />
+    Example:
+    ```
+    # Split the lines of baseRDD into words
+    splitRDD = baseRDD.flatMap(lambda x: x.split())
+    ````
 3. 
 

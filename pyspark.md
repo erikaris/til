@@ -75,6 +75,8 @@
     
 5. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
 
+6. Print the schema of spark df column: `df.printSchema()`. 
+
 ## Other functions
 
 1. Aggregating --> The GroupedData methods --> must be preceded by `.groupBy()`.

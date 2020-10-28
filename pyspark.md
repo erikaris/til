@@ -100,6 +100,7 @@
     1. `df_csv = spark.read.csv("file.csv", header=True, inferSchema=True)` --> create a dataframe from a csv file. 
     2. `df_txt = spark.read.txt("file.txt", header=True, inferSchema=True)` --> create a dataframe from a txt file.
     3. `df_json = spark.read.json("file.json", header=True, inferSchema=True)` --> create a dataframe from a json file.
+    4. `df = spark.read.format('csv').options(Header=True).load('file_name.csv')`
 
 5. `.getNumPartitions()` --> check the number of partitions in an RDD file. Example: `fileRDD.getNumPartitions()`.
 6. `.collect()` --> retrieve all the elements of the dataset from all nodes to the driver node. `.collect()` is usually used after `filter()`, `group()`, `count()`, `map()`, etc. 
@@ -142,4 +143,7 @@
     splitRDD = baseRDD.flatMap(lambda x: x.split())
     ````
 3. 
+
+## Joining 2 dataframes
+1. df1.union(df2)
 

@@ -155,4 +155,22 @@
 
 3. `spark.write.format('format_name_type')` --> eg: `df3.write.parquet('AA_DFW_ALL.parquet', mode='overwrite')`. 
 
+## Various ways to select
+
+```
+# 1. select distinct
+# Show the distinct VOTER_NAME entries
+voter_df.select('VOTER_NAME').distinct().show(40, truncate=False)
+
+# 2. filter
+# Filter voter_df where the VOTER_NAME is 1-20 characters in length
+voter_df = voter_df.filter('length(VOTER_NAME) > 0 and length(VOTER_NAME) < 20')
+
+# 3. filter not & contains
+# Filter out voter_df where the VOTER_NAME contains an underscore
+voter_df = voter_df.filter(~ F.col('VOTER_NAME').contains('_'))
+
+# Show the distinct VOTER_NAME entries again
+voter_df.select('VOTER_NAME').distinct().show(40, truncate=False)
+```
 

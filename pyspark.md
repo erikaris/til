@@ -97,6 +97,7 @@
 4b. `spark.createDataFrame(data, schema=None, samplingRatio=None, verifySchema=True)` --> Create a Spark dataframe. Please note that we use the object `spark` (a spark session) instead of `sc` (a spark context). The argument `schema` is a list of column names.
 
 4c. Create a dataframe from reading a CSV/TXT/JSON. 
+
     1. `df_csv = spark.read.csv("file.csv", header=True, inferSchema=True)` --> create a dataframe from a csv file. 
     2. `df_txt = spark.read.txt("file.txt", header=True, inferSchema=True)` --> create a dataframe from a txt file.
     3. `df_json = spark.read.json("file.json", header=True, inferSchema=True)` --> create a dataframe from a json file.
@@ -146,4 +147,12 @@
 
 ## Joining 2 dataframes
 1. df1.union(df2)
+
+
+## read and write
+
+1. `spark.read.format('format_name')`  --> eg: `spark.read.format('csv')`.
+2. `spark.read.format_name` --> eg: `spark.read.parquet('asdf.parquet)`.
+3. `spark.write.format('format_name_type')` --> eg: `df3.write.parquet('AA_DFW_ALL.parquet', mode='overwrite')`. 
+
 

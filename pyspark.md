@@ -202,6 +202,9 @@ voter_df = voter_df.withColumn('first_name', voter_df.splits.getItem(0))
 
 # Get the last entry of the splits list and create a column called last_name
 voter_df = voter_df.withColumn('last_name', voter_df.splits.getItem(F.size('splits') - 1))
+
+# Add a column to voter_df for any voter with the title **Councilmember**
+voter_df = voter_df.withColumn('random_val', F.when(voter_df.TITLE == 'Councilmember', F.rand()))
 ```
 
 ### Dropping/Removing a Column

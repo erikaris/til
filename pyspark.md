@@ -191,7 +191,7 @@ users_df = users_df.where(~ (users_df.ID == 18502) )
 
 ## Creating and Modifying Column
 
-Using `.withColumn()`. 
+Using `.withColumn()`. Can be varied with `.when()` and `.otherwise()`.
 
 ```
 # Add a new column called splits separated on whitespace
@@ -205,6 +205,12 @@ voter_df = voter_df.withColumn('last_name', voter_df.splits.getItem(F.size('spli
 
 # Add a column to voter_df for any voter with the title **Councilmember**
 voter_df = voter_df.withColumn('random_val', F.when(voter_df.TITLE == 'Councilmember', F.rand()))
+
+# Add a column to voter_df for a voter based on their position
+voter_df = voter_df.withColumn('random_val',
+                               when(voter_df.TITLE == 'Councilmember', F.rand())
+                               .when(voter_df.TITLE == 'Mayor', 2)
+                               .otherwise(0))
 ```
 
 ### Dropping/Removing a Column

@@ -57,6 +57,18 @@
 
 8. read a csv file: `spark.read.csv(file_path, header=True)`. 
 
+## More about `SparkContext`.
+
+### sc's methods:
+
+1. `sc.parallelize()` --> Load a list into Spark. <br />
+    Example: 
+    ```
+    # Load the list into PySpark  
+    spark_data = sc.parallelize(range(1,10))
+    ```
+2. `sc.textFile(file_path)` --> load data from a local file. 
+
 ## About Spark DataFrame
 
 1. Spark DataFrame is **immutable**. This means that it can't be changed, and so columns **can't be updated in place**. 

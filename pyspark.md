@@ -2,12 +2,13 @@
 
 ## Steps:
 
-1. The **SparkContext**. <br />
-    The first step in using Spark is connecting to a cluster.
-    1. cluster --> master - worker. 
-    2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor.
-    3. Spark's core data structure is the Resilient Distributed Dataset (RDD). 
-    4. SparkContext or `sc` has several properties such as `sc.version`, `sc.pythonVer`, `sc.master`.
+1. Connecting to a cluster. <br />
+
+    a. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
+    b. A **SparkContext** is the entry point to Spark functionality, like a key to your car. SparkContext is automatically created by PySpark in the PySpark shell ( you don't have to create it by yourself) and is **exposed via a variable `sc`**. 
+    c. `sc` has several properties such as `sc.version`, `sc.pythonVer`, `sc.master`.
+    d. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor.
+    e. Spark's core data structure is the **Resilient Distributed Dataset (RDD)**. 
     
 2. Import necessary library
     ```

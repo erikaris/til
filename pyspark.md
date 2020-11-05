@@ -136,7 +136,7 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
         Out[3]:
         4
         ```
-    6. `rdd_name.take(5)` --> show the first n items of the RDD. <br />
+    6. `rdd_name.take(n)` --> show the first n items of the RDD. `.take(n)` is similar to `.collect()` except that it only show n items instead of all items. <br />
         Example:
         ```
         In [5]:
@@ -173,8 +173,6 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
 Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `lambda()`. 
 
         
-    
-
 
 ## About Spark DataFrame
 

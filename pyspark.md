@@ -2,7 +2,7 @@
 
 ## Steps:
 
-1. Connecting to a cluster. 
+1. Connecting to a cluster and getting to know `SparkContext`. 
 
     1. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
     2. A **SparkContext** is the entry point to Spark functionality, like a key to your car. SparkContext is automatically created by PySpark in the PySpark shell ( you don't have to create it by yourself) and is **exposed via a variable `sc`**. 

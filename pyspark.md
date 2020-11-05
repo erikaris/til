@@ -89,7 +89,8 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     ```
     2. `sc.textFile(file_path, minPartitions)` --> load data from a local file. 
     
-3. Remember that RDD are spread into several partitions. Thus, to show the RDD as a whole, use `rdd_name.collect()`. <br />
+3. Remember that RDD are spread into several partitions (nodes). Thus, to show the RDD as a whole, use `rdd_name.collect()`. It is usually used after `filter()`, `group()`, `count()`, `map()`, etc.  <br />
+
     Example:
     ```
     In [3]:
@@ -105,9 +106,26 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
 4. What can we do with RDD?
     
     1. `rdd_name.getNumPartitions()` --> get the number of partitions in an RDD. 
-    2. `rdd_name.map()` --> The `map()` transformation takes in a function and applies it to each element in the RDD. 
-    3. `rdd_name.flatMap()` --> similar to `map()` but it can return > 1 result. 
-    4. `rdd_name.filter()`
+    2. `rdd_name.map()` --> one-to-one transformation. The `map()` transformation takes in a function and applies it to each element in the RDD. <br />
+        Example: 
+        ```
+        # Square all numbers in my_list
+        squared_list_lambda = list(map(lambda x: x**2, my_list))
+
+        # Create map() transformation to cube numbers
+        cubedRDD = numbRDD.map(lambda x: x**3)
+        ```
+    3. `rdd_name.flatMap()` --> one-to [0, 1, many] transformation --> similar to `map()` but it can return > 1 result. <br />
+         Example:
+         ```
+         # Split the lines of baseRDD into words
+         splitRDD = baseRDD.flatMap(lambda x: x.split())
+         ```
+    4. `rdd_name.filter()` <br />
+        Example:
+        ```
+        splitRDD_no_stop = splitRDD.filter(lambda x: x.lower() not in stop_words)
+        ```
     5. `rdd_name.count()` --> count the number of items in the RDD. <br />
         Example:
         ```
@@ -128,9 +146,32 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
         Out[6]:
         [1, 2, 3]
         ```
-     7. `rdd_name.reduceByKey()` --> operates on key, value (k,v) pairs and merges the values for each key.
+     7. `rdd_name.reduceByKey()` --> operates on key, value (k,v) pairs and merges the values for each key. <br />
+        Example:
+        ```
+        # Create PairRDD Rdd with key value pairs
+        Rdd = sc.parallelize([(1,2), (3,4), (3,6), (4,5)])
+
+        # Apply reduceByKey() operation on Rdd
+        Rdd_Reduced = Rdd.reduceByKey(lambda x, y: x + y)
+
+        # Iterate over the result and print the output
+        for num in Rdd_Reduced.collect(): 
+          print("Key {} has {} Counts".format(num[0], num[1]))
+        ```
+
+        Output:
+        ```
+        Key 1 has 2 Counts
+        Key 3 has 10 Counts
+        Key 4 has 5 Counts
+        ```
      8. `rdd_name.sortByKey()`
      9. `rdd_name.countByKey()` --> count the number of keys in a key/value dataset.
+     
+<br /><br />
+Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `lambda()`. 
+
         
     
 
@@ -164,58 +205,8 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     3. ```df.groupBy().count("col").show()``` <br />
     4. `.avg()` --> `flights.filter("carrier == 'DL'").filter("origin == 'SEA'").groupBy().avg("air_time").show()`. 
 2. `.cast()`  --> convert all the appropriate columns from your DataFrame model_data to integers. 
-3. `.parallelize()` --> load internal-source data into a spark dataframe. Example: <br />
-    ```
-    numb = range(1, 100)
-    spark_data = sc.parallelize(numb)
-    
-    RDD = sc.parallelize(["Spark", "is", "a", "framework", "for", "Big Data processing"])
-    ```
-4a. `.textFile(minPartitions = 5)` --> Create an RDD file from a local file consists of 5 partitions. Example: `lines = sc.textFile(file_path)` or `lines = sc.textFile(/usr/local/share/datasets/README.md')`
+3. `spark.createDataFrame(data, schema=None, samplingRatio=None, verifySchema=True)` --> Create a Spark dataframe. Please note that we use the object `spark` (a spark session) instead of `sc` (a spark context). The argument `schema` is a list of column names.
 
-4b. `spark.createDataFrame(data, schema=None, samplingRatio=None, verifySchema=True)` --> Create a Spark dataframe. Please note that we use the object `spark` (a spark session) instead of `sc` (a spark context). The argument `schema` is a list of column names.
-
-5. `.getNumPartitions()` --> check the number of partitions in an RDD file. Example: `fileRDD.getNumPartitions()`.
-6. `.collect()` --> retrieve all the elements of the dataset from all nodes to the driver node. `.collect()` is usually used after `filter()`, `group()`, `count()`, `map()`, etc. 
-7. `.reduceByKey()` --> operates on key, value (k,v) pairs, then combine & merges the values for each key <br />
-    Example:
-    ```
-    # Create PairRDD Rdd with key value pairs
-    Rdd = sc.parallelize([(1,2), (3,4), (3,6), (4,5)])
-
-    # Apply reduceByKey() operation on Rdd
-    Rdd_Reduced = Rdd.reduceByKey(lambda x, y: x + y)
-
-    # Iterate over the result and print the output
-    for num in Rdd_Reduced.collect(): 
-      print("Key {} has {} Counts".format(num[0], num[1]))
-    ```
-    
-    Output:
-    ```
-    Key 1 has 2 Counts
-    Key 3 has 10 Counts
-    Key 4 has 5 Counts
-    ```
-    
-## Map vs flatMap
-
-1. `.map()` --> one-to-one transformation <br />
-    Example: 
-    ```
-    # Square all numbers in my_list
-    squared_list_lambda = list(map(lambda x: x**2, my_list))
-    
-    # Create map() transformation to cube numbers
-    cubedRDD = numbRDD.map(lambda x: x**3)
-    ```
-2. `.flatMap()` --> one-to [0, 1, many] transformation. <br />
-    Example:
-    ```
-    # Split the lines of baseRDD into words
-    splitRDD = baseRDD.flatMap(lambda x: x.split())
-    ````
-3. 
 
 ## Joining 2 dataframes
 1. df1.union(df2)

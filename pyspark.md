@@ -1,12 +1,21 @@
-##### Table of Contents  
-[Headers](#headers)  
-[Emphasis](#emphasis)  
-...snip...    
-<a name="headers"/>
-## Headers
+# Pyspark Notes
 
 
-# Pyspark Notes. 
+- [Pyspark Notes.](#pyspark-notes)
+  * [Steps:](#steps-)
+  * [More about `SparkContext`.](#more-about--sparkcontext-)
+  * [About RDD](#about-rdd)
+  * [About Spark DataFrame](#about-spark-dataframe)
+  * [Other functions](#other-functions)
+  * [Map vs flatMap](#map-vs-flatmap)
+  * [Joining 2 dataframes](#joining-2-dataframes)
+  * [read and write](#read-and-write)
+  * [Select](#select)
+  * [Filter: .filter(), .where(), .where(~ )](#filter--filter----where----where----)
+  * [Creating and Modifying Column](#creating-and-modifying-column)
+    + [Dropping/Removing a Column](#dropping-removing-a-column)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## Steps:
 

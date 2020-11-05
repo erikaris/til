@@ -5,10 +5,7 @@
 1. Connecting to a cluster and getting to know `SparkContext`. 
 
     1. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
-    2. A **SparkContext** is the entry point to Spark functionality, like a key to your car. SparkContext is automatically created by PySpark in the PySpark shell ( you don't have to create it by yourself) and is **exposed via a variable `sc`**. 
-    3. `sc` has several properties such as `sc.version`, `sc.pythonVer`, `sc.master`.
-    4. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor.
-    5. Spark's core data structure is the **Resilient Distributed Dataset (RDD)**. 
+    2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor. 
     
 2. Import necessary library
     ```
@@ -59,15 +56,68 @@
 
 ## More about `SparkContext`.
 
-### sc's methods:
+A **SparkContext** is the entry point to Spark functionality, like a key to your car. SparkContext is automatically created by PySpark in the PySpark shell ( you don't have to create it by yourself) and is **exposed via a variable `sc`**. <br />
+`sc` has several properties such as `sc.version`, `sc.pythonVer`, `sc.master`. <br />
+`sc` also has several methods such as `sc.parallelize()` and `sc.textFile()`. 
 
-1. `sc.parallelize()` --> Load a list into Spark. <br />
+## About RDD
+
+1. RDD stands for resilient distributed dataset. RDD is the Spark's core data structure. It is an immutable distributed collection of objects.
+2. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 
+
+    1. `sc.parallelize()` --> Load a list into Spark. <br />
     Example: 
     ```
     # Load the list into PySpark  
     spark_data = sc.parallelize(range(1,10))
     ```
-2. `sc.textFile(file_path)` --> load data from a local file. 
+    2. `sc.textFile(file_path, minPartitions)` --> load data from a local file. 
+    
+3. Remember that RDD are spread into several partitions. Thus, to show the RDD as a whole, use `rdd_name.collect()`. <br />
+    Example:
+    ```
+    In [3]:
+    sc.parallelize(range(1,5))
+    Out[3]:
+    PythonRDD[23] at RDD at PythonRDD.scala:49
+    In [4]:
+    sc.parallelize(range(1,5)).collect()
+    Out[4]:
+    [1, 2, 3, 4]
+    ```
+    
+4. What can we do with RDD?
+    
+    1. `rdd_name.getNumPartitions()` --> get the number of partitions in an RDD. 
+    2. `rdd_name.map()` --> The `map()` transformation takes in a function and applies it to each element in the RDD. 
+    3. `rdd_name.flatMap()` --> similar to `map()` but it can return > 1 result. 
+    4. `rdd_name.filter()`
+    5. `rdd_name.count()` --> count the number of items in the RDD. <br />
+        Example:
+        ```
+        In [2]:
+        myrdd = sc.parallelize(range(1,5)).count()
+        In [3]:
+        myrdd
+        Out[3]:
+        4
+        ```
+    6. `rdd_name.take(5)` --> show the first n items of the RDD. <br />
+        Example:
+        ```
+        In [5]:
+        myrdd = sc.parallelize(range(1,5)).take(3)
+        In [6]:
+        myrdd
+        Out[6]:
+        [1, 2, 3]
+        ```
+     7. `rdd_name.reduceByKey()` --> operates on key, value (k,v) pairs and merges the values for each key.
+     8. `rdd_name.sortByKey()`
+     9. `rdd_name.countByKey()` --> count the number of keys in a key/value dataset.
+        
+    
+
 
 ## About Spark DataFrame
 

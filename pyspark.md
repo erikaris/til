@@ -202,6 +202,10 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
 
 2. Create spark dataframe using `spark.table()`.
 
+3. Create spark dataframe from external file. 
+
+    1. From a csv file: `spark.read.csv('filename', header=True)`.
+
 3. Convert RDD to dataframe, using `spark.createDataFrame(rdd, [schema])`. <br />
    The output of this method is stored locally, not in the `SparkSession` catalog. This means that you can use all the Spark DataFrame methods on it, but you can't access the data in other contexts. For example, a SQL query (using the `.sql()` method) that references your DataFrame will throw an error. <br />
    To access the data in this way, you have to save (register) it to the `SparkSession` as a temporary table using the method `.createOrReplaceTempView()`. See the illustration below. 

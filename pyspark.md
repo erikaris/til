@@ -15,6 +15,13 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+## Intro
+
+- Spark is ...
+- SparkContext
+- SparkSession
+- Two data structures in Spark: RDD and dataframe. 
+
 
 ## Steps:
 
@@ -62,13 +69,7 @@
     print(pd_counts.head())
     ```
     
-7. convert from Pandas dataframe to Spark dataframe, using `spark.createDataFrame(pandas_df)`. <br />
-    However, the output of this method is stored locally, not in the `SparkSession` catalog. This means that you can use all the Spark DataFrame methods on it, but you can't access the data in other contexts. <br />
-    For example, a SQL query (using the `.sql()` method) that references your DataFrame will throw an error. <br />
-    To access the data in this way, you have to save (register) it to the `SparkSession` as a temporary table using the method `.createOrReplaceTempView()`. See the illustration below. 
-    ![Alt text](./spark_figure.png)
-
-8. read a csv file: `spark.read.csv(file_path, header=True)`. 
+7. read a csv file: `spark.read.csv(file_path, header=True)`. 
 
 ## More about `SparkContext`.
 
@@ -199,22 +200,27 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
 
 1. Spark DataFrame is **immutable**. This means that it can't be changed, and so columns **can't be updated in place**. 
 
-1b. Create spark dataframe using `spark.table()`
+2. Create spark dataframe using `spark.table()`.
 
-2. To overwrite the original DataFrame you must **reassign** the returned DataFrame using the method like so:
+3. Convert RDD to dataframe, using `spark.createDataFrame(rdd, [schema])`. <br />
+   The output of this method is stored locally, not in the `SparkSession` catalog. This means that you can use all the Spark DataFrame methods on it, but you can't access the data in other contexts. For example, a SQL query (using the `.sql()` method) that references your DataFrame will throw an error. <br />
+   To access the data in this way, you have to save (register) it to the `SparkSession` as a temporary table using the method `.createOrReplaceTempView()`. See the illustration below. 
+    ![Alt text](./spark_figure.png)
+
+4. To overwrite the original DataFrame you must **reassign** the returned DataFrame using the method like so:
     ```
     df = df.withColumn("newCol", df.oldCol + 1)
     ```
 
-3. Do a column-wise operation --> use `.withColumn("column_name")`. 
+5. Do a column-wise operation --> use `.withColumn("column_name")`. 
 
-4. Filtering a spark dataframe based on certain characteristics.
+6. Filtering a spark dataframe based on certain characteristics.
     1. use `.filter("sql_string")` --> example: `flights.filter("air_time > 120")`.
     2. use `.filter(Spark Column of boolean)` --> example: `flights.filter(flights.air_time > 120)`.
     
-5. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
+7. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
 
-6. Print the schema of spark df column: `df.printSchema()`. 
+8. Print the schema of spark df column: `df.printSchema()`. 
 
 ## Other functions
 

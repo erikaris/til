@@ -102,78 +102,99 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     Out[4]:
     [1, 2, 3, 4]
     ```
+ 4. pair RDD = RDD in a key-value format. .
     
-4. What can we do with RDD?
+### What can we do with RDD?
+
+#### 1. RDD Transformation
+
+1. `rdd_name.map()` --> one-to-one transformation. The `map()` transformation takes in a function and applies it to each element in the RDD. <br />
+    Example: 
+    ```
+    # Square all numbers in my_list
+    squared_list_lambda = list(map(lambda x: x**2, my_list))
+
+    # Create map() transformation to cube numbers
+    cubedRDD = numbRDD.map(lambda x: x**3)
+    ```
     
-    1. `rdd_name.getNumPartitions()` --> get the number of partitions in an RDD. 
-    2. `rdd_name.map()` --> one-to-one transformation. The `map()` transformation takes in a function and applies it to each element in the RDD. <br />
-        Example: 
-        ```
-        # Square all numbers in my_list
-        squared_list_lambda = list(map(lambda x: x**2, my_list))
+2. `rdd_name.flatMap()` --> one-to [0, 1, many] transformation --> similar to `map()` but it can return > 1 result for each element in the RDD. <br />
+    Example:
+    ```
+    # Split the lines of baseRDD into words
+    splitRDD = baseRDD.flatMap(lambda x: x.split())
+    ```
+    
+3. `rdd_name.filter()` <br />
+    Example:
+    ```
+    splitRDD_no_stop = splitRDD.filter(lambda x: x.lower() not in stop_words)
+    ```
+4. `rdd_name.reduce()` --> aggregating the elements of a regular RDD.
+5. `rdd_name.reduceByKey()` --> for pair RDD only. operates on key, value (k,v) pairs and merges the values for each key. <br />
+   Example:
+   ```
+   # Create PairRDD Rdd with key value pairs
+   Rdd = sc.parallelize([(1,2), (3,4), (3,6), (4,5)])
 
-        # Create map() transformation to cube numbers
-        cubedRDD = numbRDD.map(lambda x: x**3)
-        ```
-    3. `rdd_name.flatMap()` --> one-to [0, 1, many] transformation --> similar to `map()` but it can return > 1 result. <br />
-         Example:
-         ```
-         # Split the lines of baseRDD into words
-         splitRDD = baseRDD.flatMap(lambda x: x.split())
-         ```
-    4. `rdd_name.filter()` <br />
-        Example:
-        ```
-        splitRDD_no_stop = splitRDD.filter(lambda x: x.lower() not in stop_words)
-        ```
-    5. `rdd_name.count()` --> count the number of items in the RDD. <br />
-        Example:
-        ```
-        In [2]:
-        myrdd = sc.parallelize(range(1,5)).count()
-        In [3]:
-        myrdd
-        Out[3]:
-        4
-        ```
-    6. `rdd_name.take(n)` --> show the first n items of the RDD. `.take(n)` is similar to `.collect()` except that it only show n items instead of all items. <br />
-        Example:
-        ```
-        In [5]:
-        myrdd = sc.parallelize(range(1,5)).take(3)
-        In [6]:
-        myrdd
-        Out[6]:
-        [1, 2, 3]
-        ```
-     7. `rdd_name.reduceByKey()` --> operates on key, value (k,v) pairs and merges the values for each key. <br />
-        Example:
-        ```
-        # Create PairRDD Rdd with key value pairs
-        Rdd = sc.parallelize([(1,2), (3,4), (3,6), (4,5)])
+   # Apply reduceByKey() operation on Rdd
+   Rdd_Reduced = Rdd.reduceByKey(lambda x, y: x + y)
 
-        # Apply reduceByKey() operation on Rdd
-        Rdd_Reduced = Rdd.reduceByKey(lambda x, y: x + y)
+   # Iterate over the result and print the output
+   for num in Rdd_Reduced.collect(): 
+     print("Key {} has {} Counts".format(num[0], num[1]))
+   ```
 
-        # Iterate over the result and print the output
-        for num in Rdd_Reduced.collect(): 
-          print("Key {} has {} Counts".format(num[0], num[1]))
-        ```
+   Output:
+   ```
+   Key 1 has 2 Counts
+   Key 3 has 10 Counts
+   Key 4 has 5 Counts
+   ```
+6. `rdd_name.sortByKey()` --> for pair RDD only.
+7. `rdd_name.countByKey()` --> for pair RDD only. count the number of keys in a key/value dataset.
+8. `rdd_name.groupByKey()`
+9. `rdd_name.union()`.
+10. `rdd_name.collectAsMap()` --> return the key-value pairs in the RDD as a dictionary. 
+    Example:
+    ```
+    In [1]:
+    sc.parallelize([(1, 2), (3, 4)]).collectAsMap()
+    Out[1]:
+    {1: 2, 3: 4}
+    ```
 
-        Output:
-        ```
-        Key 1 has 2 Counts
-        Key 3 has 10 Counts
-        Key 4 has 5 Counts
-        ```
-     8. `rdd_name.sortByKey()`
-     9. `rdd_name.countByKey()` --> count the number of keys in a key/value dataset.
-     
 <br /><br />
 Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `lambda()`. 
 
-        
+#### 2. RDD Action
 
+1. `rdd_name.count()` --> count the number of items in the RDD. <br />
+   Example:
+   ```
+   In [2]:
+   myrdd = sc.parallelize(range(1,5)).count()
+   In [3]:
+   myrdd
+   Out[3]:
+   4
+   ```
+2. `rdd_name.take(n)` --> show the first n items of the RDD. `.take(n)` is similar to `.collect()` except that it only show n items instead of all items. <br />
+   Example:
+   ```
+   In [5]:
+   myrdd = sc.parallelize(range(1,5)).take(3)
+   In [6]:
+   myrdd
+   Out[6]:
+   [1, 2, 3]
+   ```
+3. `rdd_name.first()` --> prints the first element of the RDD.
+4. `rdd_name.getNumPartitions()` --> get the number of partitions in an RDD.
+5. `rdd_name.saveAsTextFile('filename')` --> save RDD into text files
+6. `rdd_name.coalesce(1).saveAsTextFile('filename')` --> save RDD as a single text file. 
+
+        
 ## About Spark DataFrame
 
 1. Spark DataFrame is **immutable**. This means that it can't be changed, and so columns **can't be updated in place**. 

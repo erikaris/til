@@ -226,6 +226,11 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
 
 8. Print the schema of spark df column: `df.printSchema()`. 
 
+9. Subsetting --> `df.select('col1', 'col2', ..., 'coln')`.
+   Example: `people_df_sub = people_df.select('name', 'sex', 'date of birth')`.
+   
+10. drop duplicate entries --> `df.dropDuplicates()`.
+
 ## Other functions
 
 1. Aggregating --> The GroupedData methods --> must be preceded by `.groupBy()`.

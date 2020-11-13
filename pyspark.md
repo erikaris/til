@@ -295,27 +295,33 @@ users_df = users_df.where(~ (users_df.ID == 18502) )
 
 ## Creating and Modifying Column
 
-Using `.withColumn()`. Can be varied with `.when()` and `.otherwise()`.
+1. Adding new column --> using `.withColumn()`. Can be varied with `.when()` and `.otherwise()`.
 
-```
-# Add a new column called splits separated on whitespace
-voter_df = voter_df.withColumn('splits', F.split(voter_df.VOTER_NAME, '\s+'))
+    ```
+    # Add a new column called splits separated on whitespace
+    voter_df = voter_df.withColumn('splits', F.split(voter_df.VOTER_NAME, '\s+'))
 
-# Create a new column called first_name based on the first item in splits
-voter_df = voter_df.withColumn('first_name', voter_df.splits.getItem(0))
+    # Create a new column called first_name based on the first item in splits
+    voter_df = voter_df.withColumn('first_name', voter_df.splits.getItem(0))
 
-# Get the last entry of the splits list and create a column called last_name
-voter_df = voter_df.withColumn('last_name', voter_df.splits.getItem(F.size('splits') - 1))
+    # Get the last entry of the splits list and create a column called last_name
+    voter_df = voter_df.withColumn('last_name', voter_df.splits.getItem(F.size('splits') - 1))
 
-# Add a column to voter_df for any voter with the title **Councilmember**
-voter_df = voter_df.withColumn('random_val', F.when(voter_df.TITLE == 'Councilmember', F.rand()))
+    # Add a column to voter_df for any voter with the title **Councilmember**
+    voter_df = voter_df.withColumn('random_val', F.when(voter_df.TITLE == 'Councilmember', F.rand()))
 
-# Add a column to voter_df for a voter based on their position
-voter_df = voter_df.withColumn('random_val',
-                               when(voter_df.TITLE == 'Councilmember', F.rand())
-                               .when(voter_df.TITLE == 'Mayor', 2)
-                               .otherwise(0))
-```
+    # Add a column to voter_df for a voter based on their position
+    voter_df = voter_df.withColumn('random_val',
+                                   when(voter_df.TITLE == 'Councilmember', F.rand())
+                                   .when(voter_df.TITLE == 'Mayor', 2)
+                                   .otherwise(0))
+    ```
+    
+2. Rename column --> using `.withColumnRenamed('old_name', 'new_name')`.
+    Example:
+    ```
+    valid_folders_df = valid_folders_df.withColumnRenamed('_c0', 'folder')
+    ```
 
 ### Dropping/Removing a Column
 ```

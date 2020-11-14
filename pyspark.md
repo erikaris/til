@@ -224,12 +224,30 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
     
 7. Spark only handles numeric data. That means all of the columns in your DataFrame must be either integers or decimals (called 'doubles' in Spark).
 
-8. Print the schema of spark df column: `df.printSchema()`. 
+8. Print the schema of spark df column: 
 
 9. Subsetting --> `df.select('col1', 'col2', ..., 'coln')`.
    Example: `people_df_sub = people_df.select('name', 'sex', 'date of birth')`.
    
 10. drop duplicate entries --> `df.dropDuplicates()`.
+
+
+## Spark DataFrame Schema
+
+1. create a new schema using `StructType()` and `StructField('col_name', dataType, nullable=True)`.
+    Example:
+    ```
+    DogType = StructType([
+	StructField("breed", StringType(), False),
+    StructField("start_x", IntegerType(), False),
+    StructField("start_y", IntegerType(), False),
+    StructField("end_x", IntegerType(), False),
+    StructField("end_y", IntegerType(), False)
+])
+    ```
+    
+2. viewing a schema of a Spark's dataframe, using `df.printSchema()`. 
+
 
 ## Other functions
 

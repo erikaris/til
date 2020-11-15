@@ -243,10 +243,32 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
     StructField("start_y", IntegerType(), False),
     StructField("end_x", IntegerType(), False),
     StructField("end_y", IntegerType(), False)
-])
+	])
     ```
     
 2. viewing a schema of a Spark's dataframe, using `df.printSchema()`. 
+
+
+## Spark's User Defined Function (UDF)
+
+1. Wrapped via the `pyspark.sql.functions.udf` method. 
+2. Stored as a variable.
+3. Called like a normal Spark function.
+4. Steps to create a UDF:
+	
+	1. Define the function
+	2. convert it as UDF
+	3. call like a normal spark function. <br />
+	Example:
+	```
+	def reverseString(mystr):
+		return mystr[::-1]
+		
+	udfReverseString = udf(reverseString, StringType())
+	
+	user_df = user_df.withColumn('ReverseName', udfReverseString(user_df.Name))
+	```
+	
 
 
 ## Other functions

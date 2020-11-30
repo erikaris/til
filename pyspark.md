@@ -364,7 +364,23 @@ users_df = users_df.where(~ (users_df.ID == 18502) )
     ```
 
 ### Dropping/Removing a Column
+
+#### Dropping 1 column only
 ```
 # Drop the splits column
 voter_df = voter_df.drop('splits')
+```
+
+#### Dropping multiple columns. 
+
+1. put all the columns to drop in a list. 
+2. drop it them all at once using `*`. <br />
+
+Example:
+```
+# List of columns to remove from dataset
+cols_to_drop = ['col1', 'col2']
+
+# Drop columns in list
+df = df.drop(*cols_to_drop)
 ```

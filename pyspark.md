@@ -18,9 +18,12 @@
 ## Intro
 
 - Spark is ...
+- Checking spark version: `spark.version`. 
 - SparkContext
 - SparkSession
 - Two data structures in Spark: RDD and dataframe. 
+
+![PySpark Landscape](./pysparkml_landscapes.png)
 
 
 ## Steps:

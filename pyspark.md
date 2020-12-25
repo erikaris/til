@@ -17,8 +17,9 @@
 
 ## Intro
 
-- Spark is ...
+- Apache Spark or just `Spark` is ..., 
 - Checking spark version: `spark.version`. 
+- By default, in Spark, data is stored in columnar format called `Apaceh Parquet`or simply just `Parquet`. 
 - SparkContext
 - SparkSession
 - Two data structures in Spark: RDD and dataframe. 
@@ -73,6 +74,19 @@
     ```
     
 7. read a csv file: `spark.read.csv(file_path, header=True)`. 
+
+## About Parquet
+![Alt text](./parquet.png)
+
+1. Columnar. Thus, it's fast to query column subsets. See the difference between row-based and column-based storage format below. Picture is taken from [xzz201920.medium.com](https://xzz201920.medium.com/what-is-parquet-1db2b92860a5). 
+![Alt text](./columnar.png)
+2. file extension: `.parq`.
+3. The structured: <br />
+	a. Parquet is a self-described format -->  each file contains both **data** and **metadata**. 
+	b. Parquet files are composed of **row groups**, **header**, and **footer**. 
+	c. Each row group contains data from the same columns. The same columns are stored together in each row group
+	![](./parquet_file.png)
+	*Parquet file structure. Image is taken from [xzz201920.medium.com](https://xzz201920.medium.com/what-is-parquet-1db2b92860a5). 
 
 ## More about `SparkContext`.
 

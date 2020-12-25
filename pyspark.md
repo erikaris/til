@@ -79,14 +79,14 @@
 ## About Parquet
 ![Alt text](./parquet.png)
 
-1. Columnar. Thus, it's fast to query column subsets. See the difference between row-based and column-based storage format below. Picture is taken from [xzz201920.medium.com](https://xzz201920.medium.com/what-is-parquet-1db2b92860a5). 
+1. Columnar. Thus, it's fast to query column subsets. See the difference between row-based and column-based storage format below. Picture is taken from [xzz201920.medium.com](https://xzz201920.medium.com/what-is-parquet-1db2b92860a5). <br />
 ![Alt text](./columnar.png)
 2. file extension: `.parq`.
 3. The structured: <br />
 	a. Parquet is a self-described format -->  each file contains both **data** and **metadata**. 
 	b. Parquet files are composed of **row groups**, **header**, and **footer**. 
-	c. Each row group contains data from the same columns. The same columns are stored together in each row group
-	![](./parquet_file.png)
+	c. Each row group contains data from the same columns. The same columns are stored together in each row group. <br />
+	![](./parquet_file.png) <br />
 	*Parquet file structure. Image is taken from [xzz201920.medium.com](https://xzz201920.medium.com/what-is-parquet-1db2b92860a5). 
 
 ## More about `SparkContext`.

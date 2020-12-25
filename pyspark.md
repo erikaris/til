@@ -65,7 +65,9 @@
     flight_counts.show()
     ```
     
-6. If necessary, convert the result to Pandas dataframe using `.toPandas()`. 
+6. If necessary, convert the result to Pandas dataframe using `.toPandas()`. <br />
+   Conversion to Pandas is especially needed when plotting PySpark DataFrames using standard libraries like matplotlib or Seaborn. 
+   
     ```
     # Convert the results to a pandas DataFrame
     pd_counts = flight_counts.toPandas()

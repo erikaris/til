@@ -23,7 +23,7 @@
 - SparkSession
 - Two data structures in Spark: RDD and dataframe. 
 
-![PySpark Landscape](./pysparkml_landscapes.png)
+![PySpark Landscape](./pysparkml_landscape.png)
 
 
 ## Steps:

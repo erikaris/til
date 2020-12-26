@@ -18,7 +18,12 @@
 
 ## Intro
 
-- Apache Spark or just `Spark` is ..., 
+- Apache Spark or just `Spark` is a **framework for cluster computing** for **processing large quantities of data**. Among **distributed computing technologies**, Spark is currently the most popular technology. 
+- Spark achieves efficiency by distributing data and computation across a cluster of computers. <br />
+  ![](./architecture.png)
+
+- Spark does most processing in memory.
+- Spark has a high-level API, which conceals a lot of complexity.
 - Checking spark version: `spark.version`. 
 - By default, in Spark, data is stored in columnar format called `Apaceh Parquet`or simply just `Parquet`. 
 - SparkContext

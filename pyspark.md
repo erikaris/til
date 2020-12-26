@@ -20,7 +20,7 @@
 
 - Apache Spark or just `Spark` is a **framework for cluster computing** for **processing large quantities of data**. Among **distributed computing technologies**, Spark is currently the most popular technology. 
 - Spark achieves efficiency by distributing data and computation across a cluster of computers. See the figure below for illustration. <br />
-  ![Spark Distributed Computing Architecture](./architecture.png)
+  ![Spark Distributed Computing Architecture](./achitecture.png)
 
 - Spark does most processing in memory.
 - Spark has a high-level API, which conceals a lot of complexity.

@@ -1,3 +1,24 @@
+## Tools
+
+1. R --> rvest, rselenium
+2. python --> scrapy, beautiful soup. 
+
+## Extracting function
+1. html_node()
+2. html_nodes()
+3. html_text()
+4. html_table()
+
+All the function above can be combined together. Example: 
+```
+# extracting table from html
+mytable <- myhtml %>% 
+  html_node(xpath = "//table") %>% 
+  html_table()
+# Print the contents of the role data frame
+print(mytable)
+```
+
 ## Selectors
 
 Select intended node using css selectors or xpath. 
@@ -11,14 +32,17 @@ Select intended node using css selectors or xpath.
 
 ### css selectors vs xpath
 
-| No |                               css selectors                              |                              xpath                             |             explanation             |
-|:--:|:------------------------------------------------------------------------:|:--------------------------------------------------------------:|:-----------------------------------:|
-| 1  | div > p.blue                                                             | //div/p[@class = "blue"]                                       |                                     |
-| 2  | ul.list > li:nth-child(5), ul.list > li:last-child, ul.list > li.special | //ul[@class = "list"]/li[position() > 4 or @class = "special"] |                                     |
-| 3  |  p                                                                       | //p                                                            |                                     |
-| 4  | body p                                                                   | //body//p                                                      |                                     |
-| 5  | html > body p                                                            | /html/body//p                                                  |                                     |
-| 6  | div > p                                                                  | //div/p                                                        |                                     |
-| 7  |                                                                          | //div[a]                                                       | select 'a' that is a child of 'div' |
-| 8  | span > a.external                                                        | //span/a[@class = "external"]                                  |                                     |
-| 9  | #special div   or  *#special div                                         | //*[@id = "special"]//div                                      |                                     |
+| No | css selectors                                                            | xpath                                                                                        | explanation                                                                                   |
+|----|--------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| 1  | div > p.blue                                                             | //div/p[@class = "blue"]                                                                     | - [..] = predicate - @ for class                                                              |
+| 2  | ul.list > li:nth-child(5), ul.list > li:last-child, ul.list > li.special | //ul[@class = "list"]/li[position() > 4 or @class = "special"]                               | position() =, < , <=, >, >=, !=  --> for selecting the nth element --> position starts from 1 |
+| 3  |                                                                          | - //ol/li[position() != 3 and @class = "blue"] - //ol/li[position() != 3 or @class = "blue"] | combining xpath: 'and', 'or'                                                                  |
+| 4  |  p                                                                       | //p                                                                                          |                                                                                               |
+| 5  | body p                                                                   | //body//p                                                                                    |                                                                                               |
+| 6  | html > body p                                                            | /html/body//p                                                                                |                                                                                               |
+| 7  | div > p                                                                  | //div/p                                                                                      |                                                                                               |
+| 8  |                                                                          | //div[a]                                                                                     | select 'a' that is a child of 'div'                                                           |
+| 9  | span > a.external                                                        | //span/a[@class = "external"]                                                                |                                                                                               |
+| 10 | #special div   or  *#special div                                         | //*[@id = "special"]//div                                                                    |                                                                                               |
+| 11 | ol > li:nth-child(2)                                                     | //ol/li[position() = 2]                                                                      |                                                                                               |
+|    |                                                                          | //ol[count(li) = 2]                                                                          | - count() - select parent that has certain number of children                                 |

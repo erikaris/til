@@ -40,7 +40,7 @@
 
 ## Steps:
 
-1. Connecting to a cluster and getting to know `SparkContext`. 
+1. Import `pyspark`, connect to a cluster, and get to know `SparkContext`. 
 
     1. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
     2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor. 

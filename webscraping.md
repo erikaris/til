@@ -7,3 +7,4 @@
 |  3 |  p                                                                       | //p                                                            |
 |  4 | body p                                                                   | //body//p                                                      |
 |  5 | html > body p                                                            | /html/body//p                                                  |
+|  6 | div > p                                                                  | //div/p                                                        |

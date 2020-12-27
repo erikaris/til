@@ -55,7 +55,14 @@
     3. SparkSession provides a single point of entry to interact with Spark DataFrames.
     4. SparkSession is used to create DataFrame, register DataFrames, execute SQL queries.
     5. SparkSession is available in PySpark shell as spark
-    6. Example: 
+    6. Read more about `SparkSession` [here](https://spark.apache.org/docs/2.3.1/api/python/pyspark.sql.html#pyspark.sql.SparkSession). 
+    7. Attribute of `SparkSession`:
+    	1. `.version` --> gives the version of Spark. 
+	    2. `.builder` --> an instance of the `Builder` class. `.builder` lets us to:
+            1. specify the location of the master node
+            2. name the application (optional)
+            3. retrieve an existing `SparkSession` or, if there is none, create a new one.
+    8. Example: 
     ```
     # Create my_spark
    spark = SparkSession.builder.getOrCreate()

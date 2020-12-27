@@ -3,9 +3,19 @@
 1. R --> rvest, rselenium
 2. python --> scrapy, beautiful soup. 
 
+## Steps:
+1. there is an HTML file --> `mythml`. 
+2. extract the node
+    ```
+    myhtml %>%
+      html_nodes()
+    ```
+
 ## Extracting function
 1. html_node()
-2. html_nodes()
+2. html_nodes(args)  --> args = css selectors or xpath. 
+  a. using css selector: `html_nodes('div p')`.
+  b. using xpath: `html_nodes(xpath = '//div//p')`.
 3. html_text()
 4. html_table()
 

@@ -47,6 +47,12 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
     4. select by class (`.`) --> `html %>% html_nodes('.alert')`.
     5. select by > 1 class (`.class1.class2`) --> `html %>% html_nodes('.alert.emph')`.
     6. select by id (`#`) --> `html %>% html_nodes('#special')`.
+    7. select by type and class (`type.class`) --> `html %>% html_nodes('a.alert')`.
+    8. select by type and id (`type#id`) --> `html %>% html_nodes('div#special')`.
+    9. select by element's position (`pseudo-class`):
+        1. first (`:first-child`) --> `html %>% html_nodes('li:last-child')`.
+        2. last (`:last-child`) --> `html %>% html_nodes('p:last-child')`.
+        3. nth (`:nth-child(n)`) --> html %>% html_nodes('h3:nth-child(5)'
 
 ### xpath
 

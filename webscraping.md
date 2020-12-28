@@ -1,3 +1,5 @@
+# Web Scraping
+
 ## Tools
 
 1. R --> rvest, rselenium
@@ -52,7 +54,13 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
     9. select by element's position (`pseudo-class`):
         1. first (`:first-child`) --> `html %>% html_nodes('li:last-child')`.
         2. last (`:last-child`) --> `html %>% html_nodes('p:last-child')`.
-        3. nth (`:nth-child(n)`) --> html %>% html_nodes('h3:nth-child(5)'
+        3. nth (`:nth-child(n)`) --> `html %>% html_nodes('h3:nth-child(5)`.
+3. Family combinators:
+    1. Structure: `h2#someid {space|>|+|~} .someclass`.
+        1. `space`: descendant combinator --> example: `html %>% html_nodes('div.first a')` --> get all `a`s that are the descendant of `div.first`. 
+        2. `>` : child combinator --> example: 
+        3. `+` : adjacent sibling combinator.
+        4.  `~` : general sibling combinator. 
 
 ### xpath
 

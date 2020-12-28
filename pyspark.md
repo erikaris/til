@@ -21,9 +21,20 @@
 ## Intro (About Spark)
 
 - Apache Spark or just `Spark` is a **framework for cluster computing** for **processing large quantities of data**. Among **distributed computing technologies**, Spark is currently the most popular technology. 
+- Spark consists of a set of clusters. 
 - Spark achieves efficiency by distributing data and computation across a cluster of computers. See the figure below for illustration. <br /> A load balancer distributes work across multiple resources, preventing overload on any one resource. In Spark this function is performed by the cluster manager.<br />
   ![Spark Distributed Computing Architecture](./achitecture.png)
 	
+- The master of Spark clusters could be:
+	1. remote --> accessed using Spark URL with format: `spark://<IP address | DNS name>:<port>`. <br />
+        Example:
+        1. `spark://13.59.151.161:7077`. 
+        2. `spark://ec2-18-188-22-23.us-east-2.compute.amazonaws.com:7077`.
+    2. local <br />
+        Example:
+        1. local — only 1 core;
+        2. local[4] — 4 cores; or
+        3. local[*] — all available cores.
 - Spark does most processing in memory.
 - Spark has a high-level API, which conceals a lot of complexity.
 - We can interact with Spark through languages:
@@ -53,7 +64,7 @@
     1. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
     2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor. 
     
-2. Create `SparkSession` by importing it from `pyspark.sql`. 
+2. Import `SparkSession`. 
     ```
     # Import SparkSession from pyspark.sql
     from pyspark.sql import SparkSession
@@ -61,12 +72,21 @@
     <br />
     Think of the `SparkContext` as your connection to the cluster (main entry point for creating RDDs) and the `SparkSession` as your interface with that connection.
     
-3. create a `SparkSession` object from your `SparkContext`. <br />
+3. create a `SparkSession`. <br />
 	Example:
 	``` 
 	# Create my_spark
 	spark = SparkSession.builder.getOrCreate()
 	```
+    <br />
+    We can also specify the cluster's master and appName.<br />
+    Example:
+    ```
+    spark = SparkSession.builder \
+                .master('local[*]') \  # meaning using all local nodes. there are other options to define master. 
+                .appName('mySparkApp') \
+                .getOrCreate()
+    ```
 
 4. Start poking around to see what tables is in your cluster using `spark.catalog.listTables()`. Please note that `spark` is the intance of the SparkSession. 
 
@@ -92,6 +112,7 @@
     ```
     
 7. read a csv file: `spark.read.csv(file_path, header=True)`. 
+8. close the connection to Spark when you are done using it: `spark.stop()`. 
 
 ## About `SparkSession`
 
@@ -115,6 +136,14 @@
             # Create my_spark
             spark = SparkSession.builder.getOrCreate()
             ```
+7. Create a local cluster with format `SparkSession.builder.master('arg').appName('arg').getOrCreate().`. Example: <br />
+    ```
+    spark = SparkSession.builder \
+                .master('local[*]') \
+                .appName('first_spark_application') \
+                .getOrCreate()
+    ```
+8. Close connection to Spark: `spark.stop()`. 
 
 ## About Parquet
 ![Alt text](./parquet.png)

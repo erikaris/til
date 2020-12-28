@@ -31,14 +31,28 @@ print(mytable)
 
 ## Selectors
 
-Select intended node using css selectors or xpath. 
+Select intended node using css selectors or xpath wrapped as argument(s) in method `html_nodes()`. 
 
 ### css selectors
+
+1. Selecting nodes or component using either:
+    1. type (e.g.: `p`, `h2`)
+    2. class (`.`)
+    3. id (`#`)
+    4. or combination of the four things above. 
+2. Using selectors:
+    1. selecting 1 type --> `html %>% html_nodes('type')`.
+    2. selecting > 1 types, seperate them by comma (`,`) --> `html %>% html_nodes('type1, type2')`.
+    3. all, use `*` --> `html %>% html_nodes('*')`.
+    4. select by class (`.`) --> `html %>% html_nodes('.alert')`.
+    5. select by > 1 class (`.class1.class2`) --> `html %>% html_nodes('.alert.emph')`.
+    6. select by id (`#`) --> `html %>% html_nodes('#special')`.
 
 ### xpath
 
 1. start with double slash `//`. Next element use single slash `/`. 
 2. specify class, id, css, position, count, etc using **predicate** `[...]`. 
+
 
 ### css selectors vs xpath
 

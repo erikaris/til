@@ -30,7 +30,7 @@
 	- Java: low-level, compiled
 	- Scala, Python (PySpark), R (RSpark): high level, interactive REPL. 
 - Checking spark version: `spark.version`. 
-- By default, in Spark, data is stored in columnar format called `Apaceh Parquet`or simply just `Parquet`. 
+- By default, in Spark, data is stored in columnar format called `Apache Parquet`or simply just `Parquet`. 
 - SparkContext
 - SparkSession
 - Two data structures in Spark: RDD and dataframe. 
@@ -42,7 +42,7 @@
 1. PySpark is a wrapper API to access Spark through Python language. 
 2. To start using PySpark, we have to import `pyspark` first. 
 3. In addition to `pyspark`, there are:
-    1. `pyspark.sql`.
+    1. `pyspark.sql`: use for importing and creating `SparkSession`. 
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
 
@@ -53,11 +53,13 @@
     1. A cluster consists of **a master and workers**. To connect to a cluster, we first have to create a connection to the `SparkContext`. <br />
     2. Creating the connection is as simple as creating an instance of the `SparkContext` class, with `SparkConf()` constructor. 
     
-2. Import necessary library
+2. Create `SparkSession` by importing it from `pyspark.sql`. 
     ```
     # Import SparkSession from pyspark.sql
     from pyspark.sql import SparkSession
     ```
+    <br />
+    Think of the `SparkContext` as your connection to the cluster (main entry point for creating RDDs) and the `SparkSession` as your interface with that connection.
     
 3. create a `SparkSession` object from your `SparkContext`. <br />
 	Example:
@@ -93,23 +95,26 @@
 
 ## About `SparkSession`
 
-1. create a `SparkSession` object from your `SparkContext`.
-2. think of the `SparkContext` as your connection to the cluster (main entry point for creating RDDs) and the `SparkSession` as your interface with that connection.
-3. SparkSession provides a single point of entry to interact with Spark DataFrames.
-4. SparkSession is used to create DataFrame, register DataFrames, execute SQL queries.
-5. SparkSession is available in PySpark shell as spark
-6. Read more about `SparkSession` [here](https://spark.apache.org/docs/2.3.1/api/python/pyspark.sql.html#pyspark.sql.SparkSession). 
-7. Attribute of `SparkSession`:
-1. `.version` --> gives the version of Spark. 
+1. create a `SparkSession` by importing it from `pyspark.sql`. 
+     ```
+    # Import SparkSession from pyspark.sql
+    from pyspark.sql import SparkSession
+    ```
+2. SparkSession provides a single point of entry to interact with Spark DataFrames.
+3. SparkSession is used to create DataFrame, register DataFrames, execute SQL queries.
+4. SparkSession is available in PySpark shell as spark
+5. Read more about `SparkSession` [here](https://spark.apache.org/docs/2.3.1/api/python/pyspark.sql.html#pyspark.sql.SparkSession). 
+6. Attribute of `SparkSession`:
+    1. `.version` --> gives the version of Spark. 
     2. `.builder` --> an instance of the `Builder` class. `.builder` lets us to:
-    1. specify the location of the master node
-    2. name the application (optional)
-    3. retrieve an existing `SparkSession` or, if there is none, create a new one.
-8. Example: 
-```
-# Create my_spark
-spark = SparkSession.builder.getOrCreate()
-```
+        1. specify the location of the master node
+        2. name the application (optional)
+        3. retrieve an existing `SparkSession` or, if there is none, create a new one.<br />
+            Example: 
+            ```
+            # Create my_spark
+            spark = SparkSession.builder.getOrCreate()
+            ```
 
 ## About Parquet
 ![Alt text](./parquet.png)

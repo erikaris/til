@@ -28,7 +28,7 @@
 - Spark has a high-level API, which conceals a lot of complexity.
 - We can interact with Spark through languages:
 	- Java: low-level, compiled
-	- Scala, Python, R: high level, interactive REPL. 
+	- Scala, Python (PySpark), R (RSpark): high level, interactive REPL. 
 - Checking spark version: `spark.version`. 
 - By default, in Spark, data is stored in columnar format called `Apaceh Parquet`or simply just `Parquet`. 
 - SparkContext
@@ -37,6 +37,14 @@
 
 ![PySpark Landscape](./pysparkml_landscape.png)
 
+## About PySpark
+
+1. PySpark is a wrapper API to access Spark through Python language. 
+2. To start using PySpark, we have to import `pyspark` first. 
+3. In addition to `pyspark`, there are:
+    1. `pyspark.sql`.
+    2. `pyspark.streaming`.
+    3. `pyspark.ml`.
 
 ## Steps:
 

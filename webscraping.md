@@ -73,7 +73,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         1. `space`: descendant combinator --> example: `html %>% html_nodes('div.first a')` --> get all `a`s that are the descendant of `div.first`. 
         2. `>` : child combinator --> example: `html %>% html_nodes('div.first > a')` --> Select all `a`s that are direct children of `div.first`. 
         3. `+` : adjacent sibling combinator --> example: 
-            1. `html %>% html_nodes('div.first + div')`.
+            1. `html %>% html_nodes('div.first + div')` --> get the `div` which is a sibling of `div.first`. 
             2. HTML:
                 ```
                 <div>

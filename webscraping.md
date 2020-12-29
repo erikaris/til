@@ -116,20 +116,29 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 ### css selectors vs xpath
 
 | No 	| css selectors 	| xpath 	| explanation 	|
-|-	|-	|-	|-	|
+|:--	|:--	|:--	|:--	|
 | 1 	| div > p.blue 	| //div/p[@class = "blue"] 	| - [..] = predicate<br>- @ for class 	|
 | 2 	| ul.list > li:nth-child(5), ul.list > li:last-child, ul.list > li.special 	| //ul[@class = "list"]/li[position() > 4 or @class = "special"] 	| position() =, < , <=, >, >=, !=<br><br>--> for selecting the nth element<br>--> position starts from 1 	|
 | 3 	|  	| - //ol/li[position() != 3 and @class = "blue"]<br>- //ol/li[position() != 3 or @class = "blue"] 	| combining xpath: 'and', 'or' 	|
-| 4 	|  p 	| //p 	|  	|
-| 5 	| body p 	| //body//p 	|  	|
-| 6 	| html > body p 	| /html/body//p 	|  	|
-| 7 	| div > p 	| //div/p 	|  	|
-| 8 	|  	| //div[a] 	| select 'a' that is a child of 'div' 	|
-| 9 	| span > a.external 	| //span/a[@class = "external"] 	|  	|
-| 10 	| #special div   or <br>*#special div 	| //*[@id = "special"]//div 	|  	|
-| 11 	| ol > li:nth-child(2) 	| //ol/li[position() = 2] 	|  	|
-| 12 	|  	| //ol[count(li) = 2] 	| - count()<br>- select parent that has certain number of children 	|
-| 13 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role"] 	|  	|
-| 14 	| table td.role > text() 	| //table//td[@class = "role"]/text() 	| apa text() di css selectors? 	|
-| 15 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role" and text() = " (Voice)"] 	| apa 'and' di css selectors? 	|
-| 16 	|  	| ..<br>--> html_nodes(xpath = '..') 	| selects the parent of each selected element 	|
+| 4 	| *<br>html %>% html_nodes('*') 	|  	| get all nodes 	|
+| 5 	|  p 	| //p 	| find all p 	|
+| 6 	| body p 	| //body//p 	| find p that is under body (not necessary be a direct child) 	|
+| 7 	| body, p 	|  	| find body and p (no descendant relationship required) 	|
+| 8 	| html > body p 	| /html/body//p 	|  	|
+| 9 	| div > p 	| //div/p 	|  	|
+| 10 	|  	| //div[a] 	| select 'a' that is a direct child of 'div' 	|
+| 11 	| span > a.external 	| //span/a[@class = "external"] 	|  	|
+| 12 	| #special div   or <br>*#special div 	| //*[@id = "special"]//div 	|  	|
+| 13 	| ol > li:nth-child(2) 	| //ol/li[position() = 2] 	|  	|
+| 14 	|  	| //ol[count(li) = 2] 	| - count()<br>- select parent that has certain number of children 	|
+| 15 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role"] 	|  	|
+| 16 	| table td.role > text() 	| html_nodes(xpath = '//table//td[@class = "role"]/text()') 	| - text() --> select elements (and their parents) based on their text<br>- text() is put in predicate- apakah yg css selectornya benar? 	|
+| 17 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role" and text() = " (Voice)"] 	| apa 'and' di css selectors? 	|
+| 18 	|  	| ..<br>--> html_nodes(xpath = '..') 	| selects the parent of each selected element 	|
+| 19 	| .alert.emph<br>--> html_nodes('.alert.emph') 	| //*[@class="alert" and @class="emph"] 	| apakah benar begini cara ngambil 2 class dg xpath? 	|
+| 20 	|  	| html_nodes(xpath = 'em[text() = "twice"]' 	| Select all em elements that have "twice" as text 	|
+| 21 	| html %>% html_nodes('li:first-child') 	|  	| selecting the first child, in this case, of li element 	|
+| 22 	| html %>% html_nodes('li:last-child') 	|  	| selecting the last child, in this case, of li element 	|
+| 23 	| html %>% html_nodes('li:nth-child(4)') 	|  	| - selecting the 4th child, in this case, of li element<br>- first-chid, last-child, and nth-child are called pseudo-class 	|
+| 24 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
+| 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|

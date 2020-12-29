@@ -2,8 +2,15 @@
 
 ## Tools
 
-1. R --> rvest, rselenium
+1. R --> Required libraries:
+    1. rvest
+    2. rselenium
+    3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP
+    4. [htmltools](https://www.rdocumentation.org/packages/htmltools/versions/0.5.0): tools for HTML generation and output. <br />
+        Some of its important functions:
+        1. save_html(html, file, background = "white", libdir = "lib")[https://www.rdocumentation.org/packages/htmltools/versions/0.5.0/topics/save_html]: Save the specified HTML object to a file. 
 2. python --> scrapy, beautiful soup. 
+
 
 ## Steps:
 1. there is an HTML file --> `mythml`. 
@@ -60,7 +67,20 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
     1. Structure: `h2#someid {space|>|+|~} .someclass`.
         1. `space`: descendant combinator --> example: `html %>% html_nodes('div.first a')` --> get all `a`s that are the descendant of `div.first`. 
         2. `>` : child combinator --> example: `html %>% html_nodes('div.first > a')` --> Select all `a`s that are direct children of `div.first`. 
-        3. `+` : adjacent sibling combinator --> example: `html %>% html_nodes('div.first + div')`.
+        3. `+` : adjacent sibling combinator --> example: 
+            1. `html %>% html_nodes('div.first + div')`.
+            2. HTML:
+                ```
+                <div>
+                    <h1>First</h1>
+                    </div>
+                    <div>
+                    <p>Some text.</p>
+                    <p>More text.</p>
+                    </div>
+                ```
+                <br />
+                `html %>% html_node()`
         4.  `~` : general sibling combinator --> example: 
             1. `html %>% html_nodes('div.first ~ div')`.
             2. `html %>% html_nodes('div.first ~ *')`.

@@ -13,8 +13,13 @@
 
 
 ## Steps:
-1. there is an HTML file --> `mythml`. 
-2. extract the node
+1. read the HTML File, using `read_html()` function from library `tidyverse()` and assign it to a variable. 
+    Example:
+    ```
+    myhtml <- read_html("https://en.wikipedia.org/wiki/Web_scraping")
+    ```
+ 
+2. extract the node using the function `html_nodes()` from library `htmltools`. 
     ```
     myhtml %>%
       html_nodes()

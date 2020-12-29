@@ -9,21 +9,38 @@
     4. [htmltools](https://www.rdocumentation.org/packages/htmltools/versions/0.5.0): tools for HTML generation and output. <br />
         Some of its important functions:
         1. save_html(html, file, background = "white", libdir = "lib")[https://www.rdocumentation.org/packages/htmltools/versions/0.5.0/topics/save_html]: Save the specified HTML object to a file. 
+    5. tidyverse:
+        1. 
+    6. [textreadr](https://www.rdocumentation.org/packages/textreadr/versions/1.0.2) --> html_read. 
 2. python --> scrapy, beautiful soup. 
 
 
 ## Steps:
-1. read the HTML File, using `read_html()` function from library `tidyverse()` and assign it to a variable. 
-    Example:
-    ```
-    myhtml <- read_html("https://en.wikipedia.org/wiki/Web_scraping")
-    ```
+1. read the HTML File. You can do it by several options:
+    1. using `read_html(url)` function from library `textreadr()` and assign it to a variable. 
+        Example:
+        ```
+        library(textreadr)
+        myhtml <- read_html("https://en.wikipedia.org/wiki/Web_scraping")
+        ```
+    2. using `GET(url)` from library `httr`. 
+        Example:
+        ```
+        library(httr)
+        myhtml <- GET("https://en.wikipedia.org/wiki/Web_scraping")
+    Parse the response into an HTML doc    ```
  
-2. extract the node using the function `html_nodes()` from library `htmltools`. 
-    ```
-    myhtml %>%
-      html_nodes()
-    ```
+2. Parse the reading response into an HTML doc. 
+    1. using the function `html_nodes()` from library `htmltools`. 
+        ```
+        myhtml %>%
+          html_nodes()
+        ```
+    2. using `content()` from library `httr`. 
+        Example:
+        ```
+        content(myhtml)
+        ```
 
 ## Extracting function
 1. html_node()

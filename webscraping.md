@@ -20,6 +20,7 @@
   b. using xpath: `html_nodes(xpath = '//div//p')`.
 3. html_text()
 4. html_table()
+5. read_html() -->  issues an HTTP GET request if provided with a URL. 
 
 All the function above can be combined together. Example: 
 ```
@@ -59,8 +60,10 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
     1. Structure: `h2#someid {space|>|+|~} .someclass`.
         1. `space`: descendant combinator --> example: `html %>% html_nodes('div.first a')` --> get all `a`s that are the descendant of `div.first`. 
         2. `>` : child combinator --> example: `html %>% html_nodes('div.first > a')` --> Select all `a`s that are direct children of `div.first`. 
-        3. `+` : adjacent sibling combinator.
-        4.  `~` : general sibling combinator. 
+        3. `+` : adjacent sibling combinator --> example: `html %>% html_nodes('div.first + div')`.
+        4.  `~` : general sibling combinator --> example: 
+            1. `html %>% html_nodes('div.first ~ div')`.
+            2. `html %>% html_nodes('div.first ~ *')`.
 
 ### xpath
 

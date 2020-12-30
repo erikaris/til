@@ -166,8 +166,14 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
 
 ## About RDD
 
-1. RDD stands for resilient distributed dataset. RDD is the Spark's core data structure. It is an immutable distributed collection of objects.
-2. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 
+1. RDD stands for resilient distributed dataset. RDD is Spark's core data structure and has a format of a dataframe. It is an immutable distributed collection of objects.
+2. Common methods of RDD:
+    1. `.count()`. 
+    2. `.show()`. 
+    3. `.printSchema()`.
+4. Common attribute of RDD:
+    1. `.dtypes`. 
+5. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 
 
     1. `sc.parallelize()` --> Load a list into Spark. <br />
     Example: 
@@ -177,7 +183,7 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     ```
     2. `sc.textFile(file_path, minPartitions)` --> load data from a local file. 
     
-3. Remember that RDD are spread into several partitions (nodes). Thus, to show the RDD as a whole, use `rdd_name.collect()`. It is usually used after `filter()`, `group()`, `count()`, `map()`, etc.  <br />
+6. Remember that RDD are spread into several partitions (nodes). Thus, to show the RDD as a whole, use `rdd_name.collect()`. It is usually used after `filter()`, `group()`, `count()`, `map()`, etc.  <br />
 
     Example:
     ```
@@ -190,7 +196,7 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     Out[4]:
     [1, 2, 3, 4]
     ```
- 4. pair RDD = RDD in a key-value format. .
+ 7. pair RDD = RDD in a key-value format. .
     
 ### What can we do with RDD?
 

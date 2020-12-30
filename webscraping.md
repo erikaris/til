@@ -16,27 +16,53 @@
 
 
 ## Steps:
-1. read the HTML File. You can do it by several options:
+1. Check your browser's user agent. We can do this by harnessing a special test platform address [**https://httpbin.org/headers**](https://httpbin.org/headers) that returns the headers of each request that it reaches. <br />
+    Example:
+    ```
+    # Access https://httpbin.org/headers with httr
+    response <- GET('https://httpbin.org/headers')
+    # Print its content
+    print(content(response))
+    ```
+    Output:
+    ```
+    $headers
+    $headers$Accept
+    [1] "application/json, text/xml, application/xml, */*"
+
+    $headers$`Accept-Encoding`
+    [1] "deflate, gzip"
+
+    $headers$Host
+    [1] "httpbin.org"
+
+    $headers$`User-Agent`
+    [1] "libcurl/7.47.0 r-curl/4.3 httr/1.4.2"
+
+    $headers$`X-Amzn-Trace-Id`
+    [1] "Root=1-5fecea90-2502f62e7222025f605f9d58"
+    ```
+2. read the HTML File. You can do it by several options:
     1. using `read_html(url)` function from library `textreadr()` and assign it to a variable. 
         Example:
         ```
         library(textreadr)
-        myhtml <- read_html("https://en.wikipedia.org/wiki/Web_scraping")
+        myhtml <- read_html("https://www.atlasai.co/")
         ```
     2. using `GET(url)` from library `httr`. 
         Example:
         ```
         library(httr)
-        myhtml <- GET("https://en.wikipedia.org/wiki/Web_scraping")
+        myhtml <- GET("https://www.atlasai.co/")
     Parse the response into an HTML doc    ```
 
-2. Check tht status code of the response using function `status_code()` from library `httr`. <br />
+3. Check the [status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) of the response using function `status_code()` from library `httr`. <br />
     Example:
     ```
-    detik <- GET('https://www.detik.com/')
-    status_code(detik)
+    > status_code(myhtml)
+    [1] 200
     ```
-3. Parse the reading response into an HTML doc. 
+4. Parse the reading response into an HTML doc.   
     1. using the function `html_nodes()` from library `htmltools`. 
         ```
         myhtml %>%
@@ -47,10 +73,10 @@
         ```
         content(myhtml)
         ```
-4. Extract the intended nodes using function `html_nodes()` and `html_text()` from library `rvest`. <br />
+5. Extract the intended nodes using function `html_nodes()` and `html_text()` from library `rvest`. <br />
     Example: 
     ```
-    wikipedia_page %>% 
+    myhtml %>% 
         html_nodes(xpath = '//table//tr[position() = 9] /td') %>% 
         html_text()
     ```

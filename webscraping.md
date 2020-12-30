@@ -29,8 +29,14 @@
         library(httr)
         myhtml <- GET("https://en.wikipedia.org/wiki/Web_scraping")
     Parse the response into an HTML doc    ```
- 
-2. Parse the reading response into an HTML doc. 
+
+2. Check tht status code of the response using function `status_code()` from library `httr`. <br />
+    Example:
+    ```
+    detik <- GET('https://www.detik.com/')
+    status_code(detik)
+    ```
+3. Parse the reading response into an HTML doc. 
     1. using the function `html_nodes()` from library `htmltools`. 
         ```
         myhtml %>%
@@ -41,6 +47,14 @@
         ```
         content(myhtml)
         ```
+4. Extract the intended nodes using function `html_nodes()` and `html_text()` from library `rvest`. <br />
+    Example: 
+    ```
+    wikipedia_page %>% 
+        html_nodes(xpath = '//table//tr[position() = 9] /td') %>% 
+        html_text()
+    ```
+    
 
 ## Extracting function
 1. html_node()

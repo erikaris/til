@@ -42,6 +42,7 @@
     $headers$`X-Amzn-Trace-Id`
     [1] "Root=1-5fecea90-2502f62e7222025f605f9d58"
     ```
+    From the example above, we can see that the user agent is `libcurl/7.47.0 r-curl/4.3 httr/1.4.2`.
 2. read the HTML File. You can do it by several options:
     1. using `read_html(url)` function from library `textreadr()` and assign it to a variable. 
         Example:
@@ -151,6 +152,10 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 
 1. start with double slash `//`. Next element use single slash `/`. 
 2. specify class, id, css, position, count, etc using **predicate** `[...]`. 
+3. provide special predicated functions which are unavailable in the `css selectors` version:
+    1. position() --> to select element located in certain position. 
+    2. count() --> select element that has certain number of children/siblings/etc. 
+    3. text() --> select element that has certain text. 
 
 
 ### css selectors vs xpath

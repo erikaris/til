@@ -385,7 +385,7 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
 2. `spark.read.format_name` --> eg: 
 
     - `spark.read.parquet('asdf.parquet)`.
-    - `df_csv = spark.read.csv("file.csv", header=True, inferSchema=True)` --> create a dataframe from a csv file. 
+    - `df_csv = [spark.read.csv("file.csv", sep=',', header=True, inferSchema=True)](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=read%20csv#pyspark.sql.DataFrameReader)` --> create a dataframe from a csv file. 
     - `df_txt = spark.read.txt("file.txt", header=True, inferSchema=True)` --> create a dataframe from a txt file.
     - `df_json = spark.read.json("file.json", header=True, inferSchema=True)` --> create a dataframe from a json file.
     - `df = spark.read.format('csv').options(Header=True).load('file_name.csv')`

@@ -190,4 +190,4 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 23 	| html %>% html_nodes('li:nth-child(4)') 	|  	| - selecting the 4th child, in this case, of li element<br>- first-chid, last-child, and nth-child are called pseudo-class 	|
 | 24 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
 | 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
-|  	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|
+| 26 	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|

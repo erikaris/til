@@ -56,7 +56,7 @@
             2. config = Additional configuration settings such as http authentication (`[authenticate()](https://www.rdocumentation.org/link/authenticate()?package=httr&version=1.4.2&to=%3Dauthenticate)`), additional headers (`[add_headers()](https://www.rdocumentation.org/link/add_headers()?package=httr&version=1.4.2&to=%3Dadd_headers)`), cookies (`[set_cookies()](https://www.rdocumentation.org/link/set_cookies()?package=httr&version=1.4.2&to=%3Dset_cookies)`) etc. See `[config()](https://www.rdocumentation.org/link/config()?package=httr&version=1.4.2&to=%3Dconfig)` for full details and list of helpers
             3. ... = various optional arguments, such as:
                 1. `user_agent('customized user agent')` --> example: `response <- GET('https://httpbin.org/user-agent', user_agent("Erika user agent"))`. <br />
-                Alternative way to modify `user agent` is by setting it globally using `set_config(add_headers(``User-Agent`` = "the modified user agent"))`.  <br />
+                Alternative way to modify `user agent` is by setting it globally using `set_config(add_headers(\`User-Agent\` = "the modified user agent"))`.  <br />
                 Example:
                 ```
                 # Globally set the user agent

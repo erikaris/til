@@ -50,12 +50,15 @@
         library(textreadr)
         myhtml <- read_html("https://www.atlasai.co/")
         ```
-    2. using `GET(url)` from library `httr`. 
-        Example:
+    2. using `GET(url = NULL, config = list())` from library `httr`. <br />
+        1. Arguments:
+            1. url = url of the page to retrieve, write as string (enclosed in quotes). 
+            2. config = Additional configuration settings such as http authentication (`[authenticate()](https://www.rdocumentation.org/link/authenticate()?package=httr&version=1.4.2&to=%3Dauthenticate)`), additional headers (`[add_headers()](https://www.rdocumentation.org/link/add_headers()?package=httr&version=1.4.2&to=%3Dadd_headers)`), cookies (`[set_cookies()](https://www.rdocumentation.org/link/set_cookies()?package=httr&version=1.4.2&to=%3Dset_cookies)`) etc. See `[config()](https://www.rdocumentation.org/link/config()?package=httr&version=1.4.2&to=%3Dconfig)` for full details and list of helpers
+        2. Example:
         ```
         library(httr)
         myhtml <- GET("https://www.atlasai.co/")
-    Parse the response into an HTML doc    ```
+        ```
 
 3. Check the [status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) of the response using function `status_code()` from library `httr`. <br />
     Example:
@@ -161,7 +164,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 ### css selectors vs xpath
 
 | No 	| css selectors 	| xpath 	| explanation 	|
-|:--	|:--	|:--	|:--	|
+|:-:	|-	|-	|-	|
 | 1 	| div > p.blue 	| //div/p[@class = "blue"] 	| - [..] = predicate<br>- @ for class 	|
 | 2 	| ul.list > li:nth-child(5), ul.list > li:last-child, ul.list > li.special 	| //ul[@class = "list"]/li[position() > 4 or @class = "special"] 	| position() =, < , <=, >, >=, !=<br><br>--> for selecting the nth element<br>--> position starts from 1 	|
 | 3 	|  	| - //ol/li[position() != 3 and @class = "blue"]<br>- //ol/li[position() != 3 or @class = "blue"] 	| combining xpath: 'and', 'or' 	|
@@ -175,7 +178,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 11 	| span > a.external 	| //span/a[@class = "external"] 	|  	|
 | 12 	| #special div   or <br>*#special div 	| //*[@id = "special"]//div 	|  	|
 | 13 	| ol > li:nth-child(2) 	| //ol/li[position() = 2] 	|  	|
-| 14 	|  	| //ol[count(li) = 2] 	| - count()<br>- select parent that has certain number of children 	|
+| 14 	| - 	| - html %>% html_nodes(xpath = '//ol[count(li) = 2]')<br>- html %>% html_nodes(xpath = '//ol[count(li) > 2]') 	| - count()<br>- select element that has certain number of children. In this example, it's 2 	|
 | 15 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role"] 	|  	|
 | 16 	| table td.role > text() 	| html_nodes(xpath = '//table//td[@class = "role"]/text()') 	| - text() --> select elements (and their parents) based on their text<br>- text() is put in predicate- apakah yg css selectornya benar? 	|
 | 17 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role" and text() = " (Voice)"] 	| apa 'and' di css selectors? 	|
@@ -187,3 +190,4 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 23 	| html %>% html_nodes('li:nth-child(4)') 	|  	| - selecting the 4th child, in this case, of li element<br>- first-chid, last-child, and nth-child are called pseudo-class 	|
 | 24 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
 | 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
+|  	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|

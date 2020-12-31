@@ -50,10 +50,12 @@
         library(textreadr)
         myhtml <- read_html("https://www.atlasai.co/")
         ```
-    2. using `GET(url = NULL, config = list())` from library `httr`. <br />
+    2. using `GET(url = NULL, config = list(), ...)` from library `httr`. <br />
         1. Arguments:
             1. url = url of the page to retrieve, write as string (enclosed in quotes). 
             2. config = Additional configuration settings such as http authentication (`[authenticate()](https://www.rdocumentation.org/link/authenticate()?package=httr&version=1.4.2&to=%3Dauthenticate)`), additional headers (`[add_headers()](https://www.rdocumentation.org/link/add_headers()?package=httr&version=1.4.2&to=%3Dadd_headers)`), cookies (`[set_cookies()](https://www.rdocumentation.org/link/set_cookies()?package=httr&version=1.4.2&to=%3Dset_cookies)`) etc. See `[config()](https://www.rdocumentation.org/link/config()?package=httr&version=1.4.2&to=%3Dconfig)` for full details and list of helpers
+            3. ... = various optional arguments, such as:
+                1. `user_agent('customized user agent')` --> example: `response <- GET('https://httpbin.org/user-agent', user_agent("A request from a DataCamp course on scraping"))`.
         2. Example:
         ```
         library(httr)

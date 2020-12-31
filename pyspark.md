@@ -392,8 +392,23 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
     1. `spark.read.parquet('asdf.parquet)`.
     2 [`df_csv = [spark.read.csv("file.csv", schema=None, sep=None, header=None, inferSchema=None, nullValue=None, nanValue=None)`](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=read%20csv#pyspark.sql.DataFrameReader) --> create a dataframe from a csv file. <br />
     The options:
-        1. `schema` = schema – an optional `pyspark.sql.types.StructType` for the input schema or a DDL-formatted string (For example `col0 INT, col1 DOUBLE`).
-        2. 	`sep` = separator. default = `,`. 
+        1. `schema` = schema – an optional `pyspark.sql.types.StructType` for the input schema or a DDL-formatted string (For example `col0 INT, col1 DOUBLE`). Schema can be defined using function `StructType([])`. Example:
+        
+		```
+        schema = StructType([
+                    StructField("maker", StringType()),
+                    StructField("model", StringType()),
+                    StructField("origin", StringType()),
+                    StructField("type", StringType()),
+                    StructField("cyl", IntegerType()),
+                    StructField("size", DoubleType()),
+                    StructField("weight", IntegerType()),
+                    StructField("length", DoubleType()),
+                    StructField("rpm", IntegerType()),
+                    StructField("consumption", DoubleType())
+                    ])
+		```
+        2. `sep` = separator. default = `,`. 
         3. `header` = uses the first line as names of columns. default = `False`. 
         4. `inferSchema` =  infers input schema automatically from data, default = `False`. 
         5. `nullValue` = string representation of a null value, default empty string (`" "`). 

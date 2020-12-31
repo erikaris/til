@@ -11,6 +11,8 @@
 - [Map vs flatMap](#map-vs-flatmap)
 - [Joining 2 dataframes](#joining-2-dataframes)
 - [read and write](#read-and-write)
+    - [Read](#read)
+    - [Write](#write)
 - [Select](#select)
 - [Filter: .filter(), .where(), .where(~ )](#filter--filter----where----where----)
 - [Creating and Modifying Column](#creating-and-modifying-column)
@@ -381,16 +383,30 @@ Note that `.map()`, `.filter()`, and `.reduceByKey()` are often combined with `l
 
 ## read and write
 
+### Read
+
 1. `spark.read.format('format_name')`  --> eg: `spark.read.format('csv')`.
 2. `spark.read.format_name` --> eg: 
 
-    - `spark.read.parquet('asdf.parquet)`.
-    - `df_csv = [spark.read.csv("file.csv", sep=',', header=True, inferSchema=True)](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=read%20csv#pyspark.sql.DataFrameReader)` --> create a dataframe from a csv file. 
-    - `df_txt = spark.read.txt("file.txt", header=True, inferSchema=True)` --> create a dataframe from a txt file.
-    - `df_json = spark.read.json("file.json", header=True, inferSchema=True)` --> create a dataframe from a json file.
-    - `df = spark.read.format('csv').options(Header=True).load('file_name.csv')`
+    1. `spark.read.parquet('asdf.parquet)`.
+    2 [`df_csv = [spark.read.csv("file.csv", schema=None, sep=None, header=None, inferSchema=None, nullValue=None, nanValue=None)`](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=read%20csv#pyspark.sql.DataFrameReader) --> create a dataframe from a csv file. <br />
+    The options:
+        1. `schema` = schema – an optional `pyspark.sql.types.StructType` for the input schema or a DDL-formatted string (For example `col0 INT, col1 DOUBLE`).
+        2. 	`sep` = separator. default = `,`. 
+        3. `header` = uses the first line as names of columns. default = `False`. 
+        4. `inferSchema` =  infers input schema automatically from data, default = `False`. 
+        5. `nullValue` = string representation of a null value, default empty string (`" "`). 
+        6. `nanValue` = string representation of a non-number value, default `NaN`.
+    3 `df_txt = spark.read.txt("file.txt", header=True, inferSchema=True)` --> create a dataframe from a txt file.
+    4 `df_json = spark.read.json("file.json", header=True, inferSchema=True)` --> create a dataframe from a json file.
+    5 `df = spark.read.format('csv').options(Header=True).load('file_name.csv')`
 
-3. `spark.write.format('format_name_type')` --> eg: `df3.write.parquet('AA_DFW_ALL.parquet', mode='overwrite')`. 
+### Write
+1. `spark.write.format('format_name_type')` --> eg: `df3.write.parquet('AA_DFW_ALL.parquet', mode='overwrite')`. 
+
+    
+    
+    csv(path, schema=None, sep=None, header=None, inferSchema=None, nullValue=None, nanValue=None)
 
 ## Select
 

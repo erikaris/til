@@ -16,7 +16,7 @@
 
 
 ## Steps:
-1. Check your browser's user agent. We can do this by harnessing a special test platform address [**https://httpbin.org/headers**](https://httpbin.org/headers) that returns the headers of each request that it reaches. <br />
+1. Check your browser's user agent. We can do this by harnessing a special test platform address [**https://httpbin.org/headers**](https://httpbin.org/headers) that returns the headers of each request that it reaches. User agent can be customized to make it meaningful for the owners of the website you're scraping.<br />
     Example:
     ```
     # Access https://httpbin.org/headers with httr

@@ -171,8 +171,9 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
 1. RDD stands for resilient distributed dataset. RDD is Spark's core data structure and has a format of a dataframe. It is an immutable distributed collection of objects.
 2. Common methods of RDD:
     1. `.count()`. 
-    2. `.show()`. 
-    3. `.printSchema()`.
+    2. `.show()` --> like `.head()`. 
+    3. `.printSchema()`-->  check column types including whether it's nullable or not. 
+    4. `.dtypes` --> another way to check column types, but without the nullable information. 
 4. Common attribute of RDD:
     1. `.dtypes`. 
 5. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 

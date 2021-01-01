@@ -9,6 +9,25 @@
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ## Understanding Basic Web
+![Alt text](./the_web.png)
+*[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
+
+### Web Component:
+1. Server
+2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
+3. A request is sent to the web server. Example of a request:
+    ![Alt text](./request.png)
+4. Server replies with a response, which is the web page that we see. 
+    1. in the page: header, body, footer. 
+    2. header provides: [status code and status message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Response status codes are grouped into 5 classes:
+        1. Informational responses (100–199), e.g.: 101 = "switching protocol"
+        2. Successful responses (200–299), e.g.: 200 = "OK"
+        3. Redirects (300–399), e.g.: 301 = "moved permanently"
+        4. Client errors (400–499), e.g.: 403 = "forbidden", 404 = "not found"
+        5. Server errors (500–599), e.g.: 500 = "internal server error", 504 = "gateway timeout". 
+    3. Example of response:
+    ![Alt text](./responses.png)
+    *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ## The Ethics
 
@@ -219,3 +238,6 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 24 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
 | 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
 | 26 	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|
+
+### Resources:
+1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

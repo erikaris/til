@@ -29,8 +29,8 @@
         4. Client errors (400–499), e.g.: 403 = "forbidden", 404 = "not found"
         5. Server errors (500–599), e.g.: 500 = "internal server error", 504 = "gateway timeout". 
     3. Example of response:
-    <img src="./responses.png" alt="drawing" width="500"/>
-<figcaption> Example of a response from server. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
+        <img src="./responses.png" alt="drawing" width="500"/> <br />
+        <figcaption> Example of a response from server. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
 
 ## The Ethics
 

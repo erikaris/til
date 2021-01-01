@@ -56,8 +56,8 @@
 2. To start using PySpark, we have to import `pyspark` first. 
 3. In addition to `pyspark`, there are:
     1. `pyspark.sql`: use for importing and creating `SparkSession`. 
-    	1. `from pyspark import SparkSession`. 
-	2. `from pyspark.sql.functions import round`.
+    	1. `from pyspark import SparkSession`.
+        2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
 

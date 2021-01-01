@@ -177,6 +177,8 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     4. `df.dtypes` --> another way to check column types, but without the nullable information. 
     5. `df.drop('col1', 'col2')` --> dropping column 1 and 2 from the df. 
     6. `df.select('col1', 'col2')` --> selecting column 1 and 2 from the df. 
+    7. `df.dropna()` --> `cars.dropna()`.
+    8. `df.filter()` --> exampe: `cars.filter('cyl IS NOT NULL')`, `cars.filter('cyl IS NULL')`
 4. Common attribute of RDD:
     1. `.dtypes`. 
 5. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 

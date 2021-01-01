@@ -18,7 +18,7 @@
 1. Server
 2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
 3. A request is sent to the web server. Example of a request:
-    <img src="./request.png" alt="drawing" width="350"/>
+    <img src="./request.png" alt="drawing" width="500"/>
 <figcaption> Example of a request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
 4. Server replies with a response, which is the web page that we see. 
     1. in the page: header, body, footer. 
@@ -29,7 +29,7 @@
         4. Client errors (400–499), e.g.: 403 = "forbidden", 404 = "not found"
         5. Server errors (500–599), e.g.: 500 = "internal server error", 504 = "gateway timeout". 
     3. Example of response:
-    <img src="./responses.png" alt="drawing" width="350"/>
+    <img src="./responses.png" alt="drawing" width="500"/>
 <figcaption> Example of a response from server. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
 
 ## The Ethics

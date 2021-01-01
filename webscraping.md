@@ -1,5 +1,12 @@
 # Web Scraping
 
+- [Understanding Basic HTTP](#understanding-basic-http)
+
+## Understanding Basic HTTP
+![Alt text](./http.png)
+
+## Understanding Basic Web
+
 ## Tools
 
 1. R --> Required libraries:

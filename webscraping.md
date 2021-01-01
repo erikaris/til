@@ -17,9 +17,9 @@
 ### Web Component:
 1. Server
 2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
-3. A request is sent to the web server. Example of a request:
-    <img src="./request.png" alt="drawing" width="500"/>
-<figcaption> Example of a request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
+3. A request is sent to the web server. Example of a request:<br />
+    <img src="./request.png" alt="drawing" width="500"/> <br />
+    <figcaption> Example of a request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
 4. Server replies with a response, which is the web page that we see. 
     1. in the page: header, body, footer. 
     2. header provides: [status code and status message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Response status codes are grouped into 5 classes:
@@ -28,9 +28,9 @@
         3. Redirects (300–399), e.g.: 301 = "moved permanently"
         4. Client errors (400–499), e.g.: 403 = "forbidden", 404 = "not found"
         5. Server errors (500–599), e.g.: 500 = "internal server error", 504 = "gateway timeout". 
-    3. Example of response:
+    3. Example of response: <br />
         <img src="./responses.png" alt="drawing" width="500"/> <br />
-        <figcaption> Example of a response from server. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
+        <figcaption> Example of a response from server. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
 
 ## The Ethics
 

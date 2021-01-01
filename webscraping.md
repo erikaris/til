@@ -5,6 +5,7 @@
 - [Web Component](#web-component)
 - [The Ethics](#the-ethics)
 - [Tools](#tools)
+- [Steps](#steps)
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)

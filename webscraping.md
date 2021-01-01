@@ -17,9 +17,14 @@
 ### Web Component:
 1. Server
 2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
-3. A request is sent to the web server. Example of a request:<br />
-    <img src="./request.png" alt="drawing" width="500"/> <br />
-    <figcaption> Example of a request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
+3. A request is sent to the web server. There are 2 types of request:
+    1. **GET**: Used to fetch a resource without submitting data ( GET /index.html ). Example of a GET request:<br />
+        <img src="./request.png" alt="drawing" width="500"/> <br />
+        <figcaption> Example of a GET request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
+    2. **POST**: Used to send data to a server, e.g. after filling out a form on a page. Example of a GET request:<br />
+        <img src="./post_request.png" alt="drawing" width="400"/> <br />
+        <figcaption> Example of a POST request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
+    
 4. Server replies with a response, which is the web page that we see. 
     1. in the page: header, body, footer. 
     2. header provides: [status code and status message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Response status codes are grouped into 5 classes:

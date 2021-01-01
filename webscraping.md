@@ -1,12 +1,19 @@
 # Web Scraping
 
 - [Understanding Basic HTTP](#understanding-basic-http)
+- [Understanding Basic Web](#understanding-basic-web)
+- [The Ethics](#the-ethics)
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ## Understanding Basic Web
+
+## The Ethics
+
+1. Tell who you are through the user agent
+2. Be gentle and add wait time between requests --> don't overwhelm the server. 
 
 ## Tools
 

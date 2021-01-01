@@ -9,7 +9,7 @@
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ## Understanding Basic Web
-![Alt text](./the_web.png =200x)
+<img src="./the_web.png" alt="drawing" width="200"/>
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ### Web Component:

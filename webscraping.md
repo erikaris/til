@@ -5,7 +5,8 @@
 - [Web Component](#web-component)
 - [The Ethics](#the-ethics)
 - [Tools](#tools)
-- [Steps](#steps)
+- [Steps in R](#steps-in-r)
+- [Extracting Functions](#extracting-functions)
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)
@@ -58,7 +59,7 @@
 2. python --> scrapy, beautiful soup. 
 
 
-## Steps:
+## Steps in R:
 1. Check your browser's user agent. We can do this by harnessing a special test platform address [**https://httpbin.org/headers**](https://httpbin.org/headers) that returns the headers of each request that it reaches. User agent can be customized to make it meaningful for the owners of the website you're scraping.<br />
     Example:
     ```
@@ -86,7 +87,7 @@
     [1] "Root=1-5fecea90-2502f62e7222025f605f9d58"
     ```
     From the example above, we can see that the user agent is `libcurl/7.47.0 r-curl/4.3 httr/1.4.2`.
-2. read the HTML File. You can do it by several options:
+2. Send HTTP requests. You can do it by either:
     1. using `read_html(url)` function from library `textreadr()` and assign it to a variable. 
         Example:
         ```
@@ -140,9 +141,8 @@
         html_nodes(xpath = '//table//tr[position() = 9] /td') %>% 
         html_text()
     ```
-    
 
-## Extracting function
+## Extracting functions
 1. html_node()
 2. html_nodes(args)  --> args = css selectors or xpath. 
   a. using css selector: `html_nodes('div p')`.

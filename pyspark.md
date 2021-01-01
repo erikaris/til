@@ -56,6 +56,8 @@
 2. To start using PySpark, we have to import `pyspark` first. 
 3. In addition to `pyspark`, there are:
     1. `pyspark.sql`: use for importing and creating `SparkSession`. 
+    	1. `from pyspark import SparkSession`.
+	2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
 
@@ -177,8 +179,9 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     4. `df.dtypes` --> another way to check column types, but without the nullable information. 
     5. `df.drop('col1', 'col2')` --> dropping column 1 and 2 from the df. 
     6. `df.select('col1', 'col2')` --> selecting column 1 and 2 from the df. 
-    7. `df.dropna()` --> `cars.dropna()`.
-    8. `df.filter()` --> exampe: `cars.filter('cyl IS NOT NULL')`, `cars.filter('cyl IS NULL')`
+    7. `df.dropna()` --> `cars = cars.dropna()`.
+    8. `df.filter()` --> exampe: `cars = cars.filter('cyl IS NOT NULL')`, `cars = cars.filter('cyl IS NULL')`. 
+    9. `df.withColumn` --> create/modify (mutate) columns. Example:`cars = cars.withColumn('mass', round(cars.weight / 2.205, 0))`.
 4. Common attribute of RDD:
     1. `.dtypes`. 
 5. RDD can be created using `sc.parallelize()` or `sc.textFile()`. 

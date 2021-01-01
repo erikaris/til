@@ -4,7 +4,7 @@
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)
-*https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview*
+<div align="center">*Image from [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*</div>
 
 ## Understanding Basic Web
 

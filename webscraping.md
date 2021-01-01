@@ -2,14 +2,16 @@
 
 - [Understanding Basic HTTP](#understanding-basic-http)
 - [Understanding Basic Web](#understanding-basic-web)
+- [Web Component](#web-component)
 - [The Ethics](#the-ethics)
+- [Tools](#tools)
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
 ## Understanding Basic Web
-<img src="./the_web.png" alt="drawing" width="800"/>
+<img src="./the_web.png" alt="drawing" width="500"/>
 <figcaption> The web overview. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
 
 ### Web Component:

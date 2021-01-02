@@ -257,5 +257,11 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
 | 26 	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|
 
+
+## Obtaining Data from an URL
+
+1. Use the function `read.xxx` from basic R function, where `xxx` is the type of the file to download from the internet.  `read.csv('url')` which is a basic R function or use `read_csv('url)` from library `readr`. Example: `read.csv("http://website.url/remote-file.csv")`. 
+2. 
+
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

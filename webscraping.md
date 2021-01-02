@@ -41,7 +41,7 @@
 
 ## The Ethics
 
-1. When a client send a request, web server already registers the client's IP address. So, it's strongly encouraged for the clients to tell who they are by defining the `user agent`. We can define `user agent` by modifying the request headers with library `httr`. There are Example:
+1. When a client send a request, web server already registers the client's IP address. So, it's strongly encouraged for the clients to tell who they are by defining the `user agent`. We can define `user agent` by modifying the request headers with library `httr`. There are 2 ways for setting a customized user agents:
 
     - `response <- GET('http://example.com', user_agent("Hey, it's me, Timo! Reach me at timo@timogrossenbacher.ch."))`.
     - `set_config(add_headers(`User-Agent` = "Hey, it's me, Timo! Reach me at timo@timogrossenbacher.ch.")) response <- GET('http://example.com')`.

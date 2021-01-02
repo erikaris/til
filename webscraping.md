@@ -11,6 +11,7 @@
 - [CSS Selectors](#css-selectors)
 - [XPATH](#xpath)
 - [CSS Selectors vs XPATH](#css-selectors-vs-xpath)
+- [About API](#about-api)
 - [Resources](#resources)
 
 ## Understanding Basic HTTP
@@ -261,16 +262,24 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 ## Obtaining Data from an URL
 
 1. Importing. <br />
-    Use the function `read.xxx` from basic R function, where `xxx` is the type of the file to download from the internet.  `read.csv('url')` which is a basic R function or use `read_csv('url)` from library `readr`. <br />
+    Use the function `read.xxx()` from `basic R` function or `read_xxx()` , where `xxx` is the type of the file to download from the internet.  `read.csv('url')` which is a basic R function or use `read_csv('url)` from library `readr`. <br />
     Example: <br />
+    
         1. `read.csv("http://website.url/remote-file.csv")`. 
         2. `read.delim(tsv_url)`.
+        
 2. Downloading <br />
-    Use the function 
-    download.file(
-url = "http://website.url/remote-file.csv",
-destfile = "local-file.csv"
-)
+    Use the function `download.file(url, destfile)` 
+    ```
+     download.file(
+        url = "http://website.url/remote-file.csv",
+        destfile = "local-file.csv"
+        )
+    ```
+    
+### About API
+
+1. API = Application Programming Interface
 
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

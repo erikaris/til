@@ -7,6 +7,7 @@
 - [Tools](#tools)
 - [Steps in R](#steps-in-r)
 - [Extracting Functions](#extracting-functions)
+- [Selectors](#selectors)
 
 ## Understanding Basic HTTP
 ![Alt text](./http.png)

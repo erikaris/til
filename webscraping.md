@@ -260,8 +260,17 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 
 ## Obtaining Data from an URL
 
-1. Use the function `read.xxx` from basic R function, where `xxx` is the type of the file to download from the internet.  `read.csv('url')` which is a basic R function or use `read_csv('url)` from library `readr`. Example: `read.csv("http://website.url/remote-file.csv")`. 
-2. 
+1. Importing. <br />
+    Use the function `read.xxx` from basic R function, where `xxx` is the type of the file to download from the internet.  `read.csv('url')` which is a basic R function or use `read_csv('url)` from library `readr`. <br />
+    Example: <br />
+        1. `read.csv("http://website.url/remote-file.csv")`. 
+        2. `read.delim(tsv_url)`.
+2. Downloading <br />
+    Use the function 
+    download.file(
+url = "http://website.url/remote-file.csv",
+destfile = "local-file.csv"
+)
 
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

@@ -2,8 +2,8 @@
 
 - [Understanding Basic HTTP](#understanding-basic-http)
 - [Understanding Basic Web](#understanding-basic-web)
-- [Web Component](#web-component)
-- [Understanding Request and Response](#understanding-request-and-response)
+    - [Web Component](#web-component)
+    - [Understanding Request and Response](#understanding-request-and-response)
 - [The Ethics](#the-ethics)
 - [Tools](#tools)
 - [Steps in R](#steps-in-r)

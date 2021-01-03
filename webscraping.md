@@ -292,7 +292,20 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 5. Useful R libraries for dealing with API:
     1. [`pageviews`](https://www.rdocumentation.org/packages/pageviews/versions/0.5.0) --> An API client library for Wikimedia traffic data.<br />
         Useful functions:
-        1. [`article_pageviews`](https://www.rdocumentation.org/packages/pageviews/versions/0.5.0/topics/article_pageviews) --> Retrieve Pageview Data for an Article
+        1. [`article_pageviews`](https://www.rdocumentation.org/packages/pageviews/versions/0.5.0/topics/article_pageviews) --> Retrieve Pageview Data for an Article. The usage: <br />
+        ```
+        article_pageviews(
+          project = "en.wikipedia",
+          article = "R (programming language)",
+          platform = "all",
+          user_type = "all",
+          start = "2015100100",
+          end = NULL,
+          reformat = TRUE,
+          granularity = "daily",
+          ...
+        )
+        ```
 
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

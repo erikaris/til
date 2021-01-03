@@ -29,11 +29,17 @@
 3. Request and response
 
 ### Understanding Request and Response
-1. A request is sent to the web server. A request is basically a conversation between client machine and the server. What you reqeust is what you want to happen. There are 7 types of [`http request`](https://www.w3schools.com/tags/ref_httpmethods.asp), such as `GET`, `POST`, `HEAD`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`. In here, we'll just discuss about:
-    1. **GET**: Used to fetch a resource without submitting data ( GET /index.html ). Example of a GET request:<br />
+1. A request is sent to the web server. A request is basically a conversation between client machine and the server. What you reqeust is what you want to happen. There are 7 types of [`http request`](https://www.w3schools.com/tags/ref_httpmethods.asp), such as `GET`, `POST`, `HEAD`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`. These all can be done by utilizing the library `httr`. In here, we'll just discuss about:
+    1. **GET**: 
+        1. Used to fetch a resource without submitting data ( GET /index.html ). 
+        2. Usage: [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET). 
+        3. Example of a GET request:<br />
         <img src="./request.png" alt="drawing" width="500"/> <br />
         <figcaption> Example of a GET request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
-    2. **POST**: Used to send data to a server, e.g. after filling out a form on a page. Example of a GET request:<br />
+    2. **POST**: 
+        1. Used to send data to a server, e.g. after filling out a form on a page. 
+        2. Usage: [`POST(url)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/POST). 
+        3. Example of a GET request:<br />
         <img src="./post_request.png" alt="drawing" width="400"/> <br />
         <figcaption> Example of a POST request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
     
@@ -103,14 +109,14 @@
     [1] "Root=1-5fecea90-2502f62e7222025f605f9d58"
     ```
     From the example above, we can see that the user agent is `libcurl/7.47.0 r-curl/4.3 httr/1.4.2`.
-2. Send HTTP requests. You can do it by either:
+2. Send [HTTP requests](#understanding-request-and-response). As mentioned earlier, we will just be focusing on `GET` and `POST`. We can do it by either:
     1. using `read_html(url)` function from library `textreadr()` and assign it to a variable. 
         Example:
         ```
         library(textreadr)
         myhtml <- read_html("https://www.atlasai.co/")
         ```
-    2. using `GET(url = NULL, config = list(), ...)` or `POST()` from library `httr`. <br />
+    2. using [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET) or [`POST(url)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/POST) from library `httr`. <br />
         1. Arguments:
             1. url = url of the page to retrieve, write as string (enclosed in quotes). 
             2. config = Additional configuration settings such as http authentication (`[authenticate()](https://www.rdocumentation.org/link/authenticate()?package=httr&version=1.4.2&to=%3Dauthenticate)`), additional headers (`[add_headers()](https://www.rdocumentation.org/link/add_headers()?package=httr&version=1.4.2&to=%3Dadd_headers)`), cookies (`[set_cookies()](https://www.rdocumentation.org/link/set_cookies()?package=httr&version=1.4.2&to=%3Dset_cookies)`) etc. See `[config()](https://www.rdocumentation.org/link/config()?package=httr&version=1.4.2&to=%3Dconfig)` for full details and list of helpers

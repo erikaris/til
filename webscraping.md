@@ -335,7 +335,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         
     2. [`birdnik`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1) --> A connector to the API for [Wordnik](https://www.wordnik.com). [Wordnik](https://www.wordnik.com) is a service that provides English-language words, their definitions, pronounciations, and a whole host of other nifty data like frequency of use in literature and parts-of-speech data. birdnik is a connector to that service. Some of its useful functions:
     
-        1. [`word_frequency(key, words, use_canonical = FALSE, start_year = 1800,end_year = 2012,...`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1/topics/word_frequency) --> provides, for a vector of words, the number of appearances each word made per year in the source texts Wordnik uses. <br />
+        1. [`word_frequency(key, words, use_canonical = FALSE, start_year = 1800,end_year = 2012,...`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1/topics/word_frequency) --> provides, for a vector of words, the number of appearances each word made per year in the source texts Wordnik uses. It returns a dataframe of 3 columns: word, year and frequency <br />
         Example:
         ```
         # Load birdnik
@@ -344,6 +344,32 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 
         # Get the word frequency for "vector", using api_key to access it
         vector_frequency <- word_frequency(api_key, "vector")
+        ```
+        <br />
+        Output: <br />
+        
+        ```
+            # Load birdnik
+            library(httr)
+            library(birdnik)
+            # Get the word frequency for "vector", using api_key to access it
+            vector_frequency <- word_frequency(api_key, "vector")
+            head(vector_frequency, 7)
+                word year count
+            1 vector 1824     2
+            2 vector 1857     1
+            3 vector 1860     1
+            4 vector 1861     1
+            5 vector 1869     1
+            6 vector 1871     1
+            7 vector 1887     1
+        ```
+        ```
+            > str(vector_frequency)
+            'data.frame':	84 obs. of  3 variables:
+             $ word : chr  "vector" "vector" "vector" "vector" ...
+             $ year : chr  "1824" "1857" "1860" "1861" ...
+             $ count: chr  "2" "1" "1" "1" ...
         ```
         
         2. xxxx

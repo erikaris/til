@@ -9,9 +9,9 @@
 - [Steps in R](#steps-in-r)
 - [Extracting Functions](#extracting-functions)
 - [Selectors](#selectors)
-- [CSS Selectors](#css-selectors)
-- [XPATH](#xpath)
-- [CSS Selectors vs XPATH](#css-selectors-vs-xpath)
+    - [CSS Selectors](#css-selectors)
+    - [XPATH](#xpath)
+    - [CSS Selectors vs XPATH](#css-selectors-vs-xpath)
 - [About API](#about-api)
 - [Resources](#resources)
 
@@ -284,7 +284,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         )
     ```
     
-### About API
+## About API
 
 1. API = Application Programming Interface
 2. API is responsible for making parts of a website (e.g. certain fields of data) available to computers.

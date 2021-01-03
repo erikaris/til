@@ -232,16 +232,16 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 ### css selectors vs xpath
 
 | No 	| css selectors 	| xpath 	| explanation 	|
-|:-:	|-	|-	|-	|
+|:-:	|:-	|:-	|:-	|
 | 1 	| div > p.blue 	| //div/p[@class = "blue"] 	| - [..] = predicate<br>- @ for class 	|
 | 2 	| ul.list > li:nth-child(5), ul.list > li:last-child, ul.list > li.special 	| //ul[@class = "list"]/li[position() > 4 or @class = "special"] 	| position() =, < , <=, >, >=, !=<br><br>--> for selecting the nth element<br>--> position starts from 1 	|
 | 3 	|  	| - //ol/li[position() != 3 and @class = "blue"]<br>- //ol/li[position() != 3 or @class = "blue"] 	| combining xpath: 'and', 'or' 	|
 | 4 	| *<br>html %>% html_nodes('*') 	|  	| get all nodes 	|
 | 5 	|  p 	| //p 	| find all p 	|
-| 6 	| body p 	| //body//p 	| find p that is under body (not necessary be a direct child) 	|
+| 6 	| body p 	| //body//p 	| find p that is the descendant of body (not necessary be a direct child) 	|
 | 7 	| body, p 	|  	| find body and p (no descendant relationship required) 	|
 | 8 	| html > body p 	| /html/body//p 	|  	|
-| 9 	| div > p 	| //div/p 	|  	|
+| 9 	| div > p 	| //div/p 	| find p that is a direct child of div.  	|
 | 10 	|  	| //div[a] 	| select 'a' that is a direct child of 'div' 	|
 | 11 	| span > a.external 	| //span/a[@class = "external"] 	|  	|
 | 12 	| #special div   or <br>*#special div 	| //*[@id = "special"]//div 	|  	|
@@ -250,15 +250,16 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 | 15 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role"] 	|  	|
 | 16 	| table td.role > text() 	| html_nodes(xpath = '//table//td[@class = "role"]/text()') 	| - text() --> select elements (and their parents) based on their text<br>- text() is put in predicate- apakah yg css selectornya benar? 	|
 | 17 	| #cast td.role 	| //*[@id = "cast"]//td[@class = "role" and text() = " (Voice)"] 	| apa 'and' di css selectors? 	|
-| 18 	|  	| ..<br>--> html_nodes(xpath = '..') 	| selects the parent of each selected element 	|
-| 19 	| .alert.emph<br>--> html_nodes('.alert.emph') 	| //*[@class="alert" and @class="emph"] 	| apakah benar begini cara ngambil 2 class dg xpath? 	|
-| 20 	|  	| html_nodes(xpath = 'em[text() = "twice"]' 	| Select all em elements that have "twice" as text 	|
-| 21 	| html %>% html_nodes('li:first-child') 	|  	| selecting the first child, in this case, of li element 	|
-| 22 	| html %>% html_nodes('li:last-child') 	|  	| selecting the last child, in this case, of li element 	|
-| 23 	| html %>% html_nodes('li:nth-child(4)') 	|  	| - selecting the 4th child, in this case, of li element<br>- first-chid, last-child, and nth-child are called pseudo-class 	|
-| 24 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
-| 25 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
-| 26 	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|
+| 18 	|  	| ..<br>--> html_nodes(xpath = '..') 	| selects the parent of each selected element. It's normally preceded by children selection first. See the next row for a better explanation 	|
+| 19 	|  	| html_nodes(xpath = '//*[@id = "cast"]//td[@class = "role" and text() = " (Voice)"]') %>%<br><br>html_nodes(xpath = '..') # selects the parent (tr) of each selected td element 	|  	|
+| 20 	| .alert.emph<br>--> html_nodes('.alert.emph') 	| //*[@class="alert" and @class="emph"] 	| apakah benar begini cara ngambil 2 class dg xpath? 	|
+| 21 	|  	| html_nodes(xpath = 'em[text() = "twice"]' 	| Select all em elements that have "twice" as text 	|
+| 22 	| html %>% html_nodes('li:first-child') 	|  	| selecting the first child, in this case, of li element 	|
+| 23 	| html %>% html_nodes('li:last-child') 	|  	| selecting the last child, in this case, of li element 	|
+| 24 	| html %>% html_nodes('li:nth-child(4)') 	|  	| - selecting the 4th child, in this case, of li element<br>- first-chid, last-child, and nth-child are called pseudo-class 	|
+| 25 	| p, div 	|  	| multiple types<br>--> <p>...</p><div>...</div> 	|
+| 26 	| .x.y 	|  	| multiple classes<br>--> <p class = 'x y'>...</p> 	|
+| 27 	| table tr:nth-child(9) > td 	| html_nodes(xpath = '//table//tr[position() = 9] /td') 	|  	|
 
 
 ## Obtaining Data from an URL

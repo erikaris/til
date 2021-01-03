@@ -306,6 +306,30 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
           ...
         )
         ```
+        <br />
+        It returns a dataframe consists of 1 row and 8 columns. Example: <br />
+        ```
+        # Load pageviews
+        library(pageviews)
+        # Get the pageviews for "Hadley Wickham"
+        hadley_pageviews <- article_pageviews(project = "en.wikipedia", article = "Hadley Wickham")
+        # Examine the resulting object
+        str(hadley_pageviews)
+        'data.frame':	1 obs. of  8 variables:
+         $ project    : chr "wikipedia"
+         $ language   : chr "en"
+         $ article    : chr "Hadley_Wickham"
+         $ access     : chr "all-access"
+         $ agent      : chr "all-agents"
+         $ granularity: chr "daily"
+         $ date       : POSIXct, format: "2015-10-01"
+         $ views      : num 53
+        hadley_pageviews
+            project language        article     access      agent granularity
+        1 wikipedia       en Hadley_Wickham all-access all-agents       daily
+                date views
+        1 2015-10-01    53
+        ```
 
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

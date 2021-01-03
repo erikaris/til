@@ -333,9 +333,23 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
             1 2015-10-01    53
         ```
         
-    2. [`birdnik`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1) --> A connector to the API for [Wordnik](https://www.wordnik.com). [Wordnik](https://www.wordnik.com) is a service that provides English-language words, their definitions, pronounciations, and a whole host of other nifty data like frequency of use in literature and parts-of-speech data. birdnik is a connector to that service.
+    2. [`birdnik`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1) --> A connector to the API for [Wordnik](https://www.wordnik.com). [Wordnik](https://www.wordnik.com) is a service that provides English-language words, their definitions, pronounciations, and a whole host of other nifty data like frequency of use in literature and parts-of-speech data. birdnik is a connector to that service. Some of its useful functions:
     
-    , a dictionary service that also provides bigram generation, word frequency data, and a whole host of other functionality.
+        1. [`word_frequency(key, words, use_canonical = FALSE, start_year = 1800,end_year = 2012,...`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1/topics/word_frequency) --> provides, for a vector of words, the number of appearances each word made per year in the source texts Wordnik uses. <br />
+        Example:
+        ```
+        # Load birdnik
+        library(httr)
+        library(birdnik)
+
+        # Get the word frequency for "vector", using api_key to access it
+        vector_frequency <- word_frequency(api_key, "vector")
+        ```
+        
+        2. xxxx
+   
+    
+    
 
 ### Resources:
 1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

@@ -3,6 +3,7 @@
 - [Understanding Basic HTTP](#understanding-basic-http)
 - [Understanding Basic Web](#understanding-basic-web)
 - [Web Component](#web-component)
+- [Understanding Request and Response](#understanding-request-and-response)
 - [The Ethics](#the-ethics)
 - [Tools](#tools)
 - [Steps in R](#steps-in-r)
@@ -25,7 +26,10 @@
 ### Web Component:
 1. Server
 2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
-3. A request is sent to the web server. A request is basically a conversation between client machine and the server. What you reqeust is what you want to happen. There are 7 types of [`http request`](https://www.w3schools.com/tags/ref_httpmethods.asp), such as `GET`, `POST`, `HEAD`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`. In here, we'll just discuss about:
+3. Request and response
+
+### Understanding Request and Response
+1. A request is sent to the web server. A request is basically a conversation between client machine and the server. What you reqeust is what you want to happen. There are 7 types of [`http request`](https://www.w3schools.com/tags/ref_httpmethods.asp), such as `GET`, `POST`, `HEAD`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`. In here, we'll just discuss about:
     1. **GET**: Used to fetch a resource without submitting data ( GET /index.html ). Example of a GET request:<br />
         <img src="./request.png" alt="drawing" width="500"/> <br />
         <figcaption> Example of a GET request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
@@ -33,7 +37,7 @@
         <img src="./post_request.png" alt="drawing" width="400"/> <br />
         <figcaption> Example of a POST request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
     
-4. Server replies with a response, which is the web page that we see. 
+2. Server replies with a response, which is the web page that we see. 
     1. in the page: header, body, footer. 
     2. header provides: [status code and status message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Response status codes are grouped into 5 classes:
         1. Informational responses (100–199), e.g.: 101 = "switching protocol"

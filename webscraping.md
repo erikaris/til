@@ -284,12 +284,13 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 1. API = Application Programming Interface
 2. API is responsible for making parts of a website (e.g. certain fields of data) available to computers.
 3. API can be analogized as a representative of human to interact with a web server. 
-4. To avoid overwhelmed server, API forces clients to request for `access token`. `access token` is a unique key that verifies you're authorised to use a service. 
+4. API can be created on your own or just use official API provided by the website. 
+5. To avoid overwhelmed server, API forces clients to request for `access token`. `access token` is a unique key that verifies you're authorised to use a service. 
 
     1. Usually requires registering your email address
     1. Sometimes providing an explanation
     2. Example: h2ps://www.wordnik.com/ which requires both!
-5. Useful R libraries for dealing with API:
+6. Useful R libraries for dealing with API:
     1. [`pageviews`](https://www.rdocumentation.org/packages/pageviews/versions/0.5.0) --> An API client library for Wikimedia traffic data.<br />
         Useful functions:
         1. [`article_pageviews`](https://www.rdocumentation.org/packages/pageviews/versions/0.5.0/topics/article_pageviews) --> Retrieve Pageview Data for an Article. The usage: <br />
@@ -308,6 +309,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         ```
         <br />
         It returns a dataframe consists of 1 row and 8 columns. Example: <br />
+        
         ```
             # Load pageviews
             library(pageviews)
@@ -330,6 +332,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
                     date views
             1 2015-10-01    53
         ```
+        
     2. [`birdnik`](https://www.rdocumentation.org/packages/birdnik/versions/0.1.1) --> A connector to the API for [Wordnik](https://www.wordnik.com). [Wordnik](https://www.wordnik.com) is a service that provides English-language words, their definitions, pronounciations, and a whole host of other nifty data like frequency of use in literature and parts-of-speech data. birdnik is a connector to that service.
     
     , a dictionary service that also provides bigram generation, word frequency data, and a whole host of other functionality.

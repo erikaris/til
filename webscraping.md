@@ -25,7 +25,7 @@
 ### Web Component:
 1. Server
 2. Client, e.g. browsers (Firefox, Chrome, etc.), crawler, [CURL](https://en.wikipedia.org/wiki/CURL), headless browser ([PhantomJS](https://phantomjs.org/), [Selenium](https://www.selenium.dev/)). 
-3. A request is sent to the web server. There are 2 types of request:
+3. A request is sent to the web server. A request is basically a conversation between client machine and the server. What you reqeust is what you want to happen. There are 7 types of [`http request`](https://www.w3schools.com/tags/ref_httpmethods.asp), such as `GET`, `POST`, `HEAD`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`. In here, we'll just discuss about:
     1. **GET**: Used to fetch a resource without submitting data ( GET /index.html ). Example of a GET request:<br />
         <img src="./request.png" alt="drawing" width="500"/> <br />
         <figcaption> Example of a GET request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />

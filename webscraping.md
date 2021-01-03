@@ -376,7 +376,7 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         2. xxxx
    
     
-    
 
 ### Resources:
-1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+1. [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview). 
+2. [https://www.w3schools.com/tags/ref_httpmethods.asp](https://www.w3schools.com/tags/ref_httpmethods.asp). 

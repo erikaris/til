@@ -94,9 +94,10 @@
     1. rvest
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
-        1. GET()
-        2. POST()
-        3. https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_error
+        1. `GET()`
+        2. `POST()`
+        3. [`http_error()`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_error)  --> Check for an http error. <br />
+            Usage: `http_error(request_result)` --> `request_result` is things we got from `GET()` or `POST()`. 
     4. [htmltools](https://www.rdocumentation.org/packages/htmltools/versions/0.5.0): tools for HTML generation and output. <br />
         Some of its important functions:
         1. save_html(html, file, background = "white", libdir = "lib")[https://www.rdocumentation.org/packages/htmltools/versions/0.5.0/topics/save_html]: Save the specified HTML object to a file. 

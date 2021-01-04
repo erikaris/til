@@ -150,26 +150,46 @@
                 1. `user_agent('customized user agent')` --> example: `response <- GET('https://httpbin.org/user-agent', user_agent("Erika user agent"))`. <br />
                 Alternative way to modify `user agent` is by setting it globally using ``set_config(add_headers(`User-Agent` = "the modified user agent"))``.  <br />
                 Example:
-                ```
-                # Globally set the user agent
-                set_config(add_headers(`User-Agent` = "A request from a DataCamp course on scraping"))
-                # Pass a custom user agent to a GET query to the mentioned URL
-                response <- GET("https://httpbin.org/user-agent")
-                # Print the response content
-                content(response)
-                ```
+                    ```
+                    # Globally set the user agent
+                    set_config(add_headers(`User-Agent` = "A request from a DataCamp course on scraping"))
+                    # Pass a custom user agent to a GET query to the mentioned URL
+                    response <- GET("https://httpbin.org/user-agent")
+                    # Print the response content
+                    content(response)
+                    ```
                 2. `query`--> To construct a parameter-based URLs, where all the query values exist at the end of the URL and take the form of `key=value`. Example: <br />
-                ```
-                # Create list with nationality and country elements
-                query_params <- list(nationality = "americans", 
-                    country = "antigua")
+                    ```
+                    # Create list with nationality and country elements
+                    query_params <- list(nationality = "americans", 
+                        country = "antigua")
 
-                # Make parameter-based call to httpbin, with query_params
-                parameter_response <- GET('https://httpbin.org/get', query = query_params)
+                    # Make parameter-based call to httpbin, with query_params
+                    parameter_response <- GET('https://httpbin.org/get', query = query_params)
 
-                # Print parameter_response
-                print(parameter_response)
-                ```
+                    # Print parameter_response
+                    print(parameter_response)
+                    ```
+                    Output:
+                    ```
+                    print(parameter_response)
+                    Response [https://httpbin.org/get?nationality=americans&country=antigua]
+                      Date: 2021-01-04 14:57
+                      Status: 200
+                      Content-Type: application/json
+                      Size: 465 B
+                    {
+                      "args": {
+                        "country": "antigua", 
+                        "nationality": "americans"
+                      }, 
+                      "headers": {
+                        "Accept": "application/json, text/xml, application/xml, */*", 
+                        "Accept-Encoding": "deflate, gzip", 
+                        "Host": "httpbin.org", 
+                        "User-Agent": "libcurl/7.47.0 r-curl/4.3 httr/1.4.1", 
+                    ...
+                    ```
           
         2. Example:
         ```

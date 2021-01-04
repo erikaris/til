@@ -94,7 +94,7 @@
     1. rvest
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
-        1. `GET()`
+        1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET).
         2. `POST()`
         3. [`http_error()`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_error)  --> Check for an http error. <br />
             Usage: `http_error(request_result)` --> `request_result` is things we got from `GET()` or `POST()`. 
@@ -157,6 +157,18 @@
                 response <- GET("https://httpbin.org/user-agent")
                 # Print the response content
                 content(response)
+                ```
+                2. `query`--> To construct a parameter-based URLs, where all the query values exist at the end of the URL and take the form of `key=value`. Example: <br />
+                ```
+                # Create list with nationality and country elements
+                query_params <- list(nationality = "americans", 
+                    country = "antigua")
+
+                # Make parameter-based call to httpbin, with query_params
+                parameter_response <- GET('https://httpbin.org/get', query = query_params)
+
+                # Print parameter_response
+                print(parameter_response)
                 ```
           
         2. Example:

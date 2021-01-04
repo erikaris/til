@@ -38,12 +38,34 @@
         <figcaption> Example of a GET request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
     2. **POST**: 
         1. Used to send data to a server, e.g. after filling out a form on a page. 
-        2. Usage: [`POST(url)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/POST). 
-        3. Example of a GET request:<br />
+        2. Usage: [`POST(url = NULL, body = NULL)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/POST). 
+        3. Example: <br />
+            ```
+            > library(httr)
+            > post_result <- POST('http://httpbin.org/post', body = "this is a test")
+            > post_result
+            Response [http://httpbin.org/post]
+              Date: 2021-01-04 00:52
+              Status: 200
+              Content-Type: application/json
+              Size: 524 B
+            {
+              "args": {}, 
+              "data": "this is a test", 
+              "files": {}, 
+              "form": {}, 
+              "headers": {
+                "Accept": "application/json, text/xml, application/xml, */*", 
+                "Accept-Encoding": "deflate, gzip", 
+                "Cache-Control": "max-age=259200", 
+                "Content-Length": "14", 
+            ...
+            ```
+        3. Example of how a GET request looks like (phy:<br />
         <img src="./post_request.png" alt="drawing" width="400"/> <br />
         <figcaption> Example of a POST request from client. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption> <br />
     
-2. Server replies with a response, which is the web page that we see. 
+2. For every request from client, server will reply with a response, which is the web page that we see. 
     1. in the page: header, body, footer. 
     2. header provides: [status code and status message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Response status codes are grouped into 5 classes:
         1. Informational responses (100–199), e.g.: 101 = "switching protocol"

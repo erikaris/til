@@ -60,6 +60,7 @@
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
+        
     	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data based on frequency in desencing order. Example of usage: <br />
 		    ```
             from pyspark.ml.feature import StringIndexer
@@ -70,7 +71,8 @@
             ```
             <br />
             Output: <br />
-            ![Alt text](./cars_indexer.png) <br />
+            ![Alt text](./cars_indexer.png)
+            
 	    2. dfdre
 
 ## Steps:

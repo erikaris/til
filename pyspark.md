@@ -62,16 +62,15 @@
     3. `pyspark.ml`.
         
     	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data based on frequency in desencing order. Example of usage: <br />
-		    ```
-            from pyspark.ml.feature import StringIndexer
-            indexer = StringIndexer(inputCol='type', outputCol='type_idx')
-            indexer = indexer.fit(cars)
-            # Create column with index values
-            cars = indexer.transform(cars)
             ```
-            <br />
+                from pyspark.ml.feature import StringIndexer
+                indexer = StringIndexer(inputCol='type', outputCol='type_idx')
+                indexer = indexer.fit(cars)
+                # Create column with index values
+                cars = indexer.transform(cars)
+            ```
             Output: <br />
-            ![Alt text](./cars_indexer.png)
+        ![Alt text](./cars_indexer.png)
             
 	    2. dfdre
 

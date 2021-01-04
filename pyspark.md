@@ -60,7 +60,18 @@
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
-    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data. 
+    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data based on frequency in desencing order. Example of usage: <br />
+		    ```
+            from pyspark.ml.feature import StringIndexer
+            indexer = StringIndexer(inputCol='type', outputCol='type_idx')
+            indexer = indexer.fit(cars)
+            # Create column with index values
+            cars = indexer.transform(cars)
+            ```
+            <br />
+            Output: <br />
+            ![Alt text](./cars_indexer.png) <br />
+	    2. dfdre
 
 ## Steps:
 

@@ -56,10 +56,11 @@
 2. To start using PySpark, we have to import `pyspark` first. 
 3. In addition to `pyspark`, there are:
     1. `pyspark.sql`: use for importing and creating `SparkSession`. 
-    	1. `from pyspark import SparkSession`.
+    	1. `from pyspark.sql import SparkSession`.
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
+    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data. 
 
 ## Steps:
 

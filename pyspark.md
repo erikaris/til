@@ -72,7 +72,7 @@
             Output: <br />
         ![Alt text](./cars_indexer.png)
         
-        2. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+        2. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
             Example: <br />
             ```
             from pyspark.ml.feature import VectorAssembler

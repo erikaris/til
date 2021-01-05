@@ -98,7 +98,7 @@
         2. `POST()`
         3. [`http_error()`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_error)  --> Check for an http error. <br />
             Usage: `http_error(request_result)` --> `request_result` is things we got from `GET()` or `POST()`.
-        4. [http_type](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_type) --> Extract the content type of a response. <br />
+        4. [`http_type`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_type) --> Extract the content type of a response. <br />
             ```
             > ctn <- GET('https://content.iospress.com/articles/statistical-journal-of-the-iaos/sji200755')
             > http_type(ctn)
@@ -107,6 +107,9 @@
             > http_type(ctn2)
             [1] "application/pdf"
             ```
+        5. [`content(request_result, as = NULL)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/content) --> Extract content from a request. Notes: <br />
+            1. `as` = desired type of output: `raw`, `text` or `parsed`. `content()` attempts to automatically figure out which one is most appropriate, based on the content-type.
+            
     4. [htmltools](https://www.rdocumentation.org/packages/htmltools/versions/0.5.0): tools for HTML generation and output. <br />
         Some of its important functions:
         1. save_html(html, file, background = "white", libdir = "lib")[https://www.rdocumentation.org/packages/htmltools/versions/0.5.0/topics/save_html]: Save the specified HTML object to a file. 
@@ -206,7 +209,7 @@
         myhtml <- GET("https://www.atlasai.co/")
         ```
 
-3. Check the [status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) of the response using function `status_code()` from library `httr`. <br />
+3. Check the [status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) of the response using function `status_code()` from library [`httr`](https://www.rdocumentation.org/packages/httr/versions/1.4.2). <br />
     Example:
     ```
     > status_code(myhtml)
@@ -218,7 +221,7 @@
         myhtml %>%
           html_nodes()
         ```
-    2. using `content()` from library `httr`. 
+    2. using `content()` from library [`httr`](https://www.rdocumentation.org/packages/httr/versions/1.4.2). 
         Example:
         ```
         content(myhtml)

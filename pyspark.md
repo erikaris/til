@@ -61,16 +61,27 @@
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
         
-    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing categorical data based on frequency in desencing order. Example of usage: <br />
+    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
             ```
-                from pyspark.ml.feature import StringIndexer
-                indexer = StringIndexer(inputCol='type', outputCol='type_idx')
-                indexer = indexer.fit(cars)
-                # Create column with index values
-                cars = indexer.transform(cars)
+            from pyspark.ml.feature import StringIndexer
+            indexer = StringIndexer(inputCol='type', outputCol='type_idx')
+            indexer = indexer.fit(cars)
+            # Create column with index values
+            cars = indexer.transform(cars)
             ```
             Output: <br />
         ![Alt text](./cars_indexer.png)
+        
+        2. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+            Example: <br />
+            ```
+            from pyspark.ml.feature import VectorAssembler
+            assembler = VectorAssembler(inputCols=['cyl', 'size'], outputCol='features')
+            assembler.transform(cars)    
+            ``` 
+        ![Alt text](./vector_assembler.png)
+            
+		
             
 	    2. dfdre
 

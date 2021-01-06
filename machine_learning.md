@@ -24,7 +24,7 @@
 
 1. Confusion Matrix. <br />
 
-    ![Alt text](./confusion_matrix.png)
+    ![Alt text](./confusion_matrix.png) <br />
     *Image is taken from [researchgate.net](https://www.researchgate.net/figure/Confusion-Matrix-Example-Confusion-matrix-terminology-True-positive-Positively-predicted_fig4_328567484)*
 
     A confusion matrix gives a useful breakdown of predictions versus known values. It has four cells which represent the counts of:

@@ -116,6 +116,8 @@
     5. tidyverse:
         1. 
     6. [textreadr](https://www.rdocumentation.org/packages/textreadr/versions/1.0.2) --> html_read. 
+    7. [xml2](https://www.rdocumentation.org/packages/xml2/versions/1.3.2) --> Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library.
+    
 2. python --> scrapy, beautiful soup. 
 
 

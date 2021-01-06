@@ -3,7 +3,17 @@
 ## Definition:
 
 1. ....
-2. It's all about building a model. 
+2. It's all about building a model for ML activities:
+    1. Classification
+    2. Clustering
+    3. ...
+
+## Classification:
+
+1. Definition: ....
+2. How?
+    1. Decision Trees. 
+    2. ...
 
 ## Steps for building a model
 

@@ -13,7 +13,7 @@
 1. Definition: ....
 2. How?
     1. Decision Trees. 
-    2. ...
+    2. Logistic Regression
 
 ## Steps for building a model
 
@@ -27,6 +27,8 @@
 ### Decision Trees
 
 1. concept: iterative splits
+
+### Logistic Regression
 
 ## Tools:
 

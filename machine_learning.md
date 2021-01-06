@@ -22,4 +22,15 @@
 
 ## Evaluating a Model
 
-1. Confusion Matrix
+1. Confusion Matrix. <br />
+
+    ![Alt text](./confusion_matrix.png)
+
+    A confusion matrix gives a useful breakdown of predictions versus known values. It has four cells which represent the counts of:
+    1. True Negatives (TN) — model predicts negative outcome & known outcome is negative
+    2. True Positives (TP) — model predicts positive outcome & known outcome is positive
+    3. False Negatives (FN) — model predicts negative outcome but known outcome is positive
+    4. False Positives (FP) — model predicts positive outcome but known outcome is negative.
+    <br />
+    Accuracy = (TN + TP) / (TN + TP + FN + FP)
+2. df

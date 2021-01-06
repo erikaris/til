@@ -81,7 +81,7 @@
             ``` 
         ![Alt text](./vector_assembler.png)
 	
-        3. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree. Usage example: <br />
+        3. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instance - fit - transform**. Usage example: <br />
             ```
             # Import the Decision Tree Classifier class
             from pyspark.ml.classification import DecisionTreeClassifier

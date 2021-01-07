@@ -117,8 +117,8 @@
         1. 
     6. [textreadr](https://www.rdocumentation.org/packages/textreadr/versions/1.0.2) --> html_read. 
     7. [xml2](https://www.rdocumentation.org/packages/xml2/versions/1.3.2) --> Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library. Some of its useful functions:
-        1. [`read_xml()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/read_xml) --> 
-        2. `xml_structure()`` --> 
+        1. [`read_xml(content_object)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/read_xml) --> Read HTML or XML. `content_object` = `content(GET(url))`. 
+        2. [`xml_structure(html_xml_document)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_structure) --> Show The Structure Of An Html/Xml Document. 
     
 2. python --> scrapy, beautiful soup. 
 

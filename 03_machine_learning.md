@@ -35,7 +35,7 @@
 
 ## Evaluating a Model
 
-1. Confusion Matrix. <br />
+1. Confusion Matrix and Accuracy. <br />
 
     ![Alt text](./confusion_matrix.png) <br />
     *Image is taken from [researchgate.net](https://www.researchgate.net/figure/Confusion-Matrix-Example-Confusion-matrix-terminology-True-positive-Positively-predicted_fig4_328567484)*
@@ -46,5 +46,10 @@
     3. False Negatives (FN) — model predicts negative outcome but known outcome is positive
     4. False Positives (FP) — model predicts positive outcome but known outcome is negative.
     <br />
-    Accuracy = (TN + TP) / (TN + TP + FN + FP)
-2. df
+    **Accuracy** = (TN + TP) / (TN + TP + FN + FP)
+    
+2. Precision and Recall 
+    1. Precision = TP / (TP + FP) --> proportion of positive predictions which are correct. *For all flights which are predicted to be delayed, what proportion is actually delayed?*
+    2. Recall = TP / (TP + FN) --> proportion of positives outcomes which are correctly predicted. *For all delayed flights, what proportion is correctly predicted by the model?*
+
+

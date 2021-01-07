@@ -94,6 +94,7 @@
             prediction = tree_model.transform(flights_test)
             prediction.select('label', 'prediction', 'probability').show(5, False)
             ```
+        4. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> 
             
 		
             

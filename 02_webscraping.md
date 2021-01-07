@@ -119,6 +119,21 @@
     7. [xml2](https://www.rdocumentation.org/packages/xml2/versions/1.3.2) --> Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library. Some of its useful functions:
         1. [`read_xml(content_object)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/read_xml) --> Read HTML or XML. `content_object` = `content(GET(url))`. 
         2. [`xml_structure(html_xml_document)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_structure) --> Show The Structure Of An Html/Xml Document. 
+        3. [`xml_find_all(read_xml_output, xpath)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_find_all) --> extract nodes that match a given XPATH. <br />
+            Example: <br />
+            ```
+            xml_find_all(rev_xml, "/api/query/pages/page/revisions/rev")
+            ```
+            <br />
+            Output <br />
+            ```
+            {xml_nodeset (5)}
+            [1] <rev user="214.28.226.251" anon="" timestamp="2015-01-14T17:12:45Z" comme ...
+            [2] <rev user="73.183.151.193" anon="" timestamp="2015-01-15T15:49:34Z" comme ...
+            [3] <rev user="FeanorStar7" timestamp="2015-01-24T16:34:31Z" comment="/* Exte ...
+            [4] <rev user="KasparBot" timestamp="2015-04-26T19:18:17Z" comment="authority ...
+            [5] <rev user="Spkal" timestamp="2015-05-06T18:24:57Z" comment="/* Bibliograp ...
+            ```
     
 2. python --> scrapy, beautiful soup. 
 

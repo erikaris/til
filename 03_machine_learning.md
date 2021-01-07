@@ -14,6 +14,7 @@
 2. How?
     1. Decision Trees. 
     2. Logistic Regression
+        1. make a binary predicition.
 
 ## Steps for building a model
 

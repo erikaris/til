@@ -19,7 +19,7 @@
 ## Steps for building a model
 
 1. Split the data into `training data` and `testing data`. 
-2. Build model using the appropriate methods
+2. Build model using the appropriate methods --> **fit and transform**. 
 3. Use the model to make prediction
 4. Evaluate the model. 
 

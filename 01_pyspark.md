@@ -81,20 +81,28 @@
             ``` 
         ![Alt text](./vector_assembler.png)
 	
-        3. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instance - fit - transform**. Usage example: <br />
+        3. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
             ```
             # Import the Decision Tree Classifier class
             from pyspark.ml.classification import DecisionTreeClassifier
 
             # Create a classifier object and fit to the training data
             tree = DecisionTreeClassifier()
-            tree_model = tree.fit(flights_train)
+            tree_model = tree.fit(train_data)
 
             # Create predictions for the testing data and take a look at the predictions
-            prediction = tree_model.transform(flights_test)
+            prediction = tree_model.transform(test_data)
             prediction.select('label', 'prediction', 'probability').show(5, False)
             ```
-        4. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> 
+        4. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
+            ```
+            from pyspark.ml.classification import LogisticRegression
+            logreg = LogisticRegression()
+            logreg.fit(train_data)
+            
+            ```
+	
+        5. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> 
             
 		
             

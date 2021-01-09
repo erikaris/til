@@ -45,8 +45,8 @@
     2. True Positives (TP) — model predicts positive outcome & known outcome is positive
     3. False Negatives (FN) — model predicts negative outcome but known outcome is positive
     4. False Positives (FP) — model predicts positive outcome but known outcome is negative.
-    <br />
-    __Accuracy__ = (TN + TP) / (TN + TP + FN + FP)
+    
+    **Accuracy** = (TN + TP) / (TN + TP + FN + FP)
     
 2. Precision and Recall 
     1. Precision = TP / (TP + FP) --> proportion of positive predictions which are correct. *For all flights which are predicted to be delayed, what proportion is actually delayed?*

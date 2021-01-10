@@ -119,7 +119,7 @@
     7. [xml2](https://www.rdocumentation.org/packages/xml2/versions/1.3.2) --> Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library. Some of its useful functions:
         1. [`read_xml(content_object)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/read_xml) --> Read HTML or XML. `content_object` = `content(GET(url))`. 
         2. [`xml_structure(html_xml_document)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_structure) --> Show The Structure Of An Html/Xml Document. 
-        3. [`xml_find_all(read_xml_output, xpath)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_find_all) --> extract nodes that match a given XPATH. <br />
+        3. [`xml_find_all(read_xml_output, xpath)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_find_all) --> extract nodes that match a given XPATH --> returns a nodeset.  <br />
             Example: <br />
             ```
             xml_find_all(rev_xml, "/api/query/pages/page/revisions/rev")
@@ -134,9 +134,23 @@
             [4] <rev user="KasparBot" timestamp="2015-04-26T19:18:17Z" comment="authority ...
             [5] <rev user="Spkal" timestamp="2015-05-06T18:24:57Z" comment="/* Bibliograp ...
             ```
-        4. [`xml_text()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_text) --> extract text from `xml_find_alll()`. 
-        5. `xml_double()`
-        6. `xml_integer()`
+        4. [`xml_find_first()`](https://www.rdocumentation.org/packages/xml2/topics/xml_find_first) --> works just like `xml_find_all()` but it only extracts the first node it finds.
+        5. [`xml_text()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_text) --> extract text from `xml_find_alll()`. 
+        6. `xml_double()`
+        7. `xml_integer()`
+        8. [xml_attrs(nodeset)](https://www.rdocumentation.org/packages/xml2/topics/xml_attrs) --> takes a nodeset and returns all of the attributes for every node in the nodeset. <br />
+            Example:
+            ```
+            # Find all attributes with xml_attrs()
+            xml_attrs(rev_nodes)
+            ```
+            
+        9. [xml_attr(nodeset, 'attr')](https://www.rdocumentation.org/packages/xml2/topics/xml_attr) --> takes a nodeset and an additional argument `attr` to extract a single named argument from each node in the nodeset. <br />
+            Example: 
+            ```
+            # Find user attribute for all rev nodes
+            xml_attr(rev_nodes, 'user')
+            ```
     
 2. python --> scrapy, beautiful soup. 
 

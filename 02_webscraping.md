@@ -138,18 +138,28 @@
         5. [`xml_text()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_text) --> extract text from `xml_find_alll()`. 
         6. `xml_double()`
         7. `xml_integer()`
-        8. [xml_attrs(nodeset)](https://www.rdocumentation.org/packages/xml2/topics/xml_attrs) --> takes a nodeset and returns all of the attributes for every node in the nodeset. <br />
+        8. [xml_attrs(nodeset)](https://www.rdocumentation.org/packages/xml2/topics/xml_attrs) --> takes a nodeset and returns all of the attributes for every node in the nodeset.  <br />
             Example:
             ```
             # Find all attributes with xml_attrs()
-            xml_attrs(rev_nodes)
+            xml_attrs(first_rev_nodes)
+            ```
+            Output:
+            ```
+            xml_attrs(first_rev_node)
+                          user                   anon              timestamp 
+              "214.28.226.251"                     "" "2015-01-14T17:12:45Z" 
+                       comment          contentformat           contentmodel 
+                            ""          "text/x-wiki"             "wikitext" 
+                         space 
+                    "preserve" 
             ```
             
-        9. [xml_attr(nodeset, 'attr')](https://www.rdocumentation.org/packages/xml2/topics/xml_attr) --> takes a nodeset and an additional argument `attr` to extract a single named argument from each node in the nodeset. <br />
+        9. [xml_attr(nodeset, 'attr')](https://www.rdocumentation.org/packages/xml2/topics/xml_attr) --> takes a nodeset and an additional argument `attr` to extract a single named argument from each node in the nodeset. If the nodesset does not have the requested attribute, it will return `NA`.<br />
             Example: 
             ```
-            # Find user attribute for all rev nodes
-            xml_attr(rev_nodes, 'user')
+            xml_attr(rev_nodes, 'anon')
+            [1] "" "" NA NA NA
             ```
     
 2. python --> scrapy, beautiful soup. 

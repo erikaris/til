@@ -134,6 +134,9 @@
             [4] <rev user="KasparBot" timestamp="2015-04-26T19:18:17Z" comment="authority ...
             [5] <rev user="Spkal" timestamp="2015-05-06T18:24:57Z" comment="/* Bibliograp ...
             ```
+        4. [`xml_text()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_text) --> extract text from `xml_find_alll()`. 
+        5. `xml_double()`
+        6. `xml_integer()`
     
 2. python --> scrapy, beautiful soup. 
 

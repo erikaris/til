@@ -52,4 +52,12 @@
     1. Precision = TP / (TP + FP) --> proportion of positive predictions which are correct. *For all flights which are predicted to be delayed, what proportion is actually delayed?*
     2. Recall = TP / (TP + FN) --> proportion of positives outcomes which are correctly predicted. *For all delayed flights, what proportion is correctly predicted by the model?*
 
+3. Receiver Operating Characteristic (ROC)
+    ![Alt text](./images/roc.png) <br />
+    
+    1. a curve describing TP versus FP
+    2. threshold = 0 (top right) and 1 (bottom left). 
+    3. area under ROC is called **area under the curve (AUC)**. 
+    4. ideally, AUC = 1. 
+
 

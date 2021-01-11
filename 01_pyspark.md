@@ -102,9 +102,17 @@
             
             ```
 	
-        5. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> 
+        5. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
+            Usage: <br />
+            ```
+            from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+            evaluator = MulticlassClassificationEvaluator()
+            evaluator.evaluate(prediction, {evaluator.metricName: 'weightedPrecision'})
+            ```
+            Notes: <br/>
+                1. argument `prediction` is the output of `.transform()`. 
+                2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
             
-		
             
 	    2. dfdre
 

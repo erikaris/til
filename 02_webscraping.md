@@ -502,7 +502,10 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
         ```
         
         2. xxxx
-   
+        
+### Working with Websites with Formal API
+
+### Working with Websites with Non Formal API
     
 
 ### Resources:

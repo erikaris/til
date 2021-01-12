@@ -93,7 +93,7 @@
 ## Tools
 
 1. R --> Required libraries:
-    1. rvest
+    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6). 
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
         1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET).
@@ -352,7 +352,8 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 1. Define web nodes hierarchically using single slash `/` and double slashes `//`.
 2. `/node_name` specifies nodes at the **current level** that have the tag `node_name`, where as `//node_name` specifies nodes at **any level** below the current level that have the tag `node_name`.
 3. Mostly start with double slash `//`. Next element use single slash `/`. 
-4. specify class, id, css, position, count, etc using **predicate** `[...]` and `@` for selecting attributes. Example: <br />
+4. specify class, id, css, position, count, etc using **predicate** `[...]`. 
+5. Extract attributes using `@` or functions `xml_attr()` and `xml_attrs()`. Example: <br />
     `xml_find_all(movies_xml, "//movie/@episode"`. 
 5. provide special predicated functions which are unavailable in the `css selectors` version:
     1. position() --> to select element located in certain position. 

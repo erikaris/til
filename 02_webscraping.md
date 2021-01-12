@@ -93,7 +93,7 @@
 ## Tools
 
 1. R --> Required libraries:
-    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6). 
+    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6) --> scrape information from web pages, beautiful-soup inspired. 
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
         1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET).
@@ -117,7 +117,8 @@
         1. save_html(html, file, background = "white", libdir = "lib")[https://www.rdocumentation.org/packages/htmltools/versions/0.5.0/topics/save_html]: Save the specified HTML object to a file. 
     5. tidyverse:
         1. 
-    6. [textreadr](https://www.rdocumentation.org/packages/textreadr/versions/1.0.2) --> html_read. 
+    6. [textreadr](https://www.rdocumentation.org/packages/textreadr/versions/1.0.2) --> reading text documents (html, pdf, docx, etc.) into R. Some of its useful functions:
+        1.`html_read()`. 
     7. [xml2](https://www.rdocumentation.org/packages/xml2/versions/1.3.2) --> Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library. Some of its useful functions:
         1. [`read_xml(content_object)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/read_xml) --> Read HTML or XML. `content_object` = `content(GET(url))`. 
         2. [`xml_structure(html_xml_document)`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_structure) --> Show The Structure Of An Html/Xml Document. 

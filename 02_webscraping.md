@@ -13,6 +13,8 @@
     - [XPATH](#xpath)
     - [CSS Selectors vs XPATH](#css-selectors-vs-xpath)
 - [About API](#about-api)
+- [Working with Websites with Formal API](#working-with-websites-with-formal-api)
+- [Working with Websites with Non Formal API](#working-with-websites-with-non-formal-api)
 - [Resources](#resources)
 
 ## Understanding Basic HTTP

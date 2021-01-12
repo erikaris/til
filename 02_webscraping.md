@@ -352,7 +352,8 @@ Select intended node using css selectors or xpath wrapped as argument(s) in meth
 1. Define web nodes hierarchically using single slash `/` and double slashes `//`.
 2. `/node_name` specifies nodes at the **current level** that have the tag `node_name`, where as `//node_name` specifies nodes at **any level** below the current level that have the tag `node_name`.
 3. Mostly start with double slash `//`. Next element use single slash `/`. 
-4. specify class, id, css, position, count, etc using **predicate** `[...]`. 
+4. specify class, id, css, position, count, etc using **predicate** `[...]` and `@` for selecting attributes. Example: <br />
+    `xml_find_all(movies_xml, "//movie/@episode"`. 
 5. provide special predicated functions which are unavailable in the `css selectors` version:
     1. position() --> to select element located in certain position. 
     2. count() --> select element that has certain number of children/siblings/etc. 

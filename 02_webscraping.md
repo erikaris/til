@@ -21,7 +21,10 @@
 ![Alt text](./http.png)
 *[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)*
 
-## Understanding Basic Web
+## Understanding Basic Web (HTML)
+1. HTML is content within tags, example: `<a href = "https://en.wikipedia.org/"> wikipedia </a>`.
+2. Each tag has a name and (could) has attribute. 
+
 <img src="./the_web.png" alt="drawing" width="500"/>
 <figcaption> The web overview. Image is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</a></figcaption>
 
@@ -93,7 +96,11 @@
 ## Tools
 
 1. R --> Required libraries:
-    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6) --> scrape information from web pages, beautiful-soup inspired. 
+    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6) --> scrape information from web pages, beautiful-soup inspired. Some of its useful functions:
+        1. [`html_name()`](https://www.rdocumentation.org/packages/rvest/topics/html_name) --> Extract tag name from html.
+        2. [`html_text()`](https://www.rdocumentation.org/packages/rvest/topics/html_text) --> accepts a node and passes back the text inside it.
+        3. `html_attr()` 
+        4. `html_table()` --> turning html table into data.frame. 
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
         1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET).

@@ -264,7 +264,7 @@
     > status_code(myhtml)
     [1] 200
     ```
-4. Parse the reading response into an HTML doc.   
+4. Parse (extract content) the reading response into an HTML doc.   
     1. using the function `html_nodes()` from library `htmltools`. 
         ```
         myhtml %>%

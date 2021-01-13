@@ -127,8 +127,9 @@
             ```
             xml_find_all(rev_xml, "/api/query/pages/page/revisions/rev")
             ```
-            <br />
+            
             Output <br />
+            
             ```
             {xml_nodeset (5)}
             [1] <rev user="214.28.226.251" anon="" timestamp="2015-01-14T17:12:45Z" comme ...
@@ -137,6 +138,7 @@
             [4] <rev user="KasparBot" timestamp="2015-04-26T19:18:17Z" comment="authority ...
             [5] <rev user="Spkal" timestamp="2015-05-06T18:24:57Z" comment="/* Bibliograp ...
             ```
+            
         4. [`xml_find_first()`](https://www.rdocumentation.org/packages/xml2/topics/xml_find_first) --> works just like `xml_find_all()` but it only extracts the first node it finds.
         5. [`xml_text()`](https://www.rdocumentation.org/packages/xml2/versions/1.3.2/topics/xml_text) --> extract text from `xml_find_alll()`. 
         6. `xml_double()`

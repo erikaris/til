@@ -60,8 +60,23 @@
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
+    
+    	1. `from pyspark.ml.feature import Tokenizer`. Example: <br />
+		`books = Tokenizer(inputCol="text", outputCol="tokens").transform(books)`.  <br />
+		Output: <br />
+		```
+		+--------------------------------------+----------------------------------------------+
+		|text |tokens |
+		+--------------------------------------+----------------------------------------------+
+		|Forever or a Long Long Time |[forever, or, a, long, long, time] |
+		|Winnie the Pooh |[winnie, the, pooh] |
+		|Ten Little Fingers and Ten Little Toes|[ten, little, fingers, and, ten, little, toes]|
+		|Five Get into Trouble |[five, get, into, trouble] |
+		|Five Have a Wonderful Time |[five, have, a, wonderful, time] |
+		+--------------------------------------+----------------------------------------------+
+		```
         
-    	1. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
+    	2. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
             ```
             from pyspark.ml.feature import StringIndexer
             indexer = StringIndexer(inputCol='type', outputCol='type_idx')
@@ -72,7 +87,7 @@
             Output: <br />
         ![Alt text](./cars_indexer.png)
         
-        2. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+        3. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
             Example: <br />
             ```
             from pyspark.ml.feature import VectorAssembler

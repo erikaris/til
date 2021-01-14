@@ -1,5 +1,14 @@
 # Machine Learning
 
+  * [Definition:](#definition-)
+  * [Classification:](#classification-)
+  * [Steps for building a model](#steps-for-building-a-model)
+  * [Methods for building model:](#methods-for-building-model-)
+    + [Decision Trees](#decision-trees)
+    + [Logistic Regression](#logistic-regression)
+  * [Tools:](#tools-)
+  * [Evaluating a Model](#evaluating-a-model)
+
 ## Definition:
 
 1. ....

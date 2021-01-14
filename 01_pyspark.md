@@ -114,7 +114,7 @@
             from pyspark.ml.classification import LogisticRegression
             logreg = LogisticRegression()
             logreg.fit(train_data)
-            
+            logreg.transform(test_data)
             ```
 	
         5. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.

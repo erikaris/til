@@ -61,7 +61,9 @@
     2. `pyspark.streaming`.
     3. `pyspark.ml`.
     
-    	1. `from pyspark.ml.feature import Tokenizer`. Example: <br />
+        1. `from pyspark.ml.feature import HashingTF`
+    
+    	2. `from pyspark.ml.feature import Tokenizer`. Example: <br />
 		`books = Tokenizer(inputCol="text", outputCol="tokens").transform(books)`.  <br />
 		Output: <br />
 		```
@@ -75,8 +77,9 @@
 		|Five Have a Wonderful Time |[five, have, a, wonderful, time] |
 		+--------------------------------------+----------------------------------------------+
 		```
-        
-    	2. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
+        3. `from pyspark.ml.feature import StopWordsRemover`
+    	
+	    4. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
             ```
             from pyspark.ml.feature import StringIndexer
             indexer = StringIndexer(inputCol='type', outputCol='type_idx')
@@ -87,7 +90,7 @@
             Output: <br />
         ![Alt text](./cars_indexer.png)
         
-        3. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+        5. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
             Example: <br />
             ```
             from pyspark.ml.feature import VectorAssembler
@@ -96,7 +99,7 @@
             ``` 
         ![Alt text](./vector_assembler.png)
 	
-        3. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
+        6. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
             ```
             # Import the Decision Tree Classifier class
             from pyspark.ml.classification import DecisionTreeClassifier
@@ -109,7 +112,7 @@
             prediction = tree_model.transform(test_data)
             prediction.select('label', 'prediction', 'probability').show(5, False)
             ```
-        4. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
+        7. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
             ```
             from pyspark.ml.classification import LogisticRegression
             logreg = LogisticRegression()
@@ -117,7 +120,7 @@
             logreg.transform(test_data)
             ```
 	
-        5. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
+        8. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
             Usage: <br />
             ```
             from pyspark.ml.evaluation import MulticlassClassificationEvaluator
@@ -129,7 +132,7 @@
                 2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
             
             
-	    2. dfdre
+	    9. dfdre
 
 ## Steps:
 

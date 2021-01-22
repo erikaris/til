@@ -63,7 +63,7 @@
     
         1. `from pyspark.ml.feature import HashingTF`
 	
-        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. 
+        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. <br />
         `OneHotEncoderEstimator(inputCols=['org_idx'], outputCols=['org_dummy']).fit(df).transform(df)`.  <br />
         Output: <br />
         ```
@@ -80,6 +80,9 @@
         |OGG|    7.0|    (7,[],[])|
         +---+-------+-------------+
         ```
+	
+	    Illustration of encoding
+
         
 	    3. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
         `indexer = StringIndexer(inputCol='carrier', outputCol='carrier_idx').fit(df).transform(df)` <br />

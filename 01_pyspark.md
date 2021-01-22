@@ -80,9 +80,8 @@
         |OGG|    7.0|    (7,[],[])|
         +---+-------+-------------+
         ```
-	
-	    Illustration of encoding <br />
-        ![](./images/pysparkml_landscape.png)
+        Illustration of encoding <br />
+        ![](./images/onehot.png)
 
         
 	    3. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 

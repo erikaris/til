@@ -60,6 +60,24 @@
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
     3. `pyspark.ml`.  
+        
+        1. `from pyspark.ml.evaluation import RegressionEvaluator`  --> Evaluate RMSE on testing data. <br />
+            Usage example: <br />
+            ```
+            from pyspark.ml.regression import LinearRegression
+            from pyspark.ml.evaluation import RegressionEvaluator
+
+            # Create a regression object and train on training data
+            regression = LinearRegression(labelCol = 'mpg').fit(mtcars_train)
+
+            # Create predictions for the testing data and take a look at the predictions
+            predictions = regression.transform(mtcars_test) # this step will create a new column named 'prediction'.
+            predictions.select('mpg', 'prediction').show(7, False)
+
+            # Calculate the RMSE
+            RegressionEvaluator(labelCol='mpg').evaluate(predictions)
+            ```
+        
     
         1. `from pyspark.ml.feature import HashingTF`
 	
@@ -166,8 +184,10 @@
             Notes: <br/>
                 1. argument `prediction` is the output of `.transform()`. 
                 2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
+                
+        11. `from pyspark.ml.regression import LinearRegression`
             
-            
+           
 	    11. dfdre
 
 ## Steps:

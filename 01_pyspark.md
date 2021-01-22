@@ -81,7 +81,8 @@
         +---+-------+-------------+
         ```
 	
-	    Illustration of encoding
+	    Illustration of encoding <br />
+        ![](./images/pysparkml_landscape.png)
 
         
 	    3. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 

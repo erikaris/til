@@ -59,13 +59,44 @@
     	1. `from pyspark.sql import SparkSession`.
         2. `from pyspark.sql.functions import round`.
     2. `pyspark.streaming`.
-    3. `pyspark.ml`.
+    3. `pyspark.ml`.  
     
         1. `from pyspark.ml.feature import HashingTF`
 	
-        2. `from pyspark.ml.feature import OneHotEncoderEstimator`
+        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. 
+        `OneHotEncoderEstimator(inputCols=['org_idx'], outputCols=['org_dummy']).fit(df).transform(df)`.  <br />
+        Output: <br />
+        ```
+         +---+-------+-------------+
+        |org|org_idx|    org_dummy|
+        +---+-------+-------------+
+        |ORD|    0.0|(7,[0],[1.0])|
+        |SFO|    1.0|(7,[1],[1.0])|
+        |JFK|    2.0|(7,[2],[1.0])|
+        |LGA|    3.0|(7,[3],[1.0])|
+        |SJC|    4.0|(7,[4],[1.0])|
+        |SMF|    5.0|(7,[5],[1.0])|
+        |TUS|    6.0|(7,[6],[1.0])|
+        |OGG|    7.0|    (7,[],[])|
+        +---+-------+-------------+
+        ```
+        
+	    3. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
+        `indexer = StringIndexer(inputCol='carrier', outputCol='carrier_idx').fit(df).transform(df)` <br />
+        Output: <br />
+        ```
+        +---+-------+
+        |org|org_idx|
+        +---+-------+
+        |JFK|2.0    |
+        |ORD|0.0    |
+        |SFO|1.0    |
+        |ORD|0.0    |
+        |ORD|0.0    |
+        +---+-------+
+        ```
     
-    	3. `from pyspark.ml.feature import Tokenizer`. Example: <br />
+    	4. `from pyspark.ml.feature import Tokenizer`. Example: <br />
 		`books = Tokenizer(inputCol="text", outputCol="tokens").transform(books)`.  <br />
 		Output: <br />
 		```
@@ -79,9 +110,9 @@
 		|Five Have a Wonderful Time |[five, have, a, wonderful, time] |
 		+--------------------------------------+----------------------------------------------+
 		```
-        4. `from pyspark.ml.feature import StopWordsRemover`
+        5. `from pyspark.ml.feature import StopWordsRemover`
     	
-	    5. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
+	    6. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
             ```
             from pyspark.ml.feature import StringIndexer
             indexer = StringIndexer(inputCol='type', outputCol='type_idx')
@@ -92,7 +123,7 @@
             Output: <br />
         ![Alt text](./cars_indexer.png)
         
-        6. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+        7. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
             Example: <br />
             ```
             from pyspark.ml.feature import VectorAssembler
@@ -101,7 +132,7 @@
             ``` 
         ![Alt text](./vector_assembler.png)
 	
-        7. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
+        8. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
             ```
             # Import the Decision Tree Classifier class
             from pyspark.ml.classification import DecisionTreeClassifier
@@ -114,7 +145,7 @@
             prediction = tree_model.transform(test_data)
             prediction.select('label', 'prediction', 'probability').show(5, False)
             ```
-        8. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
+        9. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
             ```
             from pyspark.ml.classification import LogisticRegression
             logreg = LogisticRegression()
@@ -122,7 +153,7 @@
             logreg.transform(test_data)
             ```
 	
-        9. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
+        10. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
             Usage: <br />
             ```
             from pyspark.ml.evaluation import MulticlassClassificationEvaluator
@@ -134,7 +165,7 @@
                 2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
             
             
-	    10. dfdre
+	    11. dfdre
 
 ## Steps:
 

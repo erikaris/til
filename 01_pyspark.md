@@ -102,7 +102,17 @@
         ![](./images/onehot.png)
 
         
-	    3. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
+	    3. [`from pyspark.ml.regression import LinearRegression`](https://spark.apache.org/docs/2.2.0/api/python/_modules/pyspark/ml/regression.html) --> for doing linear regression --> *instantiate - fit test data - transform train data*. This returns an object `linearRegression` whose some of its useful attributes are `intercept` and `coefficients`.  The `coefficient` attribute is a list contains of n elements, where `n` is the number of categoris in the features columns (independent variable) used when the constructing the model. <br />
+            Usage = `LinearRegression(featuresCol = 'independent_var', labelCol = 'dependent_var')`. This will create a new column named `prediction`. 
+            Example: <br />
+            ```
+            from pyspark.ml.regression import LinearRegression
+            regression = LinearRegression(labelCol='dependent_variablle_y')
+            regression = regression.fit(train_data)
+            predictions = regression.transform(test_data)
+            ```
+        
+        4. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
         `indexer = StringIndexer(inputCol='carrier', outputCol='carrier_idx').fit(df).transform(df)` <br />
         Output: <br />
         ```

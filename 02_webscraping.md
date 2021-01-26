@@ -103,7 +103,14 @@
         4. `html_table()` --> turning html table into data.frame. 
     2. rselenium
     3. [httr](https://www.rdocumentation.org/packages/httr/versions/1.4.2): tools for working with URLs and HTTP. Some of its useful functions:
-        1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET).
+        1. [`GET(url = NULL, config = list(), ...)`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/GET). <br />
+            Notes: 
+            1. `...` = Further named parameters, such as query, path, etc. <br />
+                Example: <br />
+                ```
+                resp <- GET(url = "https://en.wikipedia.org/w/api.php", query = list(action="parse", page="Hadley Wickham", format="xml"))
+                ```
+                
         2. `POST()`
         3. [`http_error()`](https://www.rdocumentation.org/packages/httr/versions/1.4.2/topics/http_error)  --> Check for an http error. <br />
             Usage: `http_error(request_result)` --> `request_result` is things we got from `GET()` or `POST()`.

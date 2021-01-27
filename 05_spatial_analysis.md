@@ -16,16 +16,16 @@ Functions:
   ```
   > map5
     640x640 terrain map image from Google Maps.  see ?ggmap to plot it.
-> str(map5)
- 'ggmap' chr [1:640, 1:640] "#A9D9FE" "#A9D9FE" "#A9D9FE" "#A9D9FE" ...
- - attr(*, "source")= chr "google"
- - attr(*, "maptype")= chr "terrain"
- - attr(*, "zoom")= num 5
- - attr(*, "bb")='data.frame':	1 obs. of  4 variables:
-  ..$ ll.lat: num 33.7
-  ..$ ll.lon: num -137
-  ..$ ur.lat: num 53.7
-  ..$ ur.lon: num -109
+  > str(map5)
+   'ggmap' chr [1:640, 1:640] "#A9D9FE" "#A9D9FE" "#A9D9FE" "#A9D9FE" ...
+   - attr(*, "source")= chr "google"
+   - attr(*, "maptype")= chr "terrain"
+   - attr(*, "zoom")= num 5
+   - attr(*, "bb")='data.frame':	1 obs. of  4 variables:
+    ..$ ll.lat: num 33.7
+    ..$ ll.lon: num -137
+    ..$ ur.lat: num 53.7
+    ..$ ur.lon: num -109
   ```
   
 

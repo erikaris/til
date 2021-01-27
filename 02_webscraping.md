@@ -235,7 +235,7 @@
                     # Print the response content
                     content(response)
                     ```
-                2. `query`--> To construct a parameter-based URLs, where all the query values exist at the end of the URL and take the form of `key=value`. Example: <br />
+                2. `query`--> to define the query params --> To construct a parameter-based URLs, where all the query values exist at the end of the URL and take the form of `key=value`. Example 1: <br />
                     ```
                     # Create list with nationality and country elements
                     query_params <- list(nationality = "americans", 
@@ -266,6 +266,11 @@
                         "Host": "httpbin.org", 
                         "User-Agent": "libcurl/7.47.0 r-curl/4.3 httr/1.4.1", 
                     ...
+                    ```
+                    
+                    Example 2: <br />
+                    ```
+                    resp <- GET(url = "https://en.wikipedia.org/w/api.php", query = list(action="parse", page="Hadley Wickham", format="xml"))
                     ```
           
         2. Example:

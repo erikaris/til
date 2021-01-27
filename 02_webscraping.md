@@ -96,7 +96,7 @@
 ## Tools
 
 1. R --> Required libraries:
-    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6) --> scrape information from web pages, beautiful-soup inspired. Some of its useful functions:
+    1. [rvest](https://www.rdocumentation.org/packages/rvest/versions/0.3.6) --> scrape information from web pages, beautiful-soup inspired. It's a wrappers around the `'xml2'` and `'httr'` packages to make it easy to download, then manipulate, HTML and XML. Thus, loading `rvest` will automatically load `xml2` and `httr` library. Some of its useful functions:
         1. [`html_name()`](https://www.rdocumentation.org/packages/rvest/topics/html_name) --> Extract tag name from html.
         2. [`html_text()`](https://www.rdocumentation.org/packages/rvest/topics/html_text) --> accepts a node and passes back the text inside it.
         3. `html_attr()` 

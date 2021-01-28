@@ -5,15 +5,10 @@
 
 ## [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0)
 Functions:
-1. [get_map(location = c(lon = -95.3632715, lat = 29.7632836),
-  zoom = "auto", scale = "auto")](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/get_map). This returns a ggmap object. Example: <br/>
+1. [get_map(location = c(lon = -95.3632715, lat = 29.7632836, maptype = c("terrain", "terrain-background", "satellite", "roadmap", "hybrid", "toner", "watercolor", "terrain-labels", "terrain-lines", "toner-2010", "toner-2011", "toner-background", "toner-hybrid", "toner-labels", "toner-lines", "toner-lite"), source = c("google", "osm", "stamen")), zoom = "auto", scale = "auto")](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0/topics/get_map). This returns a ggmap object. Example: <br/>
   ```
     # Get map at zoom level 5: map_5
-    map5 <- get_map(location = c(lon = -123.2620, lat = 44.5646), zoom = 5, scale = 1, maptype = c("terrain",
-      "terrain-background", "satellite", "roadmap", "hybrid", "toner",
-      "watercolor", "terrain-labels", "terrain-lines", "toner-2010",
-      "toner-2011", "toner-background", "toner-hybrid", "toner-labels",
-      "toner-lines", "toner-lite"), source = c("google", "osm", "stamen"))
+    map5 <- get_map(location = c(lon = -123.2620, lat = 44.5646), zoom = 5, scale = 1)
   ```
   
   Output: <br />

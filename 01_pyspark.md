@@ -81,7 +81,7 @@
     
         1. `from pyspark.ml.feature import HashingTF`
 	
-        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. <br />
+        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. Note that one-hot encoding produces a number of columns which is one fewer than the number of levels. See the illustration below to get a better understanding. <br />
         `OneHotEncoderEstimator(inputCols=['org_idx'], outputCols=['org_dummy']).fit(df).transform(df)`.  <br />
         Output: <br />
         ```

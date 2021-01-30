@@ -54,151 +54,161 @@
 
 1. PySpark is a wrapper API to access Spark through Python language. 
 2. To start using PySpark, we have to import `pyspark` first. 
-3. In addition to `pyspark`, there are:
-    1. `pyspark.sql`: use for importing and creating `SparkSession`. 
-    	1. `from pyspark.sql import SparkSession`.
-        2. `from pyspark.sql.functions import round`.
-    2. `pyspark.streaming`.
-    3. `pyspark.ml`.  
-        
-        1. `from pyspark.ml.evaluation import RegressionEvaluator`  --> Evaluate RMSE on testing data. <br />
-            Usage example: <br />
-            ```
-            from pyspark.ml.regression import LinearRegression
-            from pyspark.ml.evaluation import RegressionEvaluator
+3. In addition to `pyspark`, there are: `pyspark.sql`, `pyspark.streaming`, `pyspark.ml`.
 
-            # Create a regression object and train on training data
-            regression = LinearRegression(labelCol = 'mpg').fit(mtcars_train)
+### `pyspark.sql`
 
-            # Create predictions for the testing data and take a look at the predictions
-            predictions = regression.transform(mtcars_test) # this step will create a new column named 'prediction'.
-            predictions.select('mpg', 'prediction').show(7, False)
+use for importing and creating `SparkSession`. 
+1. `from pyspark.sql import SparkSession`.
+2. `from pyspark.sql.functions import round`.
 
-            # Calculate the RMSE
-            RegressionEvaluator(labelCol='mpg').evaluate(predictions)
-            ```
-        
+### `pyspark.streaming`
+
+### `pyspark.ml` 
+
+#### `pyspark.ml.classification`
+
+1. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
+    ```
+    # Import the Decision Tree Classifier class
+    from pyspark.ml.classification import DecisionTreeClassifier
+
+    # Create a classifier object and fit to the training data
+    tree = DecisionTreeClassifier()
+    tree_model = tree.fit(train_data)
+
+    # Create predictions for the testing data and take a look at the predictions
+    prediction = tree_model.transform(test_data)
+    prediction.select('label', 'prediction', 'probability').show(5, False)
+    ```
+2. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
+    ```
+    from pyspark.ml.classification import LogisticRegression
+    logreg = LogisticRegression()
+    logreg.fit(train_data)
+    logreg.transform(test_data)
+    ```
+
+#### `pyspark.ml.evaluation`
+
+1. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
+    Usage: <br />
+    ```
+    from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+    evaluator = MulticlassClassificationEvaluator()
+    evaluator.evaluate(prediction, {evaluator.metricName: 'weightedPrecision'})
+    ```
+    Notes: <br/>
+        1. argument `prediction` is the output of `.transform()`. 
+        2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
+
+2. `from pyspark.ml.evaluation import RegressionEvaluator`  --> Evaluate RMSE on testing data. <br />
+    Usage example: <br />
+    ```
+    from pyspark.ml.regression import LinearRegression
+    from pyspark.ml.evaluation import RegressionEvaluator
+
+    # Create a regression object and train on training data
+    regression = LinearRegression(labelCol = 'mpg').fit(mtcars_train)
+
+    # Create predictions for the testing data and take a look at the predictions
+    predictions = regression.transform(mtcars_test) # this step will create a new column named 'prediction'.
+    predictions.select('mpg', 'prediction').show(7, False)
+
+    # Calculate the RMSE
+    RegressionEvaluator(labelCol='mpg').evaluate(predictions)
+    ```
     
-        1. `from pyspark.ml.feature import HashingTF`
-	
-        2. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. Note that one-hot encoding produces a number of columns which is one fewer than the number of levels. See the illustration below to get a better understanding. <br />
-        `OneHotEncoderEstimator(inputCols=['org_idx'], outputCols=['org_dummy']).fit(df).transform(df)`.  <br />
-        Output: <br />
-        ```
-         +---+-------+-------------+
-        |org|org_idx|    org_dummy|
-        +---+-------+-------------+
-        |ORD|    0.0|(7,[0],[1.0])|
-        |SFO|    1.0|(7,[1],[1.0])|
-        |JFK|    2.0|(7,[2],[1.0])|
-        |LGA|    3.0|(7,[3],[1.0])|
-        |SJC|    4.0|(7,[4],[1.0])|
-        |SMF|    5.0|(7,[5],[1.0])|
-        |TUS|    6.0|(7,[6],[1.0])|
-        |OGG|    7.0|    (7,[],[])|
-        +---+-------+-------------+
-        ```
-        Illustration of encoding <br />
-        ![](./images/onehot.png)
-
-        
-	    3. [`from pyspark.ml.regression import LinearRegression`](https://spark.apache.org/docs/2.2.0/api/python/_modules/pyspark/ml/regression.html) --> for doing linear regression --> *instantiate - fit test data - transform train data*. This returns an object `linearRegression` whose some of its useful attributes are `intercept` and `coefficients`.  The `coefficient` attribute is a list contains of n elements, where `n` is the number of categoris in the features columns (independent variable) used when the constructing the model. <br />
-            Usage = `LinearRegression(featuresCol = 'independent_var', labelCol = 'dependent_var')`. This will create a new column named `prediction`. 
-            Example: <br />
-            ```
-            from pyspark.ml.regression import LinearRegression
-            regression = LinearRegression(labelCol='dependent_variablle_y')
-            regression = regression.fit(train_data)
-            predictions = regression.transform(test_data)
-            ```
-        
-        4. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
-        `indexer = StringIndexer(inputCol='carrier', outputCol='carrier_idx').fit(df).transform(df)` <br />
-        Output: <br />
-        ```
-        +---+-------+
-        |org|org_idx|
-        +---+-------+
-        |JFK|2.0    |
-        |ORD|0.0    |
-        |SFO|1.0    |
-        |ORD|0.0    |
-        |ORD|0.0    |
-        +---+-------+
-        ```
+#### `pyspark.ml.feature`
     
-    	4. `from pyspark.ml.feature import Tokenizer`. Example: <br />
-		`books = Tokenizer(inputCol="text", outputCol="tokens").transform(books)`.  <br />
-		Output: <br />
-		```
-		+--------------------------------------+----------------------------------------------+
-		|text |tokens |
-		+--------------------------------------+----------------------------------------------+
-		|Forever or a Long Long Time |[forever, or, a, long, long, time] |
-		|Winnie the Pooh |[winnie, the, pooh] |
-		|Ten Little Fingers and Ten Little Toes|[ten, little, fingers, and, ten, little, toes]|
-		|Five Get into Trouble |[five, get, into, trouble] |
-		|Five Have a Wonderful Time |[five, have, a, wonderful, time] |
-		+--------------------------------------+----------------------------------------------+
-		```
-        5. `from pyspark.ml.feature import StopWordsRemover`
-    	
-	    6. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
-            ```
-            from pyspark.ml.feature import StringIndexer
-            indexer = StringIndexer(inputCol='type', outputCol='type_idx')
-            indexer = indexer.fit(cars)
-            # Create column with index values
-            cars = indexer.transform(cars)
-            ```
-            Output: <br />
-        ![Alt text](./cars_indexer.png)
-        
-        7. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
-            Example: <br />
-            ```
-            from pyspark.ml.feature import VectorAssembler
-            assembler = VectorAssembler(inputCols=['cyl', 'size'], outputCol='features')
-            assembler.transform(cars)    
-            ``` 
-        ![Alt text](./vector_assembler.png)
-	
-        8. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
-            ```
-            # Import the Decision Tree Classifier class
-            from pyspark.ml.classification import DecisionTreeClassifier
+1. `from pyspark.ml.feature import HashingTF`
 
-            # Create a classifier object and fit to the training data
-            tree = DecisionTreeClassifier()
-            tree_model = tree.fit(train_data)
+2. `from pyspark.ml.feature import IDF`
 
-            # Create predictions for the testing data and take a look at the predictions
-            prediction = tree_model.transform(test_data)
-            prediction.select('label', 'prediction', 'probability').show(5, False)
-            ```
-        9. `from pyspark.ml.classification import LogisticRegression` --> ** instantiate - fit - transform**. <br />
-            ```
-            from pyspark.ml.classification import LogisticRegression
-            logreg = LogisticRegression()
-            logreg.fit(train_data)
-            logreg.transform(test_data)
-            ```
+3. `from pyspark.ml.feature import OneHotEncoderEstimator`  --> maps a column of category indices to a column of binary vectors. Note that one-hot encoding produces a number of columns which is one fewer than the number of levels. See the illustration below to get a better understanding. <br />
+`OneHotEncoderEstimator(inputCols=['org_idx'], outputCols=['org_dummy']).fit(df).transform(df)`.  <br />
+Output: <br />
+```
+ +---+-------+-------------+
+|org|org_idx|    org_dummy|
++---+-------+-------------+
+|ORD|    0.0|(7,[0],[1.0])|
+|SFO|    1.0|(7,[1],[1.0])|
+|JFK|    2.0|(7,[2],[1.0])|
+|LGA|    3.0|(7,[3],[1.0])|
+|SJC|    4.0|(7,[4],[1.0])|
+|SMF|    5.0|(7,[5],[1.0])|
+|TUS|    6.0|(7,[6],[1.0])|
+|OGG|    7.0|    (7,[],[])|
++---+-------+-------------+
+```
+Illustration of encoding <br />
+![](./images/onehot.png)
+
+4. `from pyspark.ml.feature import StringIndexer`  --> for converting strings into indices  --> instantiate, fit, transform. 
+`indexer = StringIndexer(inputCol='carrier', outputCol='carrier_idx').fit(df).transform(df)` <br />
+Output: <br />
+```
++---+-------+
+|org|org_idx|
++---+-------+
+|JFK|2.0    |
+|ORD|0.0    |
+|SFO|1.0    |
+|ORD|0.0    |
+|ORD|0.0    |
++---+-------+
+```
+
+5. `from pyspark.ml.feature import Tokenizer`. Example: <br />
+`books = Tokenizer(inputCol="text", outputCol="tokens").transform(books)`.  <br />
+Output: <br />
+```
++--------------------------------------+----------------------------------------------+
+|text |tokens |
++--------------------------------------+----------------------------------------------+
+|Forever or a Long Long Time |[forever, or, a, long, long, time] |
+|Winnie the Pooh |[winnie, the, pooh] |
+|Ten Little Fingers and Ten Little Toes|[ten, little, fingers, and, ten, little, toes]|
+|Five Get into Trouble |[five, get, into, trouble] |
+|Five Have a Wonderful Time |[five, have, a, wonderful, time] |
++--------------------------------------+----------------------------------------------+
+```
+6. `from pyspark.ml.feature import StopWordsRemover`
+
+7. `from pyspark.ml.feature import StringIndexer` --> Indexing **categorical data** based on frequency in desencing order --> **fit** and **transform** Example of usage: <br />
+    ```
+    from pyspark.ml.feature import StringIndexer
+    indexer = StringIndexer(inputCol='type', outputCol='type_idx')
+    indexer = indexer.fit(cars)
+    # Create column with index values
+    cars = indexer.transform(cars)
+    ```
+    Output: <br />
+![Alt text](./cars_indexer.png)
+
+8. `from pyspark.ml.feature import VectorAssembler` --> vector assembler to transform the data --> **no fit** just **transform**. Note that there are arguments `inputCol` and `inputCols` depend on the number of columns used as inputs. <br />
+    Example: <br />
+    ```
+    from pyspark.ml.feature import VectorAssembler
+    assembler = VectorAssembler(inputCols=['cyl', 'size'], outputCol='features')
+    assembler.transform(cars)    
+    ``` 
+![Alt text](./vector_assembler.png)
 	
-        10. `from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator` --> for evaluating models.
-            Usage: <br />
-            ```
-            from pyspark.ml.evaluation import MulticlassClassificationEvaluator
-            evaluator = MulticlassClassificationEvaluator()
-            evaluator.evaluate(prediction, {evaluator.metricName: 'weightedPrecision'})
-            ```
-            Notes: <br/>
-                1. argument `prediction` is the output of `.transform()`. 
-                2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
-                
-        11. `from pyspark.ml.regression import LinearRegression`
-            
-           
-	    11. dfdre
+#### `pyspark.ml.regression`
+
+1. [`from pyspark.ml.regression import LinearRegression`](https://spark.apache.org/docs/2.2.0/api/python/_modules/pyspark/ml/regression.html) --> for doing linear regression --> *instantiate - fit test data - transform train data*. This returns an object `linearRegression` whose some of its useful attributes are `intercept` and `coefficients`.  The `coefficient` attribute is a list contains of n elements, where `n` is the number of categoris in the features columns (independent variable) used when the constructing the model. <br />
+    Usage = `LinearRegression(featuresCol = 'independent_var', labelCol = 'dependent_var')`. This will create a new column named `prediction`. 
+    Example: <br />
+    ```
+    from pyspark.ml.regression import LinearRegression
+    regression = LinearRegression(labelCol='dependent_variablle_y')
+    regression = regression.fit(train_data)
+    predictions = regression.transform(test_data)
+    ```
+
+13. dfdre
 
 ## Steps:
 

@@ -212,6 +212,8 @@ Output: <br />
 
 1. `from pyspark.ml.tuning import CrossValidator, ParamGridBuilder`
 
+    1. `ParamGridBuilder` --> create a grid of parameters. 
+
 13. dfdre
 
 ## Steps:

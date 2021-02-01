@@ -1,6 +1,9 @@
 
 ## Tools:
-1. R --> [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
+1. R, some of available packages are:
+
+  1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
+  2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. 
 2. Python
 
 ## [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0)

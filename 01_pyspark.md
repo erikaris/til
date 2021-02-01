@@ -208,6 +208,10 @@ Output: <br />
     predictions = regression.transform(test_data)
     ```
 
+### `pyspark.ml.tuning`
+
+1. `from pyspark.ml.tuning import CrossValidator, ParamGridBuilder`
+
 13. dfdre
 
 ## Steps:

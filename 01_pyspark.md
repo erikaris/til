@@ -224,7 +224,7 @@ Output: <br />
     evaluator = RegressionEvaluator(labelCol='duration')
 
     # Create a cross validator
-    cv = CrossValidator(estimator=regression, estimatorParamMaps=params, evaluator=evaluator, numFolds=5)
+    cv = CrossValidator(estimator=regression, estimatorParamMaps=params, evaluator=evaluator, numFolds=5).fit(train_data)
     ```
 
 13. dfdre

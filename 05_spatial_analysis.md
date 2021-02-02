@@ -3,7 +3,7 @@
 1. R, some of available packages are:
 
   1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
-  2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. 
+  2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data. 
 2. Python
 
 ## [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0)
@@ -29,6 +29,12 @@ Functions:
     ..$ ur.lat: num 53.7
     ..$ ur.lon: num -109
   ```
-  
+
+##  sp
+
+1. The sp classes are `S4` objects, so instead of having elements they have `slots` and we have to access them with `@`.
+2. 2 types of `sp` objects:
+    1. SpatialPolygons
+    2. SpatialPolygonsDataFrame
 
 2. 

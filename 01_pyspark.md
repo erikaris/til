@@ -213,6 +213,19 @@ Output: <br />
 1. `from pyspark.ml.tuning import CrossValidator, ParamGridBuilder`
 
     1. `ParamGridBuilder` --> create a grid of parameters. 
+    2. Example for `CrossValidator` 
+    
+    ```
+    # Create an empty parameter grid
+    params = ParamGridBuilder().build()
+
+    # Create objects for building and evaluating a regression model
+    regression = LinearRegression(labelCol='duration')
+    evaluator = RegressionEvaluator(labelCol='duration')
+
+    # Create a cross validator
+    cv = CrossValidator(estimator=regression, estimatorParamMaps=params, evaluator=evaluator, numFolds=5)
+    ```
 
 13. dfdre
 

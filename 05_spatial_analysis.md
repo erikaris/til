@@ -34,7 +34,43 @@ Functions:
 
 1. The sp classes are `S4` objects, so instead of having elements they have `slots` and we have to access them with `@`.
 2. 2 types of `sp` objects:
-    1. SpatialPolygons
-    2. SpatialPolygonsDataFrame
+    1. SpatialPolygons (sp) --> does not have `data` slot. Example: <br />
+        ```
+        summary(countries_sp)
+        Object of class SpatialPolygons
+        Coordinates:
+                min       max
+        x -180.0000 180.00000
+        y  -89.9999  83.64513
+        Is projected: FALSE 
+        proj4string :
+        [+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0]
+        ```
+    
+    2. SpatialPolygonsDataFrame --> have a `data` slot. Example: <br />
+        ```
+        summary(countries_spdf)
+        Object of class SpatialPolygonsDataFrame
+        Coordinates:
+                min       max
+        x -180.0000 180.00000
+        y  -89.9999  83.64513
+        Is projected: FALSE 
+        proj4string :
+        [+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0]
+        Data attributes:
+             name              iso_a3            population             gdp          
+         Length:177         Length:177         Min.   :1.400e+02   Min.   :      16  
+         Class :character   Class :character   1st Qu.:3.481e+06   1st Qu.:   13198  
+         Mode  :character   Mode  :character   Median :9.048e+06   Median :   43450  
+                                               Mean   :3.849e+07   Mean   :  395513  
+                                               3rd Qu.:2.616e+07   3rd Qu.:  235100  
+                                               Max.   :1.339e+09   Max.   :15094000  
+                                               NA's   :1           NA's   :1         
+            region           subregion        
+         Length:177         Length:177        
+         Class :character   Class :character  
+         Mode  :character   Mode  :character 
+        ```
 
 2. 

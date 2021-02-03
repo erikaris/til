@@ -16,6 +16,16 @@
     1. Classification
     2. Clustering
     3. ...
+    
+## Types of Machine Learning 
+
+Adopted from [machinelearningmastery.com](https://machinelearningmastery.com/types-of-learning-in-machine-learning/). 
+
+1. **Supervised** -->  learn to operate by mapping between input examples and the target variable --> e.g: classification, regression. 
+2. **Unsupervised** --> learn to operate upon only the input data without outputs or target variables --> e.g: clustering, density estimation (summarizing the distribution of data), visualization, projection. 
+3. **Reinforcement** --> learn to operate using feedback (reward and punishment). 
+
+All estimators in ML have a `fit()` method, and depending on whether they are supervised or unsupervised, they also have a `predict()` or `transform()` method [source](https://stackoverflow.com/questions/31572487/fitting-data-vs-transforming-data-in-scikit-learn).
 
 ## Classification:
 

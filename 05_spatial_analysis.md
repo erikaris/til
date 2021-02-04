@@ -109,7 +109,7 @@ Functions:
 
 ### Main Plotting Method
 
-Works like `ggplot` with a base layer `tm_shape()` and several additional layers:
+Works like `ggplot` with a base layer [`tm_shape(shp, projection=NULL)`](https://www.rdocumentation.org/packages/tmap/versions/3.3/topics/tm_shape) and several additional layers:
 
 1. aesthetic base layers:
     1. [`tm_fill(col, style)`](https://www.rdocumentation.org/link/tm_fill?package=tmap&version=3.2) --> Create a polygon layer (without borders). 
@@ -117,4 +117,13 @@ Works like `ggplot` with a base layer `tm_shape()` and several additional layers
     3. [`tm_bubbles(size)`] --> create a layer of bubbles. 
 2. aesthetic derived layers
 3. faceting layers
+4. attributes:
+    1. [`tm_grid(n.x=NA)`](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tm_grid) --> Create grid lines. <br />
+        Notes: <br />
+        1. n.x = preferred number of grid lines for the x axis.
+        2. n.y = preferred number of grid lines for the y axis. 
+5. layout:
+    1. [`tm_layout`](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tm_layout) --> Adjust the layout (main function). 
+    2. [`tm_style`](https://www.rdocumentation.org/link/tm_style?package=tmap&version=3.2) --> Apply a predefined style. 
+
 

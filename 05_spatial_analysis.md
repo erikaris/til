@@ -4,6 +4,8 @@
 
   1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
   2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data. 
+  3. [tmap](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tmap-package) --> Thematic Map Visualization. 
+  
 2. Python
 
 ## [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0)
@@ -34,7 +36,17 @@ Functions:
 
 1. The sp classes are `S4` objects, so instead of having elements they have `slots` and we have to access them with `@`.
 2. 2 types of `sp` objects:
-    1. SpatialPolygons (sp) --> does not have `data` slot. Example: <br />
+    1. SpatialPolygons (sp) --> It is an object consists of 4 slots: `polygons`, `plotOrder`, `bbox`, `proj4string`. Example: <br />
+        ```
+        > str(countries_sp, max.level=2)
+        Formal class 'SpatialPolygons' [package "sp"] with 4 slots
+          ..@ polygons   :List of 177
+          ..@ plotOrder  : int [1:177] 7 136 28 169 31 23 9 66 84 5 ...
+          ..@ bbox       : num [1:2, 1:2] -180 -90 180 83.6
+          .. ..- attr(*, "dimnames")=List of 2
+          ..@ proj4string:Formal class 'CRS' [package "sp"] with 1 slot
+        ```
+        
         ```
         summary(countries_sp)
         Object of class SpatialPolygons
@@ -47,7 +59,21 @@ Functions:
         [+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0]
         ```
     
-    2. SpatialPolygonsDataFrame --> have a `data` slot. Example: <br />
+    2. SpatialPolygonsDataFrame --> Similar to the `sp` object but has additional `data` slot. <br />
+        
+        ![Alt text](./images/spdf_hiearchy.png)
+    
+        Example: <br />
+        ```
+        > str(countries_spdf, max.level=2)
+        Formal class 'SpatialPolygonsDataFrame' [package "sp"] with 5 slots
+          ..@ data       :'data.frame':	177 obs. of  6 variables:
+          ..@ polygons   :List of 177
+          ..@ plotOrder  : int [1:177] 7 136 28 169 31 23 9 66 84 5 ...
+          ..@ bbox       : num [1:2, 1:2] -180 -90 180 83.6
+          .. ..- attr(*, "dimnames")=List of 2
+          ..@ proj4string:Formal class 'CRS' [package "sp"] with 1 slot
+        ```
         ```
         summary(countries_spdf)
         Object of class SpatialPolygonsDataFrame
@@ -73,4 +99,22 @@ Functions:
          Mode  :character   Mode  :character 
         ```
 
-2. 
+## tmap
+
+`tmap` provides two ways of creating thematic maps: (1) quick method and (2) main plotting method. 
+
+### Quick Method 
+
+1. [`qtm(shp)`](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/qtm) --> for quick thematic maps.
+
+### Main Plotting Method
+
+Works like `ggplot` with a base layer `tm_shape()` and several additional layers:
+
+1. aesthetic base layers:
+    1. [`tm_fill(col, style)`](https://www.rdocumentation.org/link/tm_fill?package=tmap&version=3.2) --> Create a polygon layer (without borders). 
+    2. [`tm_borders(col)`] --> Create polygon borders. 
+    3. [`tm_bubbles(size)`] --> create a layer of bubbles. 
+2. aesthetic derived layers
+3. faceting layers
+

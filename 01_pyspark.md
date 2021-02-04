@@ -66,7 +66,22 @@ use for importing and creating `SparkSession`.
 
 ### `pyspark.ml` 
 
-#### `pyspark.ml.classification`
+#### [`pyspark.ml.classification`](https://spark.apache.org/docs/latest/api/python/_modules/pyspark/ml/classification.html)
+
+Supported classification method: 
+```
+'LinearSVC', 'LinearSVCModel',
+'LogisticRegression', 'LogisticRegressionModel',
+'LogisticRegressionSummary', 'LogisticRegressionTrainingSummary',
+'BinaryLogisticRegressionSummary', 'BinaryLogisticRegressionTrainingSummary',
+'DecisionTreeClassifier', 'DecisionTreeClassificationModel',
+'GBTClassifier', 'GBTClassificationModel',
+'RandomForestClassifier', 'RandomForestClassificationModel',
+'NaiveBayes', 'NaiveBayesModel',
+'MultilayerPerceptronClassifier', 'MultilayerPerceptronClassificationModel',
+'OneVsRest', 'OneVsRestModel',
+'FMClassifier', 'FMClassificationModel'
+```
 
 1. `from pyspark.ml.classification import DecisionTreeClassifier` --> to create classification using decision tree --> ** instantiate - fit - transform**. Usage example: <br />
     ```

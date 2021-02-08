@@ -23,6 +23,7 @@
 ## Intro (About Spark)
 
 - Apache Spark or just `Spark` is a **framework for cluster computing** for **processing large quantities of data**. Among **distributed computing technologies**, Spark is currently the most popular technology. 
+- [PySpark cheat sheet](https://datacamp-community-prod.s3.amazonaws.com/65076e3c-9df1-40d5-a0c2-36294d9a3ca9). 
 - Spark consists of a set of clusters. 
 - Spark achieves efficiency by distributing data and computation across a cluster of computers. See the figure below for illustration. <br /> A load balancer distributes work across multiple resources, preventing overload on any one resource. In Spark this function is performed by the cluster manager.<br />
   ![Spark Distributed Computing Architecture](./achitecture.png)

@@ -80,4 +80,14 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     3. area under ROC is called **area under the curve (AUC)**. 
     4. ideally, AUC = 1. 
 
+## Recommendation Systems:
 
+### 2 Types of Filtering:
+1. Content-based filtering: Based on descriptive tags (features) of items, such as `user ratings`, `language`, and `genre`. 
+2. Collaborative Filtering
+
+### 2 Types of Rating:
+1. explicit rating
+2. implicit rating
+
+![Alt text](./images/ratings.png)

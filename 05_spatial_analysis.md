@@ -2,9 +2,11 @@
 ## Tools:
 1. R, some of available packages are:
 
-  1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
-  2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data. 
-  3. [tmap](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tmap-package) --> Thematic Map Visualization. 
+    1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
+    2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data. 
+    3. [tmap](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tmap-package) --> Thematic Map Visualization. 
+    4. [raster](https://www.rdocumentation.org/packages/raster/versions/3.4-5) --> for working with raster data. `raster` provides 3 objects:  `RasterLayer`, `RasterStack`, and `RasterBrick`. `RasterStack` and `RasterBrick` are designed for storing many rasters, all of the same extents and dimension (a.k.a. multi-band, or multi-layer rasters).
+    5. [rasterVis](https://www.rdocumentation.org/packages/rasterVis/versions/0.49) --> Visualization Methods for Raster Data. 
   
 2. Python
 

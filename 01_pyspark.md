@@ -417,9 +417,13 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     
 ### What can we do with RDD?
 
+[Reference](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
+
+
 #### 1. RDD Transformation
 
-1. `rdd_name.map()` --> one-to-one transformation. The `map()` transformation takes in a function and applies it to each element in the RDD. <br />
+1. `rdd_name.coalesce(numPartitions)` --> Decrease the number of partitions in the RDD to numPartitions. 
+2. `rdd_name.map()` --> one-to-one transformation. The `map()` transformation takes in a function and applies it to each element in the RDD. <br />
     Example: 
     ```
     # Square all numbers in my_list
@@ -429,20 +433,20 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
     cubedRDD = numbRDD.map(lambda x: x**3)
     ```
     
-2. `rdd_name.flatMap()` --> one-to [0, 1, many] transformation --> similar to `map()` but it can return > 1 result for each element in the RDD. <br />
+3. `rdd_name.flatMap()` --> one-to [0, 1, many] transformation --> similar to `map()` but it can return > 1 result for each element in the RDD. <br />
     Example:
     ```
     # Split the lines of baseRDD into words
     splitRDD = baseRDD.flatMap(lambda x: x.split())
     ```
     
-3. `rdd_name.filter()` <br />
+4. `rdd_name.filter()` <br />
     Example:
     ```
     splitRDD_no_stop = splitRDD.filter(lambda x: x.lower() not in stop_words)
     ```
-4. `rdd_name.reduce()` --> aggregating the elements of a regular RDD.
-5. `rdd_name.reduceByKey()` --> for pair RDD only. operates on key, value (k,v) pairs and merges the values for each key. <br />
+5. `rdd_name.reduce()` --> aggregating the elements of a regular RDD.
+6. `rdd_name.reduceByKey()` --> for pair RDD only. operates on key, value (k,v) pairs and merges the values for each key. <br />
    Example:
    ```
    # Create PairRDD Rdd with key value pairs
@@ -462,11 +466,12 @@ A **SparkContext** is the entry point to Spark functionality, like a key to your
    Key 3 has 10 Counts
    Key 4 has 5 Counts
    ```
-6. `rdd_name.sortByKey()` --> for pair RDD only.
-7. `rdd_name.countByKey()` --> for pair RDD only. count the number of keys in a key/value dataset.
-8. `rdd_name.groupByKey()`
-9. `rdd_name.union()`.
-10. `rdd_name.collectAsMap()` --> return the key-value pairs in the RDD as a dictionary. 
+7. `rdd_name.repartition(numPartitions)` --> **Reshuffle** the data in the RDD randomly to create either more or fewer partitions and balance it across them. .
+8. `rdd_name.sortByKey()` --> for pair RDD only.
+9. `rdd_name.countByKey()` --> for pair RDD only. count the number of keys in a key/value dataset.
+10. `rdd_name.groupByKey()`
+11. `rdd_name.union()`.
+12. `rdd_name.collectAsMap()` --> return the key-value pairs in the RDD as a dictionary. 
     Example:
     ```
     In [1]:

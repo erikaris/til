@@ -119,7 +119,7 @@ Supported classification method:
         2. Options for metrics: `weightedPrecision`, `weightedRecall`, `accuracy`, and `f1`. 
 
 2. `from pyspark.ml.evaluation import RegressionEvaluator`  --> Evaluate RMSE on testing data. <br />
-    Usage example: <br />
+    Example 1: <br />
     ```
     from pyspark.ml.regression import LinearRegression
     from pyspark.ml.evaluation import RegressionEvaluator
@@ -133,6 +133,28 @@ Supported classification method:
 
     # Calculate the RMSE
     RegressionEvaluator(labelCol='mpg').evaluate(predictions)
+    ```
+    
+    Example 2:
+    ```
+    # import RegressionEvaluator
+    from pyspark.ml.evaluation import RegressionEvaluator
+
+    # complete the evaluator code
+    evaluator = RegressionEvaluator(metricName = "rmse", labelCol = "rating", predictionCol = "prediction")
+
+    # extract the 3 parameters
+    print(evaluator.getMetricName()) 
+    print(evaluator.getLabelCol())
+    print(evaluator.getPredictionCol())
+    ```
+    
+    Output of example 2:
+    ```
+    <script.py> output:
+    rmse
+    rating
+    prediction
     ```
     
 #### `pyspark.ml.feature`
@@ -211,6 +233,10 @@ Output: <br />
     assembler.transform(cars)    
     ``` 
 ![Alt text](./vector_assembler.png)
+
+#### `pyspark.ml.recommendation`
+
+1. `from pyspark.ml.recommendation import ALS`  --> building recommendation model using alternating least squares (ALS) algorithm.
 	
 #### `pyspark.ml.regression`
 

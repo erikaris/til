@@ -11,6 +11,10 @@
     
         1. `readOGR()` --> reading shp into R spatial object. 
   
+    7. [tigris](https://www.rdocumentation.org/packages/tigris/versions/1.0) --> an R package that allows users to directly download and use [TIGER/Line shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html) from the US Census Bureau. Some of its functions:
+        1. [`tracts(state, county = NULL, cb = FALSE, year = NULL, ...)`](https://www.rdocumentation.org/packages/tigris/versions/1.0/topics/tracts) --> Download A Census Tracts Shapefile Into R, And Optionally Subset By County. 
+        2. 
+  
 2. Python
 
 ## [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0)

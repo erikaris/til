@@ -12,7 +12,7 @@
     5. [rasterVis](https://www.rdocumentation.org/packages/rasterVis/versions/0.49) --> Visualization Methods for Raster Data. 
     6. [rgdal](https://www.rdocumentation.org/packages/rgdal/versions/1.5-23) --> Bindings for the 'Geospatial' Data Abstraction Library. Some of its functions:
     
-        1. `spTransform()` --> provide transformation between datum(s) and conversion between projections
+        1. `spTransform(shp, CRSobj)` --> provide transformation between datum(s) and conversion between projections
         2. `readOGR()` --> reading shp into R spatial object. 
   
     7. [tigris](https://www.rdocumentation.org/packages/tigris/versions/1.0) --> an R package that allows users to directly download and use [TIGER/Line shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html) from the US Census Bureau. Some of its functions:

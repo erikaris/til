@@ -140,4 +140,10 @@ Works like `ggplot` with a base layer [`tm_shape(shp, projection=NULL)`](https:/
     2. [`tm_style`](https://www.rdocumentation.org/link/tm_style?package=tmap&version=3.2) --> Apply a predefined style. 
     3. [`tm_legend`](https://www.rdocumentation.org/packages/tmap/versions/3.3/topics/tm_layout).
 
+Example:
+```
+tm_shape(nyc_tracts_merge) +
+    tm_fill(col="estimate") # estimate is a column in the 'nyc_tracts_merge' df
+```
+
 

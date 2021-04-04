@@ -23,3 +23,6 @@
 Libraries:
 1. `from pyspark.ml.feature import StopWordsRemover, HashingTF, IDF`
 2. `from pyspark.sql.functions import regexp_replace`
+3. gensim
+4. nltk
+5. spacy

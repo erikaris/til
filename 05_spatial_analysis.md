@@ -3,19 +3,20 @@
 1. R, some of available packages are:
 
     1. [ggmap](https://www.rdocumentation.org/packages/ggmap/versions/3.0.0). 
-    2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data. 
-    3. [tmap](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tmap-package) --> Thematic Map Visualization. 
-    4. [raster](https://www.rdocumentation.org/packages/raster/versions/3.4-5) --> for working with raster data. `raster` provides 3 objects:  `RasterLayer`, `RasterStack`, and `RasterBrick`. `RasterStack` and `RasterBrick` are designed for storing many rasters, all of the same extents and dimension (a.k.a. multi-band, or multi-layer rasters). Some of its useful functions:
+    2. [sp](https://www.rdocumentation.org/packages/sp/versions/1.4-5) --> classes and Mmthods for spatial data. Provides classes for storing di(erent types of spatial data). The `sp` package provides `sp` object which is composed of lists inside lists and were quite hard to decompose. `sp` probably stands for spatial.   
+    3. [sf](https://r-spatial.github.io/sf/) --> A package that provides simple features access for R. `sf` stands for simple feature. Unlike `sp` which is a list of list, `sf` objects are just data-frames that are collections of spatial objects.
+    4. [tmap](https://www.rdocumentation.org/packages/tmap/versions/3.2/topics/tmap-package) --> Thematic Map Visualization. 
+    5. [raster](https://www.rdocumentation.org/packages/raster/versions/3.4-5) --> for working with raster data. `raster` provides 3 objects:  `RasterLayer`, `RasterStack`, and `RasterBrick`. `RasterStack` and `RasterBrick` are designed for storing many rasters, all of the same extents and dimension (a.k.a. multi-band, or multi-layer rasters). Some of its useful functions:
     
     	1. `proj4string()`. 
     	
-    5. [rasterVis](https://www.rdocumentation.org/packages/rasterVis/versions/0.49) --> Visualization Methods for Raster Data. 
-    6. [rgdal](https://www.rdocumentation.org/packages/rgdal/versions/1.5-23) --> Bindings for the 'Geospatial' Data Abstraction Library. Some of its functions:
+    6. [rasterVis](https://www.rdocumentation.org/packages/rasterVis/versions/0.49) --> Visualization Methods for Raster Data. 
+    7. [rgdal](https://www.rdocumentation.org/packages/rgdal/versions/1.5-23) --> Bindings for the 'Geospatial' Data Abstraction Library. Some of its functions:
     
         1. `spTransform(shp, CRSobj)` --> provide transformation between datum(s) and conversion between projections
         2. `readOGR()` --> reading shp into R spatial object. 
   
-    7. [tigris](https://www.rdocumentation.org/packages/tigris/versions/1.0) --> an R package that allows users to directly download and use [TIGER/Line shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html) from the US Census Bureau. Some of its functions:
+    8. [tigris](https://www.rdocumentation.org/packages/tigris/versions/1.0) --> an R package that allows users to directly download and use [TIGER/Line shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html) from the US Census Bureau. Some of its functions:
         1. [`tracts(state, county = NULL, cb = FALSE, year = NULL, ...)`](https://www.rdocumentation.org/packages/tigris/versions/1.0/topics/tracts) --> Download A Census Tracts Shapefile Into R, And Optionally Subset By County. 
         2. 
   

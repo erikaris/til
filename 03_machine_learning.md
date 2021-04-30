@@ -27,6 +27,11 @@ Adopted from [machinelearningmastery.com](https://machinelearningmastery.com/typ
 
 All estimators in ML have a `fit()` method, and depending on whether they are supervised or unsupervised, they also have a `predict()` or `transform()` method [source](https://stackoverflow.com/questions/31572487/fitting-data-vs-transforming-data-in-scikit-learn).
 
+## Supervised Machine Learning
+1. We have train and test data. 
+2. Train the train data using `.fit()`. 
+3. do prediction with `.predict()`. 
+
 ## Classification:
 
 1. Definition: ....

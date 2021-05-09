@@ -26,3 +26,12 @@ Libraries:
 3. gensim
 4. nltk
 5. spacy
+
+## NLP & Classification:
+1. Got a bunch of texts. It can be tweets, etc. 
+2. Create a vocabulary `V` which is the list of unique words from that bunch of texts. <br />
+    ![Alt text](./images/vocabulary.png)
+3. represent text as a vector --> vector space models
+4. build a classifier
+    a. logistic regression classifier
+    b. naive bayes classifier

@@ -3,10 +3,8 @@
 ## Definition
 
 ## Turning Text into Tables
-<img src="./images/orpd.png" alt="drawing" width="600"/> <br />
-<img src="./images/odmc.png" alt="drawing" width="600"/>
-![Alt text](./images/orpd.png) <br /><br />
-![Alt text](./images/odmc.png)
+<img src="./images/orpd.png" alt="drawing" width="300"/> <br />
+<img src="./images/odmc.png" alt="drawing" width="700"/>
 
 
 ## Steps

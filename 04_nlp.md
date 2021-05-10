@@ -29,9 +29,11 @@ Libraries:
 
 ## NLP & Classification:
 1. Got a bunch of texts. It can be tweets, etc. 
-2. Create a vocabulary `V` which is the list of unique words from that bunch of texts. <br />
+2. Create a vocabulary `V` which is the list of unique words from that bunch of texts. This vocabulary will allow us to encode any text or any tweet as an array of numbers.<br />
     <img src="./images/vocabulary.png" alt="drawing" width="600"/>
-3. represent text as a vector --> vector space models
-4. build a classifier
+3. Do feature extraction. Check if every word from your vocabulary appears in the text (tweets, etc). If it does, assign a value of `1` to that word (feature). If it doesn't, assign the value of `0`. This would result in texts represented as vector as depicted in the figure below. <br />
+    <img src="./images/word2vec.png" alt="drawing" width="600"/>
+4. represent text as a vector --> vector space models
+5. build a classifier
     a. logistic regression classifier
     b. naive bayes classifier

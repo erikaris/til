@@ -20,6 +20,9 @@
 ## NLP Preprocessing:
 1. remove stop words & punctuations.
 2. (if necessary): remove URLs and tweet handles. 
+3. tokenize (split into individual words)
+4. lower casing all capitals
+5. stemming --> convert every word to its stem  --> e.g: dancer, dancing, danced, becomes 'danc' ;  tune, tuned, tuning, becomes 'tun'. --> You can use porter stemmer to take care of this. 
 
 ## Tools:
 

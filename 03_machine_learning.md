@@ -31,6 +31,12 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 1. We have train and test data. 
 2. Train the train data using `.fit()`. 
 3. do prediction with `.predict()`. 
+4. compute the accuracy. If using Python's sklearn, you can type something like:
+    ```
+    from sklearn import metrics
+    accuracy = metrics.accuracy_score(y_test, y_pred)
+    ```
+5. 
 
 ## Classification:
 

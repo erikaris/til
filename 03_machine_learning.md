@@ -1,12 +1,13 @@
 # Machine Learning
 
   * [Definition:](#definition-)
+  * [Types of Machine Learning](#types-of-machine-learning)
   * [Classification:](#classification-)
   * [Steps for building a model](#steps-for-building-a-model)
   * [Methods for building model:](#methods-for-building-model-)
     + [Decision Trees](#decision-trees)
     + [Logistic Regression](#logistic-regression)
-  * [Tools:](#tools-)
+  * [Tools:](#tools-and-libraries)
   * [Evaluating a Model](#evaluating-a-model)
 
 ## Definition:
@@ -36,7 +37,7 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     from sklearn import metrics
     accuracy = metrics.accuracy_score(y_test, y_pred)
     ```
-5. 
+5. Example: classification problems. 
 
 ## Classification:
 
@@ -56,13 +57,17 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 
 ## Methods for building model:
 
-### Decision Trees
+### 1. Decision Trees
 
 1. concept: iterative splits
 
-### Logistic Regression
+### 2. Logistic Regression
 
-## Tools:
+### 3. Multinomial Naive Bayes (MultinomialNB)
+
+## Tools and Libraries:
+
+1. sklearn
 
 ## Evaluating a Model
 

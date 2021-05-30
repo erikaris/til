@@ -24,7 +24,7 @@
 4. lower casing all capitals
 5. stemming --> convert every word to its stem  --> e.g: dancer, dancing, danced, becomes 'danc' ;  tune, tuned, tuning, becomes 'tun'. --> You can use porter stemmer to take care of this. 
 
-## Tools:
+## Tools & Libraries:
 
 ### 1. Python and Pyspark
 
@@ -33,7 +33,14 @@ Libraries:
 2. `from pyspark.sql.functions import regexp_replace`
 3. gensim
 4. nltk
-5. spacy
+    1. `from nltk.corpus import stopwords`.
+    2. `from nltk.corpus import twitter_samples`.
+    3. `from nltk.stem import PorterStemmer`.
+    4. `from nltk.tokenize import TweetTokenizer`.
+6. re --> library for regular expression operations. Read more about regex [here](https://www.programiz.com/python-programming/regex). 
+    1. `re.sub(pattern, repl, string)`  --> replaces one or many matches `pattern` in the `string` with `repl`.
+8. spacy
+9. string --> for string operations.
 
 ## NLP & Classification:
 1. Got a bunch of texts. It can be tweets, etc. 

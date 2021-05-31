@@ -2,6 +2,7 @@
 
   * [Definition:](#definition-)
   * [Types of Machine Learning](#types-of-machine-learning)
+  * [Supervised Machine Learning](#supervised-machine-learning)
   * [Classification:](#classification-)
   * [Steps for building a model](#steps-for-building-a-model)
   * [Methods for building model:](#methods-for-building-model-)
@@ -29,10 +30,11 @@ Adopted from [machinelearningmastery.com](https://machinelearningmastery.com/typ
 All estimators in ML have a `fit()` method, and depending on whether they are supervised or unsupervised, they also have a `predict()` or `transform()` method [source](https://stackoverflow.com/questions/31572487/fitting-data-vs-transforming-data-in-scikit-learn).
 
 ## Supervised Machine Learning
-1. We have train and test data. 
-2. Train the train data using `.fit()`. 
-3. do prediction with `.predict()`. 
-4. compute the accuracy. If using Python's sklearn, you can type something like:
+1. Get the data and preprocess it. 
+2. Split the data into the train and test data. 
+3. Train the train data using `.fit()`. 
+4. do prediction with `.predict()`. 
+5. Evaluate: compute the accuracy. If using Python's sklearn, you can type something like:
     ```
     from sklearn import metrics
     accuracy = metrics.accuracy_score(y_test, y_pred)
@@ -96,6 +98,10 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     3. area under ROC is called **area under the curve (AUC)**. 
     4. ideally, AUC = 1. 
 
+## Vectorization in Machine Learning
+1. optimization algorithm
+2. 
+
 ## Recommendation Systems:
 
 ### 2 Types of Filtering:
@@ -107,3 +113,7 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 2. implicit rating
 
 ![Alt text](./images/ratings.png)
+
+## Still confused:
+1. vectorizer vs classifier?
+2. 

@@ -1,5 +1,8 @@
 # Natural Language Processing (NLP)
 
+* [Definition](#definition)
+* [Steps](#steps)
+
 ## Definition
 
 ## Turning Text into Tables
@@ -22,7 +25,12 @@
 2. (if necessary): remove URLs and tweet handles. 
 3. tokenize (split into individual words)
 4. lower casing all capitals
-5. stemming --> convert every word to its stem  --> e.g: dancer, dancing, danced, becomes 'danc' ;  tune, tuned, tuning, becomes 'tun'. --> You can use porter stemmer to take care of this. 
+5. stemming
+    1. the process of converting a word to its **most general form**, or **stem**. 
+    2. in some cases, the stemming process produces words that are not correct spellings of the root word.
+    3. Example: (1) `danc` is the stem for dancer, dancing, danced ; (2) `tun` is the stem for tune, tuned, tuning ; (3) `happi` is the stem for happy, happiness, and happier; (4) `learn` is the stem for learn, learning, learned, learnt.
+    4. You can use porter stemmer to take care of this. 
+    5. NLTK use `porterstemmer` algorithm for its stemming function. 
 
 ## Tools & Libraries:
 
@@ -37,7 +45,7 @@ Libraries:
     2. `from nltk.corpus import twitter_samples`.
     3. `from nltk.stem import PorterStemmer`.
     4. `from nltk.tokenize import TweetTokenizer`.
-6. re --> library for regular expression operations. Read more about regex [here](https://www.programiz.com/python-programming/regex). 
+6. re --> library for regular expression operations. Read more about regex [here](https://www.programiz.com/python-programming/regex). To understand what a regex pattern means, check [regex101.com]https://regex101.com/().
     1. `re.sub(pattern, repl, string)`  --> replaces one or many matches `pattern` in the `string` with `repl`.
 8. spacy
 9. string --> for string operations.

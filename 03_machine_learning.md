@@ -55,9 +55,11 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     1. Decision Trees. 
     2. Logistic Regression
         1. make a binary predicition.
-        2. Logistic regression makes use of a **sigmoid** function which outputs a probability between **zero** and **one**. <br />
+        2. Logistic regression makes use of a **sigmoid** function which outputs a probability between **zero** and **one**. The sigmoid function is visualized as follows:<br />
         ![Alt text](./images/sigmoid.png) <br />
-        3. d
+        3. Sigmoid function can also be visualized as follows: <br />
+        ![Alt text](./images/sigmoid_visual.png) <br />
+        4. df
     3. Gradient-Boosted Tree
 
 ## Steps for building a model

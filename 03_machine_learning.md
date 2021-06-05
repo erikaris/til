@@ -40,6 +40,13 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     accuracy = metrics.accuracy_score(y_test, y_pred)
     ```
 5. Example: classification problems. 
+6. How the supervised machine learning works: 
+    1. In supervised machine learning, you have input features and a sets of labels. 
+    2. To make predictions based on your data, you use a **function** with some parameters to map your features to output labels. 
+    3. To get an **optimum mapping** from your features to labels, you **minimize the cost function** which works by **comparing** how closely your output **Y hat** is to the **true labels Y** from your data. 
+    4. After which the parameters are updated and you repeat the process until your cost is minimized.
+    ![Alt text](./images/ml_works.png) <br />
+8. df
 
 ## Classification:
 
@@ -48,7 +55,9 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     1. Decision Trees. 
     2. Logistic Regression
         1. make a binary predicition.
-        2. Logistic regression makes use of a **sigmoid** function which outputs a probability between zero and one.
+        2. Logistic regression makes use of a **sigmoid** function which outputs a probability between **zero** and **one**. <br />
+        ![Alt text](./images/sigmoid.png) <br />
+        3. d
     3. Gradient-Boosted Tree
 
 ## Steps for building a model

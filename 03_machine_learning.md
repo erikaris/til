@@ -87,7 +87,10 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 2. 2 ways of defining conditional probabilities: 
     1. the probability of an outcome B knowing that event A already happened, or 
     2. given an element from set A, the probability that it also belongs to set B. 
-3. Laplacian smoothing --> to avoid probabilities become zero. It requires the number of unique words in the vocabulary.
+3. Bayes Rules: <br />
+    <img src="./images/bayes.png" alt="drawing" width="300"/>  <br />
+    <img src="./images/bayes_happy.png" alt="drawing" width="300"/>  <br />
+4. Laplacian smoothing --> to avoid probabilities become zero. It requires the number of unique words in the vocabulary.
 
 ## Tools and Libraries:
 

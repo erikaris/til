@@ -83,6 +83,9 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 
 ### 3. Multinomial Naive Bayes (MultinomialNB)
 
+1. Conditional probabilities could be interpreted as the probability of an outcome B knowing that event A already happened. Or given that I'm looking at an element from set A, the probability that it also belongs to set B. 
+2. Laplacian smoothing --> to avoid probabilities become zero. It requires the number of unique words in the vocabulary.
+
 ## Tools and Libraries:
 
 1. sklearn

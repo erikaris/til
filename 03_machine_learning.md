@@ -62,7 +62,7 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
         4. The training process happens as follows: <br />
         <img src="./images/training.png" alt="drawing" width="400"/> <br />
         You initialize your parameter \thetaθ, that you can use in your sigmoid, you then compute the gradient that you will use to update \thetaθ, and then calculate the cost. You keep doing so until good enough. Usually you keep training until the cost converges. If you were to plot the number of iterations versus the cost, you should see something like this: <br />
-         <img src="./images/cost_iteration.pn" alt="drawing" width="300"/> <br />
+         <img src="./images/cost_iteration.png" alt="drawing" width="300"/> <br />
         5. df
     3. Gradient-Boosted Tree
 

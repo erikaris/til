@@ -90,7 +90,9 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 3. Bayes Rules: <br />
     <img src="./images/bayes.png" alt="drawing" width="300"/>  <br />
     <img src="./images/bayes_happy.png" alt="drawing" width="300"/>  <br />
-4. Laplacian smoothing --> to avoid probabilities become zero. It requires the number of unique words in the vocabulary.
+4. Laplacian smoothing --> to avoid a zero likelihood for a certain word. It requires the number of unique words in the vocabulary.
+    <img src="./images/laplacian.png" alt="drawing" width="300"/>  <br />
+6. df
 
 ## Tools and Libraries:
 

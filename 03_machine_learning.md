@@ -83,15 +83,24 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 
 ### 3. Multinomial Naive Bayes (MultinomialNB)
 
-1. Based on conditional probabilites. 
-2. 2 ways of defining conditional probabilities: 
+1. mostly used in NLP to determine whether a word belongs to a positive class or a negative class. 
+2. Based on conditional probabilites. 
+3. 2 ways of defining conditional probabilities: 
     1. the probability of an outcome B knowing that event A already happened, or 
     2. given an element from set A, the probability that it also belongs to set B. 
-3. Bayes Rules: <br />
+4. Bayes Rules to calculate the probability of a word belongs to a certain class: <br />
     <img src="./images/bayes.png" alt="drawing" width="300"/>  <br />
     <img src="./images/bayes_happy.png" alt="drawing" width="300"/>  <br />
-4. Laplacian smoothing --> to avoid a zero likelihood for a certain word. It requires the number of unique words in the vocabulary.
+5. To compute the probability of a sentence, we simply compute the product of probability of each word constructing the sentence. <br />
+6. Laplacian smoothing --> to avoid a zero likelihood for a certain word. It requires the number of unique words in the vocabulary.
     <img src="./images/laplacian.png" alt="drawing" width="300"/>  <br />
+    Laplacian smoothing works as follows:
+    1. The probability of a word given a class is <br />
+        <img src="./images/wordfreqclass.png" alt="drawing" width="300"/>
+    2. However, if a word does not appear in the training, then it automatically gets a probability of 0. 
+    3. To fix this we modify the formula by adding smoothing as follows: <br/>
+        <img src="./images/wordfreqclass_frequency.png" alt="drawing" width="300"/>
+        where `N~class` is the frequency of all words in class and `V` is the number of unique words in vocabulary. 
 6. df
 
 ## Tools and Libraries:

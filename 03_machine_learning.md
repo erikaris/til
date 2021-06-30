@@ -104,11 +104,13 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
         where `N~class` is the frequency of all words in a class and `V` is the number of unique words in vocabulary. 
 7. Summary of computing a word sentiment <br />
         <img src="./images/word_sentiment.png" alt="drawing" width="500"/>
-9. d
+9. 
 
 ## Training Naive Bayes:
 1. Gather data and annotate it. 
 2. preprocess: lower case, remove punctuations, urls, names, remove stop words, stemming, tokenizing. 
+<img src="./images/summary_nbtraining.png" alt="drawing" width="400"/>
+
 
 ## Tools and Libraries:
 

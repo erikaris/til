@@ -101,10 +101,14 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     2. However, if a word does not appear in the training, then it automatically gets a probability of 0. 
     3. To fix this we modify the formula by adding smoothing as follows: <br/>
         <img src="./images/wordfreqclass_laplaccian.png" alt="drawing" width="300"/>
-        where `N~class` is the frequency of all words in class and `V` is the number of unique words in vocabulary. 
+        where `N~class` is the frequency of all words in a class and `V` is the number of unique words in vocabulary. 
 7. Summary of computing a word sentiment <br />
         <img src="./images/word_sentiment.png" alt="drawing" width="500"/>
 9. d
+
+## Training Naive Bayes:
+1. Gather data and annotate it. 
+2. preprocess: lower case, remove punctuations, urls, names, remove stop words, stemming, tokenizing. 
 
 ## Tools and Libraries:
 

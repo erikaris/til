@@ -32,6 +32,12 @@
     4. You can use porter stemmer to take care of this. 
     5. NLTK use `porterstemmer` algorithm for its stemming function. 
 
+## NLP Models:
+1. Classification and Vector Spaces
+2. Probabilistic Models
+3. Sequence Models
+4. Attention Models
+
 ## Tools & Libraries:
 
 ### 1. Python and Pyspark

@@ -109,7 +109,12 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 ## Training Naive Bayes:
 1. Gather data and annotate it. 
 2. preprocess: lower case, remove punctuations, urls, names, remove stop words, stemming, tokenizing. 
-<img src="./images/summary_nbtraining.png" alt="drawing" width="400"/>
+3. Compute freq(w, class)
+    <img src="./images/freqw_class.png" alt="drawing" width="500"/>   
+4. Get P(w|pos), P(w|neg)
+5. Get λ(w)  --> λ(w)= \frac{log P(w∣neg)}{P(w∣pos)}
+6. Compute logprior --> log(\frac{P(pos)}/{P(neg)})
+<img src="./images/freqwclass_lambda.png" alt="drawing" width="500"/> 
 
 
 ## Tools and Libraries:

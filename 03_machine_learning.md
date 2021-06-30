@@ -92,7 +92,7 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
     <img src="./images/bayes.png" alt="drawing" width="300"/>  <br />
     <img src="./images/bayes_happy.png" alt="drawing" width="300"/>  <br />
 5. To compute the probability of a sentence, we simply compute the product of probability of each word constructing the sentence. <br />
-    <img src="./images/sentence_prob.png" alt="drawing" width="400"/>  <br />
+    <img src="./images/sentence_prob.png" alt="drawing" width="500"/>  <br />
 6. Laplacian smoothing --> to avoid a zero likelihood for a certain word. It requires the number of unique words in the vocabulary.
     <img src="./images/laplacian.png" alt="drawing" width="200"/>  <br />
     Laplacian smoothing works as follows:
@@ -103,7 +103,7 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
         <img src="./images/wordfreqclass_laplaccian.png" alt="drawing" width="300"/>
         where `N~class` is the frequency of all words in class and `V` is the number of unique words in vocabulary. 
 7. Summary of computing a word sentiment <br />
-        <img src="./images/word_sentiment.png" alt="drawing" width="300"/>
+        <img src="./images/word_sentiment.png" alt="drawing" width="500"/>
 9. d
 
 ## Tools and Libraries:

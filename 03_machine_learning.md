@@ -106,6 +106,17 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
         <img src="./images/word_sentiment.png" alt="drawing" width="500"/>
 9. 
 
+## Naive Bayes Application
+1. Author identification
+2. Spam filtering 
+3. Information retrieval 
+4. Word disambiguation 
+
+## Why is Naive Bayes called `naive`?
+Because of its assumption about data. 
+1. independence between the predictors or features associated with each class. 
+2. has to do with your validation sets.
+
 ## Training Naive Bayes:
 1. Gather data and annotate it. 
 2. preprocess: lower case, remove punctuations, urls, names, remove stop words, stemming, tokenizing. 

@@ -6,8 +6,9 @@
   * [Classification:](#classification-)
   * [Steps for building a model](#steps-for-building-a-model)
   * [Methods for building model:](#methods-for-building-model-)
-    + [Decision Trees](#decision-trees)
-    + [Logistic Regression](#logistic-regression)
+    + [1. Decision Trees](#1-decision-trees)
+    + [2. Logistic Regression](#2-logistic-regression)
+    + [3. Multinomial Naive Bayes (MultinomialNB)](#3-multinomial-naive-bayes-multinomialnb)
   * [Tools:](#tools-and-libraries)
   * [Evaluating a Model](#evaluating-a-model)
 

@@ -116,6 +116,8 @@ All estimators in ML have a `fit()` method, and depending on whether they are su
 ## Why is Naive Bayes called `naive`?
 Because of its assumption about data. 
 1. independence between the predictors or features associated with each class. 
+    a. the words in a sentence are not always necessarily independent of one another, but Naive Bayes assumes that they are.
+    b. This could lead you to under or over estimates the conditional probabilities of individual words. 
 2. has to do with your validation sets.
 
 ## Training Naive Bayes:
